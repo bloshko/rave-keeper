@@ -11,12 +11,18 @@ func _ready() -> void:
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed('ui_left'):
-		slot_idx = clampi(slot_idx - 1, 0, 2)
+		slot_idx = 0
 		update_position()
 	if event.is_action_pressed('ui_right'):
-		slot_idx = clampi(slot_idx + 1, 0, 2)
+		slot_idx = 2
 		update_position()
-
+	if event.is_action_released('ui_left'):
+		slot_idx = 1
+		update_position()	
+	if event.is_action_released('ui_right'):
+		slot_idx = 1
+		update_position()
+	
 func update_position():
 	global_position = slots[slot_idx].global_position
 	var tween = create_tween()
