@@ -34,39 +34,45 @@ stream = ExtResource("3_tbgi4")
 
 [node name="Lane1" type="Node3D" parent="Lanes"]
 
-[node name="FinishLane1" type="MeshInstance3D" parent="Lanes/Lane1"]
+[node name="FinishLane" type="MeshInstance3D" parent="Lanes/Lane1"]
 transform = Transform3D(0.399145, 0, -0.0261473, 0, 0.4, 0, 0.0261473, 0, 0.399145, -3.294, 1, 2.621)
 mesh = SubResource("BoxMesh_jyhfs")
 skeleton = NodePath("../..")
 
-[node name="StartLane1" type="MeshInstance3D" parent="Lanes/Lane1"]
+[node name="StartLane" type="MeshInstance3D" parent="Lanes/Lane1"]
 transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -2.59356, 0.417349, 7.06714)
 mesh = SubResource("BoxMesh_o6xl0")
 skeleton = NodePath("")
 
+[node name="Enemies" type="Node3D" parent="Lanes/Lane1"]
+
 [node name="Lane2" type="Node3D" parent="Lanes"]
 
-[node name="FinishLane2" type="MeshInstance3D" parent="Lanes/Lane2"]
+[node name="FinishLane" type="MeshInstance3D" parent="Lanes/Lane2"]
 transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -2.30695, 1, 2.663)
 mesh = SubResource("BoxMesh_tbgi4")
 skeleton = NodePath("../..")
 
-[node name="StartLane2" type="MeshInstance3D" parent="Lanes/Lane2"]
+[node name="StartLane" type="MeshInstance3D" parent="Lanes/Lane2"]
 transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -1.48413, 0.271031, 7.06714)
 mesh = SubResource("BoxMesh_o6xl0")
 skeleton = NodePath("")
 
+[node name="Enemies" type="Node3D" parent="Lanes/Lane2"]
+
 [node name="Lane3" type="Node3D" parent="Lanes"]
 
-[node name="FinishLane3" type="MeshInstance3D" parent="Lanes/Lane3"]
+[node name="FinishLane" type="MeshInstance3D" parent="Lanes/Lane3"]
 transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -1.24158, 1, 2.75561)
 mesh = SubResource("BoxMesh_tefeu")
 skeleton = NodePath("../..")
 
-[node name="StartLane3" type="MeshInstance3D" parent="Lanes/Lane3"]
+[node name="StartLane" type="MeshInstance3D" parent="Lanes/Lane3"]
 transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -0.231158, 0.0805157, 7.06666)
 mesh = SubResource("BoxMesh_o6xl0")
 skeleton = NodePath("")
+
+[node name="Enemies" type="Node3D" parent="Lanes/Lane3"]
 
 [node name="EnemyManager" type="Node3D" parent="."]
 script = ExtResource("1_tbgi4")

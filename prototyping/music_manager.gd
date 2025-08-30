@@ -12,7 +12,7 @@ const bpm: float = 116
 
 var seconds_per_beat: float
 var elapsed: float
-var current_beat = 1
+var current_beat = 0
 var music_events: Dictionary = {}
 
 func _ready() -> void:
