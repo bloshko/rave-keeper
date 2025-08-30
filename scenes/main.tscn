@@ -1,9 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://bvlerh2hfayrm"]
+[gd_scene load_steps=13 format=3 uid="uid://bvlerh2hfayrm"]
 
 [ext_resource type="Script" uid="uid://cjrtt4vyburuq" path="res://prototyping/music_manager.gd" id="1_sugp2"]
 [ext_resource type="Script" uid="uid://cweqg3v7yv2sh" path="res://scripts/enemy_manager.gd" id="1_tbgi4"]
 [ext_resource type="AudioStream" uid="uid://y1regmghqvhg" path="res://audio/ravekeeper_level1.ogg" id="2_jyhfs"]
 [ext_resource type="PackedScene" uid="uid://cvpwbb3vlsd0p" path="res://scenes/enemy.tscn" id="2_tefeu"]
+[ext_resource type="AudioStream" uid="uid://blqy2s23oueyo" path="res://audio/tick.mp3" id="2_tipki"]
 [ext_resource type="AudioStream" uid="uid://dss0sj76b43hv" path="res://audio/ravekeeper_level1_sting.ogg" id="3_tbgi4"]
 [ext_resource type="PackedScene" uid="uid://di3ogo26ly6ok" path="res://models/gargoyle.fbx" id="4_jyhfs"]
 [ext_resource type="Script" uid="uid://c8kdxjgevcjb" path="res://scripts/music_event_parser.gd" id="7_o6xl0"]
@@ -23,6 +24,9 @@
 [node name="MusicManager" type="Node" parent="."]
 script = ExtResource("1_sugp2")
 move_step = 2
+
+[node name="PrerollTick" type="AudioStreamPlayer" parent="MusicManager"]
+stream = ExtResource("2_tipki")
 
 [node name="Backing" type="AudioStreamPlayer" parent="MusicManager"]
 stream = ExtResource("2_jyhfs")

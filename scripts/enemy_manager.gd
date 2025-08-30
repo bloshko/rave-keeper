@@ -27,9 +27,7 @@ var lane_velocity_2 = 1;
 var lane_direction_3 = Vector3.FORWARD;
 var lane_velocity_3 = 1;
 
-
-var velocity = 1.0;
-var approach_beats = 0;
+var approach_beats = 4;
 
 var enemies: Array = [[1, null, 1], [1, 2, null],[null, 3, 3], [1, null, 1],]
 
@@ -37,7 +35,7 @@ func _ready():
 	# todo: use bpm from parsed data
 	var bpm = music_manager.bpm
 	 
-	var time_to_finish = 5 * 60 / bpm; # 5 is approach_beats
+	var time_to_finish = approach_beats * 60 / bpm; # 5 is approach_beats
 	
 	lane_direction_1 = (lane_finish_1.global_position - lane_start_1.global_position).normalized();
 	lane_velocity_1 = lane_start_1.global_position.distance_to(lane_finish_1.global_position) / time_to_finish
@@ -59,23 +57,17 @@ func _on_beat(beat_num: int):
 	spawn_index(index_to_spawn)
 	
 func spawn_index(index_to_spawn: int):
-	spawn_enemy(1)
-	spawn_enemy(2)
-
-
 	if enemy_scene == null or index_to_spawn + 1 > enemies.size():
 		return
 		
 	var enemies_to_spawn = enemies[index_to_spawn]
 	
-	#todo revert 
-	#if enemies_to_spawn[0] or true:
-		#spawn_enemy(1)
+	if enemies_to_spawn[0]:
+		spawn_enemy(1)
 		
-	#if enemies_to_spawn[1]:
-		#spawn_enemy(2)
+	if enemies_to_spawn[1]:
+		spawn_enemy(2)
 
-		
 	if enemies_to_spawn[2]:	
 		spawn_enemy(3)
 
