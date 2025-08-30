@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://yuyjg6el1hud"]
+[gd_scene load_steps=9 format=3 uid="uid://yuyjg6el1hud"]
 
 [ext_resource type="Texture2D" uid="uid://d3iolkpn1ow8v" path="res://graphics/gargy.png" id="1_1dxx3"]
 [ext_resource type="Script" uid="uid://c3c8fhnk1tjuq" path="res://prototyping/player.gd" id="1_h7don"]
 [ext_resource type="Script" uid="uid://c7mpkeu1ur4t5" path="res://prototyping/evil.gd" id="3_53qao"]
 [ext_resource type="Texture2D" uid="uid://uwpiscipjlho" path="res://icon.svg" id="3_t5ujd"]
 [ext_resource type="Script" uid="uid://cjrtt4vyburuq" path="res://prototyping/music_manager.gd" id="4_53qao"]
+[ext_resource type="Script" uid="uid://c8kdxjgevcjb" path="res://scripts/music_event_parser.gd" id="5_q5qk3"]
 [ext_resource type="AudioStream" uid="uid://y1regmghqvhg" path="res://audio/ravekeeper_level1.ogg" id="6_q5qk3"]
 [ext_resource type="AudioStream" uid="uid://dss0sj76b43hv" path="res://audio/ravekeeper_level1_sting.ogg" id="7_kf62a"]
 
@@ -119,3 +120,6 @@ stream = ExtResource("6_q5qk3")
 
 [node name="Stings" type="AudioStreamPlayer" parent="MusicManager"]
 stream = ExtResource("7_kf62a")
+
+[node name="MusicEventParser" type="Node" parent="."]
+script = ExtResource("5_q5qk3")
