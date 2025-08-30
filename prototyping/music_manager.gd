@@ -1,6 +1,6 @@
 extends Node
 
-signal beat
+signal beat(beat_num: int)
 
 @onready var music_back = $Backing
 @onready var music_sting = $Stings
@@ -34,15 +34,15 @@ func _process(delta: float) -> void:
 	if music_back.playing:
 		elapsed += delta
 		if elapsed >= seconds_per_beat:
+			current_beat += 1
 			flash_indicator()
 			elapsed -= seconds_per_beat 
-			current_beat += 1
 
 func flash_indicator():
-	indicator.self_modulate = Color.WHITE * 1.5
-	var tween = create_tween()
-	tween.tween_property(indicator, 'self_modulate', Color.WHITE, .1)
-	beat.emit()
+	#indicator.self_modulate = Color.WHITE * 1.5
+	#var tween = create_tween()
+	#tween.tween_property(indicator, 'self_modulate', Color.WHITE, .1)
+	beat.emit(current_beat)
 
 func sting():
 	if not music_sting:
