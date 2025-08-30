@@ -1,0 +1,10 @@
+{
+	"song": "track.ogg",
+  	"bpms": [{ "beat": 0, "bpm": 120 }, { "beat": 64, "bpm": 130 }, { "beat": 80, "bpm": 120 }],
+  	"events": [
+		{ "beat": 4.0,  "lane": 0, "event_type": "human" },
+		{ "beat": 6.0,  "lane": 1, "event_type": "evil_spirit" },
+		{ "beat": 8.0,  "lane": 2, "event_type": "evil_vampire" },
+		{ "beat": 9.0,  "lane": 0, "event_type": "fake_human" }
+  	]
+}

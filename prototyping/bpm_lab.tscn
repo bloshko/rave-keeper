@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://yuyjg6el1hud"]
+[gd_scene load_steps=8 format=3 uid="uid://yuyjg6el1hud"]
 
 [ext_resource type="Texture2D" uid="uid://d3iolkpn1ow8v" path="res://graphics/gargy.png" id="1_1dxx3"]
 [ext_resource type="Script" uid="uid://c3c8fhnk1tjuq" path="res://prototyping/player.gd" id="1_h7don"]
@@ -6,6 +6,7 @@
 [ext_resource type="AudioStream" uid="uid://brcg3410gro64" path="res://audio/test1.ogg" id="3_aetn8"]
 [ext_resource type="Texture2D" uid="uid://uwpiscipjlho" path="res://icon.svg" id="3_t5ujd"]
 [ext_resource type="Script" uid="uid://cjrtt4vyburuq" path="res://prototyping/music_manager.gd" id="4_53qao"]
+[ext_resource type="Script" uid="uid://c8kdxjgevcjb" path="res://scripts/music_event_parser.gd" id="5_q5qk3"]
 
 [node name="BPMLab" type="Node2D"]
 
@@ -115,4 +116,6 @@ move_step = 2
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="MusicManager"]
 stream = ExtResource("3_aetn8")
-autoplay = true
+
+[node name="MusicEventParser" type="Node" parent="."]
+script = ExtResource("5_q5qk3")
