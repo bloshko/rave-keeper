@@ -1,0 +1,68 @@
+[gd_scene load_steps=5 format=3 uid="uid://duv2pl64213mj"]
+
+[ext_resource type="Script" uid="uid://cx0e434og1n8" path="res://scenes/mainmenu.gd" id="1_5mbse"]
+[ext_resource type="Texture2D" uid="uid://djtr053ck22dj" path="res://graphics/menu.png" id="2_r3g3c"]
+[ext_resource type="FontFile" uid="uid://ertbfw371i68" path="res://graphics/GutenbergTextura.ttf" id="3_3vvtq"]
+[ext_resource type="AudioStream" uid="uid://dkdou1itjoorx" path="res://audio/ravekeeper_vorspiel.ogg" id="4_3vvtq"]
+
+[node name="Mainmenu" type="Node"]
+script = ExtResource("1_5mbse")
+
+[node name="Menu" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Menu2" type="Sprite2D" parent="Menu"]
+position = Vector2(960, 540)
+texture = ExtResource("2_r3g3c")
+
+[node name="Button" type="Button" parent="Menu"]
+modulate = Color(1, 0.3, 0.3, 1)
+offset_left = 738.0
+offset_top = 897.0
+offset_right = 1177.0
+offset_bottom = 1075.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 0.32549)
+theme_override_constants/outline_size = 6
+theme_override_fonts/font = ExtResource("3_3vvtq")
+theme_override_font_sizes/font_size = 100
+text = "PLAY"
+flat = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Menu"]
+stream = ExtResource("4_3vvtq")
+autoplay = true
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Menu"]
+modulate = Color(0.65, 0.612625, 0.5525, 1)
+layout_mode = 0
+offset_top = -24.0
+offset_right = 1917.0
+offset_bottom = 544.0
+theme_override_fonts/normal_font = ExtResource("3_3vvtq")
+theme_override_font_sizes/normal_font_size = 400
+text = "Ravekeeper"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="Menu"]
+modulate = Color(0.27, 0.254475, 0.2295, 1)
+layout_mode = 0
+offset_top = 136.0
+offset_right = 1917.0
+offset_bottom = 704.0
+theme_override_fonts/normal_font = ExtResource("3_3vvtq")
+theme_override_font_sizes/normal_font_size = 80
+text = "No entry for the wicked"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="GameRoot" type="Node" parent="."]
+
+[node name="FadeIn" type="ColorRect" parent="."]
+visible = false
+offset_right = 1920.0
+offset_bottom = 1080.0
+color = Color(0, 0, 0, 1)

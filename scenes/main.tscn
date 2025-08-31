@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://cvpwbb3vlsd0p" path="res://scenes/enemy.tscn" id="2_tefeu"]
 [ext_resource type="AudioStream" uid="uid://blqy2s23oueyo" path="res://audio/tick.mp3" id="2_tipki"]
 [ext_resource type="AudioStream" uid="uid://bcx62ldj5k2a1" path="res://audio/ravekeeper_level2_v2.ogg" id="3_o6xl0"]
-[ext_resource type="PackedScene" path="res://scenes/human.tscn" id="7_85g3d"]
+[ext_resource type="PackedScene" uid="uid://chplmoaodo7pw" path="res://scenes/human.tscn" id="7_85g3d"]
 [ext_resource type="Script" uid="uid://c8kdxjgevcjb" path="res://scripts/track_loader.gd" id="7_o6xl0"]
 [ext_resource type="Script" uid="uid://nnfeopgtwof" path="res://scenes/gargoyle_map.gd" id="8_85g3d"]
 [ext_resource type="PackedScene" uid="uid://dmpfoykm450ag" path="res://models/church.fbx" id="8_choun"]
