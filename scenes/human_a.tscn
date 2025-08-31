@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://de8p211qqa58r"]
+
+[ext_resource type="PackedScene" uid="uid://dyldvmgwbnckl" path="res://models/human_a.fbx" id="1_vypcn"]
+[ext_resource type="Material" uid="uid://bqt2xdtemcaan" path="res://materials/human_a_mat.tres" id="2_0pfo8"]
+
+[node name="human_a" instance=ExtResource("1_vypcn")]
+
+[node name="Cylinder" parent="Armature/Skeleton3D" index="0"]
+material_override = ExtResource("2_0pfo8")
