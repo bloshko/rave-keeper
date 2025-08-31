@@ -52,12 +52,17 @@ func _ready():
 	
 func _beat_hit(new_beat: int):	
 	move_enemies()
+	move_humans()
 
 	var spawn_beat = new_beat + look_ahead
+	var enemy_lane = -1
 	if spawn_beat in music_manager.track_data.evil_events:
-		spawn_enemy(music_manager.track_data.evil_events[spawn_beat])
-	else:
-		spawn_human(1)
+		enemy_lane = music_manager.track_data.evil_events[spawn_beat]
+		spawn_enemy(enemy_lane)
+
+	for i in range(3):
+		if i != enemy_lane:
+			spawn_human(i)
 	
 func spawn_enemy(lane_idx: int):
 	var spawn_position = lane_starts[lane_idx].global_position
@@ -70,7 +75,7 @@ func spawn_enemy(lane_idx: int):
 
 func spawn_human(lane_idx: int):
 	var spawn_position = lane_starts[lane_idx].global_position
-	var parent_node = lane_enemies[lane_idx]
+	var parent_node = lane_humans[lane_idx]
 
 	var human = human_scene.instantiate()
 
@@ -79,11 +84,11 @@ func spawn_human(lane_idx: int):
 	
 func move_humans():
 	for i in range(3):
-		for human in lane_enemies[i].get_children():
+		for human in lane_humans[i].get_children():
 			human.age += 1 
 			human.jump_to(lane_starts[i].global_position + lane_directions[i] * step_lengths[i] * human.age)
 			if human.age > look_ahead:
-				human.die()
+				human.scare_away()
 				
 func move_enemies():
 	for i in range(3):
