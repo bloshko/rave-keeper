@@ -9,6 +9,9 @@ signal something_changed
 
 var kills: int = 0
 var fails: int = 0
+var score: int = 0
+var multiplier: float = 1
+var combo: int = 0
 
 var wait_time: float = .02
 
@@ -26,10 +29,15 @@ func check_kill(beat: int):
 		if lane == gboy.current_pos:
 			kills += 1
 			bell.pitch_scale = 1
+			combo += 1
+			multiplier = 1 + floor(combo / 8.0)
+			score += 100 * multiplier
 			bell.play()
 			something_changed.emit()
 		else:
 			fails += 1
 			bell.pitch_scale = .7
+			combo = 0
+			multiplier = 1 + floor(combo / 8.0)
 			bell.play()
 			something_changed.emit()

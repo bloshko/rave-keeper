@@ -22,7 +22,7 @@
 
 [sub_resource type="BoxMesh" id="BoxMesh_tefeu"]
 
-[node name="Main" type="Node3D"]
+[node name="Main" type="Node"]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.772093, -0.0902697, 0.629065, -0.255389, 0.862341, 0.4372, -0.581935, -0.498216, 0.642754, -2.93093, 0, 5.27995)
@@ -114,6 +114,7 @@ human_scene = ExtResource("7_85g3d")
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(0.826555, 0.341721, -0.44725, -0.0198821, 0.81184, 0.583542, 0.562504, -0.473437, 0.677825, -3.93498, 3.52781, 5.96629)
+current = true
 
 [node name="church" parent="." instance=ExtResource("8_choun")]
 

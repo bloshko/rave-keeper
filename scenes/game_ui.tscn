@@ -1,26 +1,125 @@
-[gd_scene load_steps=2 format=3 uid="uid://cl1yitbde3g4v"]
+[gd_scene load_steps=7 format=3 uid="uid://cl1yitbde3g4v"]
 
 [ext_resource type="Script" uid="uid://cbl0jhnj4xwkn" path="res://scenes/game_ui.gd" id="1_yubou"]
+[ext_resource type="Texture2D" uid="uid://bmbkc3p8f6j5v" path="res://graphics/bg.png" id="2_rns2u"]
+[ext_resource type="FontFile" uid="uid://ertbfw371i68" path="res://graphics/GutenbergTextura.ttf" id="3_u001w"]
+[ext_resource type="FontFile" uid="uid://cek6qpbssjyxp" path="res://graphics/CAT Hohenzollern.ttf" id="3_u2dgd"]
+[ext_resource type="Texture2D" uid="uid://li8wpeyklcyh" path="res://graphics/skullGrey.png" id="4_bt76a"]
+[ext_resource type="Texture2D" uid="uid://vbyfodpjdhst" path="res://graphics/scoreBG.png" id="5_djwj0"]
 
 [node name="GameUI" type="Control"]
 layout_mode = 3
 anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 1920.0
+offset_bottom = 1080.0
 script = ExtResource("1_yubou")
 
+[node name="Bg" type="Sprite2D" parent="."]
+position = Vector2(960, 540)
+texture = ExtResource("2_rns2u")
+
 [node name="Kills" type="RichTextLabel" parent="."]
-layout_mode = 0
-offset_left = 24.0
-offset_top = 24.0
-offset_right = 299.0
-offset_bottom = 195.0
+layout_mode = 2
+offset_left = 67.0
+offset_top = 883.0
+offset_right = 408.0
+offset_bottom = 1024.0
+theme_override_fonts/normal_font = ExtResource("3_u2dgd")
+theme_override_font_sizes/normal_font_size = 50
 text = "Textsadfasdf"
 
+[node name="ComboLabel" type="RichTextLabel" parent="."]
+layout_mode = 2
+offset_left = 67.0
+offset_top = 104.0
+offset_right = 408.0
+offset_bottom = 245.0
+theme_override_fonts/normal_font = ExtResource("3_u2dgd")
+theme_override_font_sizes/normal_font_size = 80
+text = "Combo: x1"
+
+[node name="BPMLabel" type="RichTextLabel" parent="."]
+layout_mode = 2
+offset_left = 67.0
+offset_top = 361.0
+offset_right = 408.0
+offset_bottom = 502.0
+theme_override_fonts/normal_font = ExtResource("3_u2dgd")
+theme_override_font_sizes/normal_font_size = 50
+text = "BPM: x3"
+
+[node name="MultiLabel" type="RichTextLabel" parent="."]
+layout_mode = 2
+offset_left = 67.0
+offset_top = 193.0
+offset_right = 408.0
+offset_bottom = 334.0
+theme_override_fonts/normal_font = ExtResource("3_u2dgd")
+theme_override_font_sizes/normal_font_size = 50
+text = "Multiplier: x3"
+
+[node name="SubdivisionLabel" type="RichTextLabel" parent="."]
+layout_mode = 2
+offset_left = 67.0
+offset_top = 425.0
+offset_right = 408.0
+offset_bottom = 566.0
+theme_override_fonts/normal_font = ExtResource("3_u2dgd")
+theme_override_font_sizes/normal_font_size = 50
+text = "Subdivision: 1/2"
+
 [node name="Fails" type="RichTextLabel" parent="."]
-layout_mode = 0
-offset_left = 24.0
-offset_top = 56.0
-offset_right = 299.0
-offset_bottom = 227.0
+layout_mode = 2
+offset_left = 67.0
+offset_top = 947.0
+offset_right = 291.0
+offset_bottom = 1075.0
+theme_override_fonts/normal_font = ExtResource("3_u2dgd")
+theme_override_font_sizes/normal_font_size = 50
 text = "Textsadfasdf"
+
+[node name="SkullGrey" type="Sprite2D" parent="."]
+position = Vector2(1871, 45)
+scale = Vector2(0.628906, 0.628906)
+texture = ExtResource("4_bt76a")
+
+[node name="SkullGrey2" type="Sprite2D" parent="."]
+position = Vector2(1871, 1029)
+scale = Vector2(0.628906, 0.628906)
+texture = ExtResource("4_bt76a")
+
+[node name="SkullGrey3" type="Sprite2D" parent="."]
+position = Vector2(463, 45)
+scale = Vector2(0.628906, 0.628906)
+texture = ExtResource("4_bt76a")
+
+[node name="SkullGrey4" type="Sprite2D" parent="."]
+position = Vector2(463, 1029)
+scale = Vector2(0.628906, 0.628906)
+texture = ExtResource("4_bt76a")
+
+[node name="ScoreBg" type="Sprite2D" parent="."]
+position = Vector2(1609, 157)
+texture = ExtResource("5_djwj0")
+
+[node name="Score" type="RichTextLabel" parent="ScoreBg"]
+modulate = Color(0.64, 0.2112, 0.2112, 1)
+offset_left = -202.0
+offset_top = -39.0
+offset_right = 210.0
+offset_bottom = 118.0
+theme_override_fonts/normal_font = ExtResource("3_u001w")
+theme_override_font_sizes/normal_font_size = 120
+text = "12345"
+horizontal_alignment = 1
+
+[node name="Kills3" type="RichTextLabel" parent="ScoreBg"]
+modulate = Color(0.56, 0.56, 0.56, 1)
+offset_left = -208.0
+offset_top = -84.0
+offset_right = 210.0
+offset_bottom = -20.0
+theme_override_fonts/normal_font = ExtResource("3_u001w")
+theme_override_font_sizes/normal_font_size = 50
+text = "Score"
+horizontal_alignment = 1
