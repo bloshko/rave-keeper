@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://ds1shpwlop6s2"]
+
+[ext_resource type="Texture2D" uid="uid://cwui6xoxy7p5e" path="res://textures/tree.png" id="1_7fmgw"]
+
+[resource]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+albedo_texture = ExtResource("1_7fmgw")
