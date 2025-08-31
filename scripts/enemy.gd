@@ -1,15 +1,16 @@
 extends Node3D
 
-@onready var animation_ghost = $ghost/AnimationPlayer
+@onready var mesh = $ghost
 
-func _ready():
-	pass
+var age: int = 0
 
-func _on_beat(beat_num: int):
-	if beat_num % 4 == 0:
-		animation_ghost.play("ghosrRig|ghostHeadBobbingMore", 0.0, 3.0)
-	else:
-		animation_ghost.play("ghosrRig|ghostHeadBobbing", 0.0, 2.0)
+func jump_to(target: Vector3):
+	var tween = create_tween()
+	tween.tween_property(self, 'global_position', target, .2)
+
+	var jump_tween = create_tween()
+	jump_tween.tween_property(mesh, 'position', Vector3(0, .2, 0), .1)
+	jump_tween.chain().tween_property(mesh, 'position', Vector3.ZERO, .1)
 
 func die():
 	queue_free()
