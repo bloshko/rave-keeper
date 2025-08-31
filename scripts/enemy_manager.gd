@@ -59,9 +59,12 @@ func _beat_hit(new_beat: int):
 	if spawn_beat in music_manager.track_data.evil_events:
 		enemy_lane = music_manager.track_data.evil_events[spawn_beat]
 		spawn_enemy(enemy_lane)
-
+		
+	var human_lane = randi_range(0, 2)
 	for i in range(3):
-		if i != enemy_lane:
+		if i == enemy_lane:
+			continue
+		if i == human_lane:
 			spawn_human(i)
 	
 func spawn_enemy(lane_idx: int):
@@ -88,7 +91,7 @@ func move_humans():
 			human.age += 1 
 			human.jump_to(lane_starts[i].global_position + lane_directions[i] * step_lengths[i] * human.age)
 			if human.age > look_ahead:
-				human.scare_away()
+				human._die()
 				
 func move_enemies():
 	for i in range(3):

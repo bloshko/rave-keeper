@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://dlybyeweos6ac" path="res://models/ghost.fbx" id="2_md0e3"]
 
 [node name="Enemy" type="Node3D"]
-transform = Transform3D(-1.5, 0, -1.31134e-07, 0, 1.5, 0, 1.31134e-07, 0, -1.5, 0, 0, 0)
+transform = Transform3D(-1.5, 0, -1.31134e-07, 0, 1.5, 0, 1.31134e-07, 0, -1.5, 0, -0.0899179, 0)
 script = ExtResource("1_md0e3")
 
 [node name="ghost" parent="." instance=ExtResource("2_md0e3")]

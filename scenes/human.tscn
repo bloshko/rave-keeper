@@ -82,4 +82,7 @@ bones/28/position = Vector3(-6.35199e-08, 0.142249, 8.87027e-08)
 bones/28/rotation = Quaternion(1.00341e-07, 4.86001e-08, -6.07481e-08, 1)
 bones/28/scale = Vector3(1, 1, 1)
 
+[node name="Cylinder" parent="human_a/Armature/Skeleton3D" index="0"]
+gi_mode = 2
+
 [editable path="human_a"]

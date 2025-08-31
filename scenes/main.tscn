@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://bvlerh2hfayrm"]
+[gd_scene load_steps=24 format=3 uid="uid://bvlerh2hfayrm"]
 
 [ext_resource type="Script" uid="uid://cjrtt4vyburuq" path="res://prototyping/music_manager.gd" id="1_sugp2"]
 [ext_resource type="Script" uid="uid://cweqg3v7yv2sh" path="res://scripts/enemy_manager.gd" id="1_tbgi4"]
@@ -9,12 +9,12 @@
 [ext_resource type="Script" uid="uid://c8kdxjgevcjb" path="res://scripts/track_loader.gd" id="7_o6xl0"]
 [ext_resource type="Script" uid="uid://nnfeopgtwof" path="res://scenes/gargoyle_map.gd" id="8_85g3d"]
 [ext_resource type="PackedScene" uid="uid://dmpfoykm450ag" path="res://models/church.fbx" id="8_choun"]
-[ext_resource type="PackedScene" path="res://scenes/gargoyle_map.tscn" id="8_tipki"]
+[ext_resource type="Shader" uid="uid://dly7hb4ylq38g" path="res://shaders/postprocess_pixelated.gdshader" id="8_jkv2x"]
+[ext_resource type="PackedScene" uid="uid://df5o1158j5pe6" path="res://scenes/gargoyle_map.tscn" id="8_tipki"]
 [ext_resource type="PackedScene" uid="uid://bf62p8ocqv706" path="res://scenes/g_boy.tscn" id="9_85g3d"]
-[ext_resource type="Shader" uid="uid://dly7hb4ylq38g" path="res://shaders/postprocess.gdshader" id="11_ya4ey"]
-[ext_resource type="PackedScene" uid="uid://dybwc5odvl6qa" path="res://scenes/gameplay_manager.tscn" id="12_eb6dy"]
+[ext_resource type="PackedScene" path="res://scenes/gameplay_manager.tscn" id="12_eb6dy"]
 [ext_resource type="PackedScene" uid="uid://cl1yitbde3g4v" path="res://scenes/game_ui.tscn" id="13_trceg"]
-[ext_resource type="Script" path="res://scripts/shaderbox.gd" id="15_jkv2x"]
+[ext_resource type="Script" uid="uid://b1sk57ijn1gy6" path="res://scripts/shaderbox.gd" id="15_jkv2x"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_jyhfs"]
 
@@ -24,22 +24,11 @@
 
 [sub_resource type="BoxMesh" id="BoxMesh_tefeu"]
 
-[sub_resource type="Gradient" id="Gradient_jkv2x"]
-interpolation_mode = 1
-offsets = PackedFloat32Array(1)
-colors = PackedColorArray(1, 1, 1, 1)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_jbj1t"]
-gradient = SubResource("Gradient_jkv2x")
-
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_muem4"]
 render_priority = 0
-shader = ExtResource("11_ya4ey")
-shader_parameter/rows = 2.0
-shader_parameter/cols = 2.0
-shader_parameter/pal = SubResource("GradientTexture1D_jbj1t")
-shader_parameter/dither_size = 5.41
-shader_parameter/dither_amount = 0.69
+shader = ExtResource("8_jkv2x")
+shader_parameter/pixelation = 0.004
+shader_parameter/opacity = 1.0
 
 [sub_resource type="BoxMesh" id="BoxMesh_trceg"]
 
@@ -53,6 +42,7 @@ sky = SubResource("Sky_jkv2x")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.772093, -0.0902697, 0.629065, -0.255389, 0.862341, 0.4372, -0.581935, -0.498216, 0.642754, -2.93093, 0, 5.27995)
+light_energy = 0.204
 
 [node name="MusicManager" type="Node" parent="."]
 script = ExtResource("1_sugp2")
@@ -140,7 +130,7 @@ human_scene = ExtResource("7_85g3d")
 [node name="Player" type="Node3D" parent="."]
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(0.826555, 0.341721, -0.44725, -0.0198821, 0.81184, 0.583542, 0.562504, -0.473437, 0.677825, -3.93498, 3.52781, 5.96629)
+transform = Transform3D(0.900865, 0.285642, -0.326879, -0.0502967, 0.816618, 0.574983, 0.431175, -0.501541, 0.75003, -3.49051, 3.52586, 6.94283)
 current = true
 
 [node name="Shaderbox" type="MeshInstance3D" parent="Camera3D"]
@@ -165,3 +155,10 @@ gspots = [NodePath("../Lanes/Lane1/GSpot"), NodePath("../Lanes/Lane2/GSpot"), No
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_jkv2x")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.15462, 1.01285, 2.98924)
+light_color = Color(0.689976, 0.731384, 0.807534, 1)
+light_energy = 7.599
+light_indirect_energy = 3.468
+omni_range = 3.84
