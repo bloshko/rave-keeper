@@ -1,19 +1,22 @@
-[gd_scene load_steps=5 format=3 uid="uid://cvpwbb3vlsd0p"]
+[gd_scene load_steps=3 format=3 uid="uid://cvpwbb3vlsd0p"]
 
-[ext_resource type="Texture2D" uid="uid://bvkskih2n2n22" path="res://textures/grass.png" id="1_7p1mj"]
 [ext_resource type="Script" uid="uid://djl0flc3q7bu8" path="res://scripts/enemy.gd" id="1_md0e3"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_md0e3"]
-albedo_texture = ExtResource("1_7p1mj")
-
-[sub_resource type="CylinderMesh" id="CylinderMesh_8tegq"]
-top_radius = 0.1
-bottom_radius = 0.3
-height = 0.5
+[ext_resource type="PackedScene" uid="uid://dlybyeweos6ac" path="res://models/ghost.fbx" id="2_md0e3"]
 
 [node name="Enemy" type="Node3D"]
 script = ExtResource("1_md0e3")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-material_override = SubResource("StandardMaterial3D_md0e3")
-mesh = SubResource("CylinderMesh_8tegq")
+[node name="ghost" parent="." instance=ExtResource("2_md0e3")]
+
+[node name="Skeleton3D" parent="ghost/ghosrRig" index="0"]
+bones/1/position = Vector3(0.00306955, 0.00673026, 0.000638745)
+bones/1/rotation = Quaternion(0.0405806, 0.0242882, -0.512988, 0.857092)
+bones/1/scale = Vector3(1, 1, 1)
+bones/3/position = Vector3(-0.00313157, 0.00676732, 0.000642264)
+bones/3/rotation = Quaternion(0.0411591, -0.0232944, 0.491998, 0.869311)
+bones/3/scale = Vector3(1, 1, 1)
+bones/5/position = Vector3(0, 0.0138025, 0.00159685)
+bones/5/rotation = Quaternion(0.047294, 0, 0, 0.998881)
+bones/5/scale = Vector3(1, 1, 1)
+
+[editable path="ghost"]
