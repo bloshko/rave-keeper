@@ -6,8 +6,25 @@ extends Node
 @onready var evil_indicators = [
 	$"../Lanes/EvilLeft",
 	$"../Lanes/EvilMiddle",
-	$"../Lanes/EvilRight"
+	$"../Lanes/EvilRight",
+	
+	$"../Lanes/EvilLeft2",
+	$"../Lanes/EvilMiddle2",
+	$"../Lanes/EvilRight2",
+	
+	$"../Lanes/EvilLeft3",
+	$"../Lanes/EvilMiddle3",
+	$"../Lanes/EvilRight3",
+	
+	$"../Lanes/EvilLeft4",
+	$"../Lanes/EvilMiddle4",
+	$"../Lanes/EvilRight4",
+
+	$"../Lanes/EvilLeft5",
+	$"../Lanes/EvilMiddle5",
+	$"../Lanes/EvilRight5",
 ]
+
 var track_data: TrackData
 var seconds_per_beat: float
 var elapsed: float = 0
@@ -35,6 +52,15 @@ func flash_indicator():
 		evil_indicators[lane].modulate = Color.WHITE
 		var evil_tween = create_tween()
 		evil_tween.tween_property(evil_indicators[lane], 'modulate', Color.TRANSPARENT, .2)
+
+	# preview indicators
+	for i in range(1, 5):
+		for j in range(3):
+			evil_indicators[i * 3 + j].modulate = Color.TRANSPARENT
+
+		if beat + i in track_data.evil_events:
+			var lane = track_data.evil_events[beat + i]
+			evil_indicators[i * 3 + lane].modulate = Color.WHITE
 
 func _process(delta: float) -> void:
 	if audio_player.playing:

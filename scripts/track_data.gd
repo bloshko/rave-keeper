@@ -40,8 +40,8 @@ static func from_dict(dict: Dictionary) -> TrackData:
 func get_bpm(beat: int) -> float:
 	for curve in bpm_curves:
 		if beat in range(curve.beat_begin, curve.beat_end):
-			var change_per_beat = (curve.bpm_end - curve.bpm_begin) / (curve.beat_end - curve.beat_begin)
-			return curve.bpm_begin + change_per_beat * (beat + .5)
+			var change_per_beat = float(curve.bpm_end - curve.bpm_begin) / float(curve.beat_end - curve.beat_begin)
+			return curve.bpm_begin + change_per_beat * (beat - curve.beat_begin + .5)
 
 	var bpm = initial_bpm
 	for curve in bpm_curves:

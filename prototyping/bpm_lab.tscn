@@ -99,6 +99,78 @@ position = Vector2(128, -8)
 scale = Vector2(3, 3)
 texture = ExtResource("1_1dxx3")
 
+[node name="EvilLeft2" type="Sprite2D" parent="Lanes"]
+self_modulate = Color(0.709804, 0.317647, 0.184314, 0.556863)
+position = Vector2(-128, 88)
+scale = Vector2(2, 2)
+texture = ExtResource("1_1dxx3")
+
+[node name="EvilMiddle2" type="Sprite2D" parent="Lanes"]
+self_modulate = Color(0.709804, 0.317647, 0.184314, 0.556863)
+position = Vector2(0, 88)
+scale = Vector2(2, 2)
+texture = ExtResource("1_1dxx3")
+
+[node name="EvilRight2" type="Sprite2D" parent="Lanes"]
+self_modulate = Color(0.709804, 0.317647, 0.184314, 0.556863)
+position = Vector2(128, 88)
+scale = Vector2(2, 2)
+texture = ExtResource("1_1dxx3")
+
+[node name="EvilLeft3" type="Sprite2D" parent="Lanes"]
+self_modulate = Color(0.709804, 0.317647, 0.184314, 0.556863)
+position = Vector2(-128, 184)
+scale = Vector2(2, 2)
+texture = ExtResource("1_1dxx3")
+
+[node name="EvilMiddle3" type="Sprite2D" parent="Lanes"]
+self_modulate = Color(0.709804, 0.317647, 0.184314, 0.556863)
+position = Vector2(0, 184)
+scale = Vector2(2, 2)
+texture = ExtResource("1_1dxx3")
+
+[node name="EvilRight3" type="Sprite2D" parent="Lanes"]
+self_modulate = Color(0.709804, 0.317647, 0.184314, 0.556863)
+position = Vector2(128, 184)
+scale = Vector2(2, 2)
+texture = ExtResource("1_1dxx3")
+
+[node name="EvilLeft4" type="Sprite2D" parent="Lanes"]
+self_modulate = Color(0.709804, 0.317647, 0.184314, 0.556863)
+position = Vector2(-128, 280)
+scale = Vector2(2, 2)
+texture = ExtResource("1_1dxx3")
+
+[node name="EvilMiddle4" type="Sprite2D" parent="Lanes"]
+self_modulate = Color(0.709804, 0.317647, 0.184314, 0.556863)
+position = Vector2(0, 280)
+scale = Vector2(2, 2)
+texture = ExtResource("1_1dxx3")
+
+[node name="EvilRight4" type="Sprite2D" parent="Lanes"]
+self_modulate = Color(0.709804, 0.317647, 0.184314, 0.556863)
+position = Vector2(128, 280)
+scale = Vector2(2, 2)
+texture = ExtResource("1_1dxx3")
+
+[node name="EvilLeft5" type="Sprite2D" parent="Lanes"]
+self_modulate = Color(0.709804, 0.317647, 0.184314, 0.556863)
+position = Vector2(-128, 376)
+scale = Vector2(2, 2)
+texture = ExtResource("1_1dxx3")
+
+[node name="EvilMiddle5" type="Sprite2D" parent="Lanes"]
+self_modulate = Color(0.709804, 0.317647, 0.184314, 0.556863)
+position = Vector2(0, 376)
+scale = Vector2(2, 2)
+texture = ExtResource("1_1dxx3")
+
+[node name="EvilRight5" type="Sprite2D" parent="Lanes"]
+self_modulate = Color(0.709804, 0.317647, 0.184314, 0.556863)
+position = Vector2(128, 376)
+scale = Vector2(2, 2)
+texture = ExtResource("1_1dxx3")
+
 [node name="Icon" type="Sprite2D" parent="."]
 position = Vector2(316, 225)
 scale = Vector2(0.599609, 0.599609)
