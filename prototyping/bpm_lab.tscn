@@ -83,19 +83,19 @@ color = Color(0.21876, 0.136884, 0.123985, 0.662745)
 
 [node name="EvilLeft" type="Sprite2D" parent="Lanes"]
 self_modulate = Color(0.71, 0.31595, 0.1846, 1)
-position = Vector2(-128, 376)
+position = Vector2(-128, -8)
 scale = Vector2(3, 3)
 texture = ExtResource("1_1dxx3")
 
 [node name="EvilMiddle" type="Sprite2D" parent="Lanes"]
 self_modulate = Color(0.71, 0.31595, 0.1846, 1)
-position = Vector2(0, 376)
+position = Vector2(0, -8)
 scale = Vector2(3, 3)
 texture = ExtResource("1_1dxx3")
 
 [node name="EvilRight" type="Sprite2D" parent="Lanes"]
 self_modulate = Color(0.71, 0.31595, 0.1846, 1)
-position = Vector2(128, 376)
+position = Vector2(128, -8)
 scale = Vector2(3, 3)
 texture = ExtResource("1_1dxx3")
 

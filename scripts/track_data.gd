@@ -4,17 +4,13 @@ extends Resource
 var initial_bpm: float
 var initial_subdiv: float
 var bpm_curves: Array[LinearBPMCurve]
-
-# beat -> lane
 var evil_events: Dictionary[int, int] 
-
-# beat -> subdiv
 var subdiv_changes: Dictionary[int, float]
 
 class LinearBPMCurve:
 	var beat_begin: int
 	var beat_end: int
-	
+
 	var bpm_begin: float
 	var bpm_end: float
 
@@ -36,6 +32,8 @@ static func from_dict(dict: Dictionary) -> TrackData:
 				data.bpm_curves.append(bpm_curve_temp)
 			"set_subdiv":
 				data.subdiv_changes.set(int(event["beat"]), event["value"])
+			"evil":
+				data.evil_events.set(int(event["beat"]), int(event["lane"]))
 
 	return data
 

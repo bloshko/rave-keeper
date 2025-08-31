@@ -25,7 +25,7 @@
 		{ "beat": 14, "type" : "evil", "lane" : 0 },
 		{ "beat": 15, "type" : "evil", "lane" : 2 },
 		
-		{ "beat": 15, "type" : "end_bpm_curve", "bpm" : 128 },
+		{ "beat": 16, "type" : "end_bpm_curve", "bpm" : 128 },
 		
 		{ "beat": 16, "type" : "evil", "lane" : 1 },
 		{ "beat": 18, "type" : "evil", "lane" : 1 },
@@ -33,5 +33,55 @@
 		{ "beat": 22, "type" : "evil", "lane" : 1 },
 
 		{ "beat": 25, "type" : "set_subdiv", "value" : 1 },
+
+		{ "beat": 26, "type" : "evil", "lane" : 0 },
+		{ "beat": 27, "type" : "evil", "lane" : 2 },
+		{ "beat": 28, "type" : "evil", "lane" : 1 },
+
+		{ "beat": 30, "type" : "evil", "lane" : 2 },
+		{ "beat": 31, "type" : "evil", "lane" : 1 },
+		{ "beat": 32, "type" : "evil", "lane" : 0 },
+
+		{ "beat": 34, "type" : "evil", "lane" : 0 },
+		{ "beat": 35, "type" : "evil", "lane" : 2 },
+		{ "beat": 36, "type" : "evil", "lane" : 1 },
+
+		{ "beat": 38, "type" : "evil", "lane" : 2 },
+		{ "beat": 39, "type" : "evil", "lane" : 1 },
+		{ "beat": 40, "type" : "evil", "lane" : 0 },
+
+		{ "beat": 42, "type" : "evil", "lane" : 0 },
+		{ "beat": 43, "type" : "evil", "lane" : 2 },
+		{ "beat": 44, "type" : "evil", "lane" : 1 },
+		{ "beat": 45, "type" : "evil", "lane" : 0 },
+		{ "beat": 46, "type" : "evil", "lane" : 2 },
+		{ "beat": 47, "type" : "evil", "lane" : 1 },
+
+		{ "beat": 49, "type" : "evil", "lane" : 0 },
+		{ "beat": 50, "type" : "evil", "lane" : 2 },
+		{ "beat": 51, "type" : "evil", "lane" : 1 },
+		{ "beat": 52, "type" : "evil", "lane" : 0 },
+		{ "beat": 53, "type" : "evil", "lane" : 2 },
+		{ "beat": 54, "type" : "evil", "lane" : 1 },
+
+		{ "beat": 56, "type" : "set_subdiv", "value" : 2 },
+
+		{ "beat": 56, "type" : "evil", "lane" : 1 },
+		{ "beat": 57, "type" : "evil", "lane" : 1 },
+		{ "beat": 58, "type" : "evil", "lane" : 0 },
+		{ "beat": 59, "type" : "evil", "lane" : 1 },
+		{ "beat": 60, "type" : "evil", "lane" : 2 },
+		{ "beat": 61, "type" : "evil", "lane" : 1 },
+		{ "beat": 62, "type" : "evil", "lane" : 1 },
+		{ "beat": 63, "type" : "evil", "lane" : 1 },
+
+		{ "beat": 64, "type" : "evil", "lane" : 1 },
+		{ "beat": 65, "type" : "evil", "lane" : 1 },
+		{ "beat": 66, "type" : "evil", "lane" : 0 },
+		{ "beat": 67, "type" : "evil", "lane" : 1 },
+		{ "beat": 68, "type" : "evil", "lane" : 1 },
+		{ "beat": 69, "type" : "evil", "lane" : 1 },
+		{ "beat": 70, "type" : "evil", "lane" : 2 },
+		{ "beat": 71, "type" : "evil", "lane" : 1 },
 	]
 }
