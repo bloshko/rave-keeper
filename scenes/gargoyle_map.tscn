@@ -1,17 +1,13 @@
 [gd_scene load_steps=4 format=3 uid="uid://df5o1158j5pe6"]
 
 [ext_resource type="PackedScene" uid="uid://orddtp1mx8e4" path="res://models/gargoyleMAP.fbx" id="1_44f2h"]
-[ext_resource type="Material" uid="uid://c50eowpu0b2c4" path="res://materials/church.tres" id="2_bd2mn"]
+[ext_resource type="Material" uid="uid://ds1shpwlop6s2" path="res://materials/tree.tres" id="2_bd2mn"]
 [ext_resource type="Material" uid="uid://b57ptiq014w6m" path="res://materials/glow_entrance.tres" id="3_igl5l"]
 
 [node name="gargoyleMAP" instance=ExtResource("1_44f2h")]
 
-[node name="Plane" parent="." index="0"]
-transform = Transform3D(190.497, -41.08, -8.85605e-06, 1.44125e-06, -5.63547e-05, 237.728, -33.6193, -232.771, -5.66787e-05, -2.19343, -0.0897518, 3.49714)
-material_override = ExtResource("2_bd2mn")
-
-[node name="Plane_001" parent="." index="2"]
+[node name="finish" parent="." index="2"]
 material_override = ExtResource("3_igl5l")
 
-[node name="nidaros_001" parent="." index="17"]
+[node name="trees" parent="." index="4"]
 material_override = ExtResource("2_bd2mn")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://bvlerh2hfayrm"]
+[gd_scene load_steps=26 format=3 uid="uid://bvlerh2hfayrm"]
 
 [ext_resource type="Script" uid="uid://cjrtt4vyburuq" path="res://prototyping/music_manager.gd" id="1_sugp2"]
 [ext_resource type="Script" uid="uid://cweqg3v7yv2sh" path="res://scripts/enemy_manager.gd" id="1_tbgi4"]
@@ -25,9 +25,6 @@
 [sub_resource type="BoxMesh" id="BoxMesh_tefeu"]
 
 [sub_resource type="Gradient" id="Gradient_jkv2x"]
-interpolation_mode = 1
-offsets = PackedFloat32Array(0, 0.0625, 0.125, 0.1875)
-colors = PackedColorArray(0, 0, 0, 1, 0.381339, 0.377011, 0.353786, 1, 1, 1, 1, 1, 1, 0.310206, 0.458974, 1)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_jbj1t"]
 gradient = SubResource("Gradient_jkv2x")
@@ -42,6 +39,12 @@ shader_parameter/dither_size = 5.41
 shader_parameter/dither_amount = 0.69
 
 [sub_resource type="BoxMesh" id="BoxMesh_trceg"]
+
+[sub_resource type="Sky" id="Sky_jkv2x"]
+
+[sub_resource type="Environment" id="Environment_jkv2x"]
+background_mode = 2
+sky = SubResource("Sky_jkv2x")
 
 [node name="Main" type="Node3D"]
 
@@ -142,7 +145,6 @@ material_override = SubResource("ShaderMaterial_muem4")
 mesh = SubResource("BoxMesh_trceg")
 skeleton = NodePath("../..")
 script = ExtResource("15_jkv2x")
-cList = Array[Color]([Color(0, 0, 0, 1), Color(0.381339, 0.377011, 0.353786, 1), Color(1, 1, 1, 1), Color(1, 0.310206, 0.458974, 1)])
 
 [node name="church" parent="." instance=ExtResource("8_choun")]
 
@@ -156,3 +158,6 @@ gspots = [NodePath("../Lanes/Lane1/GSpot"), NodePath("../Lanes/Lane2/GSpot"), No
 [node name="GameplayManager" parent="." instance=ExtResource("12_eb6dy")]
 
 [node name="GameUI" parent="." instance=ExtResource("13_trceg")]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_jkv2x")

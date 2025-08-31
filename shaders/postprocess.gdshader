@@ -84,7 +84,7 @@ void fragment() {
 	
 	vec3 color = _tex.rgb;
 	
-	color.r = lerp(color.r, dither(color, SCREEN_UV, VIEWPORT_SIZE).r, dither_amount); // comment this line if you do not want to dither the palette
+	// color.r = lerp(color.r, dither(color, SCREEN_UV, VIEWPORT_SIZE).r, dither_amount); // comment this line if you do not want to dither the palette
 	
 	vec3 corr = get_linear(color.rgb);
 	
