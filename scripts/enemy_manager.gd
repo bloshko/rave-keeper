@@ -15,6 +15,7 @@ extends Node3D
 @onready var music_manager = $"../MusicManager"
 
 @export var enemy_scene: PackedScene
+@export var human_scene: PackedScene
 
 
 
@@ -57,20 +58,25 @@ func _on_beat(beat_num: int):
 	spawn_index(index_to_spawn)
 	
 func spawn_index(index_to_spawn: int):
-	spawn_enemy(1)
 	if enemy_scene == null or index_to_spawn + 1 > enemies.size():
 		return
 		
 	var enemies_to_spawn = enemies[index_to_spawn]
 	
-	#if enemies_to_spawn[0]:
-		#spawn_enemy(1)
+	if enemies_to_spawn[0]:
+		spawn_enemy(1)
+	else:
+		spawn_human(1)
 		
 	if enemies_to_spawn[1]:
 		spawn_enemy(2)
+	else:
+		spawn_human(2)
 
 	if enemies_to_spawn[2]:	
 		spawn_enemy(3)
+	else:
+		spawn_human(3)
 
 
 func spawn_enemy(lane_num: int):
@@ -89,6 +95,22 @@ func spawn_enemy(lane_num: int):
 
 	parent_node.add_child(enemy)
 	enemy.global_position = spawn_position;
+	
+func spawn_human(lane_num: int):
+	var spawn_position = lane_start_3.global_position
+	var parent_node = lane_enemies_3
+	
+	if lane_num == 1:
+		spawn_position = lane_start_1.global_position
+		parent_node = lane_enemies_1
+	elif lane_num == 2:
+		spawn_position = lane_start_2.global_position
+		parent_node = lane_enemies_2
+		
+	var human = human_scene.instantiate()
+
+	parent_node.add_child(human)
+	human.global_position = spawn_position;
 
 	
 func _process(delta):

@@ -1,10 +1,9 @@
 extends Node3D
 
 @onready var animation_ghost = $ghost/AnimationPlayer
-@onready var animation_human_a = $human_a/AnimationPlayer
 
 func _ready():
-	animation_human_a.play("mixamo_com", 0.0, 1.0)
+	pass
 
 func _on_beat(beat_num: int):
 	if beat_num % 4 == 0:
