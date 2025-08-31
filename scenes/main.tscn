@@ -7,7 +7,7 @@
 [ext_resource type="AudioStream" uid="uid://blqy2s23oueyo" path="res://audio/tick.mp3" id="2_tipki"]
 [ext_resource type="AudioStream" uid="uid://dss0sj76b43hv" path="res://audio/ravekeeper_level1_sting.ogg" id="3_tbgi4"]
 [ext_resource type="PackedScene" uid="uid://di3ogo26ly6ok" path="res://models/gargoyle.fbx" id="4_jyhfs"]
-[ext_resource type="Script" uid="uid://c8kdxjgevcjb" path="res://scripts/music_event_parser.gd" id="7_o6xl0"]
+[ext_resource type="Script" uid="uid://c8kdxjgevcjb" path="res://scripts/track_loader.gd" id="7_o6xl0"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_jyhfs"]
 

@@ -1,0 +1,37 @@
+{
+	"song": "ravekeeper_level2_v2.ogg",
+	"initial_subdiv": 0.5,
+	"initial_bpm": 116,
+	"events": [
+		{ "beat": 0, "type" : "evil", "lane" : 0 },
+		{ "beat": 1, "type" : "evil", "lane" : 2 },
+		{ "beat": 2, "type" : "evil", "lane" : 0 },
+		{ "beat": 3, "type" : "evil", "lane" : 2 },
+		
+		{ "beat": 4, "type" : "evil", "lane" : 0 },
+		{ "beat": 5, "type" : "evil", "lane" : 2 },
+		{ "beat": 6, "type" : "evil", "lane" : 0 },
+		{ "beat": 7, "type" : "evil", "lane" : 2 },
+		
+		{ "beat": 8, "type" : "begin_bpm_curve", "bpm" : 116 },
+		
+		{ "beat": 8, "type" : "evil", "lane" : 0 },
+		{ "beat": 9, "type" : "evil", "lane" : 2 },
+		{ "beat": 10, "type" : "evil", "lane" : 0 },
+		{ "beat": 11, "type" : "evil", "lane" : 2 },
+		
+		{ "beat": 12, "type" : "evil", "lane" : 0 },
+		{ "beat": 13, "type" : "evil", "lane" : 2 },
+		{ "beat": 14, "type" : "evil", "lane" : 0 },
+		{ "beat": 15, "type" : "evil", "lane" : 2 },
+		
+		{ "beat": 15, "type" : "end_bpm_curve", "bpm" : 128 },
+		
+		{ "beat": 16, "type" : "evil", "lane" : 1 },
+		{ "beat": 18, "type" : "evil", "lane" : 1 },
+		{ "beat": 20, "type" : "evil", "lane" : 1 },
+		{ "beat": 22, "type" : "evil", "lane" : 1 },
+
+		{ "beat": 23, "type" : "set_subdiv", "value" : 1 },
+	]
+}

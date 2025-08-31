@@ -22,17 +22,18 @@ var is_preroll = true
 
 func _ready() -> void:
 	seconds_per_beat = 1 / (bpm / 60)
-	$"../MusicEventParser".music_events_parsed.connect(_on_receive_parsed_music_events)
+	$"../MusicEventParser".track_ready.connect(_on_receive_parsed_music_events)
 
-func _on_receive_parsed_music_events(parsed_music_events: Dictionary):
-	music_events = parsed_music_events
+func _on_receive_parsed_music_events(parsed_music_events: TrackData):
+	pass
+	#music_events = parsed_music_events
 
 func _handle_preroll(delta: float):
 	# preroll, should be in sync with approach_beats in enemy manager
 
 	elapsed += delta
 	if elapsed >= seconds_per_beat:
-		preroll_tick_sond.play()
+		#preroll_tick_sond.play()
 		current_beat += 1
 		beat.emit(current_beat)
 

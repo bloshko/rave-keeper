@@ -5,8 +5,8 @@
 [ext_resource type="Script" uid="uid://c7mpkeu1ur4t5" path="res://prototyping/evil.gd" id="3_53qao"]
 [ext_resource type="Texture2D" uid="uid://uwpiscipjlho" path="res://icon.svg" id="3_t5ujd"]
 [ext_resource type="Script" uid="uid://cjrtt4vyburuq" path="res://prototyping/music_manager.gd" id="4_53qao"]
-[ext_resource type="Script" uid="uid://c8kdxjgevcjb" path="res://scripts/music_event_parser.gd" id="5_q5qk3"]
-[ext_resource type="AudioStream" uid="uid://y1regmghqvhg" path="res://audio/ravekeeper_level1.ogg" id="6_q5qk3"]
+[ext_resource type="Script" uid="uid://c8kdxjgevcjb" path="res://scripts/track_loader.gd" id="5_q5qk3"]
+[ext_resource type="AudioStream" uid="uid://bcx62ldj5k2a1" path="res://audio/ravekeeper_level2_v2.ogg" id="6_kf62a"]
 [ext_resource type="AudioStream" uid="uid://dss0sj76b43hv" path="res://audio/ravekeeper_level1_sting.ogg" id="7_kf62a"]
 
 [node name="BPMLab" type="Node2D"]
@@ -116,7 +116,7 @@ script = ExtResource("4_53qao")
 move_step = 2
 
 [node name="Backing" type="AudioStreamPlayer" parent="MusicManager"]
-stream = ExtResource("6_q5qk3")
+stream = ExtResource("6_kf62a")
 
 [node name="Stings" type="AudioStreamPlayer" parent="MusicManager"]
 stream = ExtResource("7_kf62a")
