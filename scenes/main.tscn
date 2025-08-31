@@ -41,11 +41,13 @@ script = ExtResource("7_o6xl0")
 
 [node name="FinishLane" type="MeshInstance3D" parent="Lanes/Lane1"]
 transform = Transform3D(0.399145, 0, -0.0261473, 0, 0.4, 0, 0.0261473, 0, 0.399145, -3.294, 0, 2.621)
+visible = false
 mesh = SubResource("BoxMesh_jyhfs")
 skeleton = NodePath("../..")
 
 [node name="StartLane" type="MeshInstance3D" parent="Lanes/Lane1"]
 transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -2.594, 0, 7.067)
+visible = false
 mesh = SubResource("BoxMesh_o6xl0")
 skeleton = NodePath("")
 
@@ -55,11 +57,13 @@ skeleton = NodePath("")
 
 [node name="FinishLane" type="MeshInstance3D" parent="Lanes/Lane2"]
 transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -2.307, 0, 2.663)
+visible = false
 mesh = SubResource("BoxMesh_tbgi4")
 skeleton = NodePath("../..")
 
 [node name="StartLane" type="MeshInstance3D" parent="Lanes/Lane2"]
 transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -1.484, 0, 7.067)
+visible = false
 mesh = SubResource("BoxMesh_o6xl0")
 skeleton = NodePath("")
 
@@ -69,11 +73,13 @@ skeleton = NodePath("")
 
 [node name="FinishLane" type="MeshInstance3D" parent="Lanes/Lane3"]
 transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -1.242, 0, 2.756)
+visible = false
 mesh = SubResource("BoxMesh_tefeu")
 skeleton = NodePath("../..")
 
 [node name="StartLane" type="MeshInstance3D" parent="Lanes/Lane3"]
 transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -0.349336, 0, 7.067)
+visible = false
 mesh = SubResource("BoxMesh_o6xl0")
 skeleton = NodePath("")
 
