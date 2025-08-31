@@ -6,6 +6,8 @@ enum STATE {
 	RUNNING_AWAY
 }
 
+var age = 0
+
 var state = STATE.WALKING
 
 func _ready():

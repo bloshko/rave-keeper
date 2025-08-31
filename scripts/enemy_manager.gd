@@ -18,6 +18,12 @@ extends Node3D
 	$"../Lanes/Lane3/Enemies"
 ]
 
+@onready var lane_humans = [
+	$"../Lanes/Lane1/Humans",
+	$"../Lanes/Lane2/Humans",
+	$"../Lanes/Lane3/Humans"
+]
+
 @onready var music_manager = $"../MusicManager"
 
 @export var enemy_scene: PackedScene
@@ -50,33 +56,35 @@ func _beat_hit(new_beat: int):
 	var spawn_beat = new_beat + look_ahead
 	if spawn_beat in music_manager.track_data.evil_events:
 		spawn_enemy(music_manager.track_data.evil_events[spawn_beat])
-
+	else:
+		spawn_human(1)
+	
 func spawn_enemy(lane_idx: int):
 	var spawn_position = lane_starts[lane_idx].global_position
 	var parent_node = lane_enemies[lane_idx]
 
 	var enemy = enemy_scene.instantiate()
-	music_manager.beat.connect(enemy._on_beat)
 
 	parent_node.add_child(enemy)
 	enemy.global_position = spawn_position;
-	
-func spawn_human(lane_num: int):
-	var spawn_position = lane_start_3.global_position
-	var parent_node = lane_enemies_3
-	
-	if lane_num == 1:
-		spawn_position = lane_start_1.global_position
-		parent_node = lane_enemies_1
-	elif lane_num == 2:
-		spawn_position = lane_start_2.global_position
-		parent_node = lane_enemies_2
-		
+
+func spawn_human(lane_idx: int):
+	var spawn_position = lane_starts[lane_idx].global_position
+	var parent_node = lane_enemies[lane_idx]
+
 	var human = human_scene.instantiate()
 
 	parent_node.add_child(human)
 	human.global_position = spawn_position;
-
+	
+func move_humans():
+	for i in range(3):
+		for human in lane_enemies[i].get_children():
+			human.age += 1 
+			human.jump_to(lane_starts[i].global_position + lane_directions[i] * step_lengths[i] * human.age)
+			if human.age > look_ahead:
+				human.die()
+				
 func move_enemies():
 	for i in range(3):
 		for child in lane_enemies[i].get_children():
