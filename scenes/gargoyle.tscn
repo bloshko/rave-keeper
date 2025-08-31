@@ -1,10 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://4nthjcf5uoo0"]
+[gd_scene load_steps=3 format=3 uid="uid://qru00hwtjvmx"]
 
-[ext_resource type="PackedScene" uid="uid://di3ogo26ly6ok" path="res://models/gargoyle.fbx" id="1_ap30q"]
 [ext_resource type="Material" uid="uid://c50eowpu0b2c4" path="res://materials/church.tres" id="2_6sd82"]
 [ext_resource type="Material" uid="uid://b57ptiq014w6m" path="res://materials/glow_entrance.tres" id="3_xhp7u"]
 
-[node name="gargoyle" instance=ExtResource("1_ap30q")]
+[node name="gargoyle"]
 
 [node name="Plane" parent="." index="0"]
 material_override = ExtResource("2_6sd82")
