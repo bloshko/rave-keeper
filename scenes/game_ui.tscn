@@ -1,0 +1,26 @@
+[gd_scene load_steps=2 format=3 uid="uid://cl1yitbde3g4v"]
+
+[ext_resource type="Script" uid="uid://cbl0jhnj4xwkn" path="res://scenes/game_ui.gd" id="1_yubou"]
+
+[node name="GameUI" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_yubou")
+
+[node name="Kills" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 24.0
+offset_right = 299.0
+offset_bottom = 195.0
+text = "Textsadfasdf"
+
+[node name="Fails" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 56.0
+offset_right = 299.0
+offset_bottom = 227.0
+text = "Textsadfasdf"

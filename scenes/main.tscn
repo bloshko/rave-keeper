@@ -1,15 +1,18 @@
-[gd_scene load_steps=15 format=3 uid="uid://bvlerh2hfayrm"]
+[gd_scene load_steps=18 format=3 uid="uid://bvlerh2hfayrm"]
 
 [ext_resource type="Script" uid="uid://cjrtt4vyburuq" path="res://prototyping/music_manager.gd" id="1_sugp2"]
 [ext_resource type="Script" uid="uid://cweqg3v7yv2sh" path="res://scripts/enemy_manager.gd" id="1_tbgi4"]
 [ext_resource type="PackedScene" uid="uid://cvpwbb3vlsd0p" path="res://scenes/enemy.tscn" id="2_tefeu"]
 [ext_resource type="AudioStream" uid="uid://blqy2s23oueyo" path="res://audio/tick.mp3" id="2_tipki"]
 [ext_resource type="AudioStream" uid="uid://bcx62ldj5k2a1" path="res://audio/ravekeeper_level2_v2.ogg" id="3_o6xl0"]
-[ext_resource type="PackedScene" uid="uid://chplmoaodo7pw" path="res://scenes/human.tscn" id="7_85g3d"]
+[ext_resource type="PackedScene" path="res://scenes/human.tscn" id="7_85g3d"]
 [ext_resource type="Script" uid="uid://c8kdxjgevcjb" path="res://scripts/track_loader.gd" id="7_o6xl0"]
 [ext_resource type="Script" uid="uid://nnfeopgtwof" path="res://scenes/gargoyle_map.gd" id="8_85g3d"]
 [ext_resource type="PackedScene" uid="uid://dmpfoykm450ag" path="res://models/church.fbx" id="8_choun"]
-[ext_resource type="PackedScene" uid="uid://df5o1158j5pe6" path="res://scenes/gargoyle_map.tscn" id="8_tipki"]
+[ext_resource type="PackedScene" path="res://scenes/gargoyle_map.tscn" id="8_tipki"]
+[ext_resource type="PackedScene" uid="uid://bf62p8ocqv706" path="res://scenes/g_boy.tscn" id="9_85g3d"]
+[ext_resource type="PackedScene" uid="uid://dybwc5odvl6qa" path="res://scenes/gameplay_manager.tscn" id="12_eb6dy"]
+[ext_resource type="PackedScene" uid="uid://cl1yitbde3g4v" path="res://scenes/game_ui.tscn" id="13_trceg"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_jyhfs"]
 
@@ -55,6 +58,9 @@ skeleton = NodePath("")
 
 [node name="Enemies" type="Node3D" parent="Lanes/Lane1"]
 
+[node name="GSpot" type="Node3D" parent="Lanes/Lane1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.41097, 1.45211, 2.39303)
+
 [node name="Humans" type="Node3D" parent="Lanes/Lane1"]
 
 [node name="Lane2" type="Node3D" parent="Lanes"]
@@ -72,6 +78,9 @@ mesh = SubResource("BoxMesh_o6xl0")
 skeleton = NodePath("")
 
 [node name="Enemies" type="Node3D" parent="Lanes/Lane2"]
+
+[node name="GSpot" type="Node3D" parent="Lanes/Lane2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.46486, 1.45211, 2.39303)
 
 [node name="Humans" type="Node3D" parent="Lanes/Lane2"]
 
@@ -91,6 +100,9 @@ skeleton = NodePath("")
 
 [node name="Enemies" type="Node3D" parent="Lanes/Lane3"]
 
+[node name="GSpot" type="Node3D" parent="Lanes/Lane3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.58838, 1.45211, 2.39303)
+
 [node name="Humans" type="Node3D" parent="Lanes/Lane3"]
 
 [node name="EnemyManager" type="Node3D" parent="."]
@@ -107,3 +119,11 @@ transform = Transform3D(0.826555, 0.341721, -0.44725, -0.0198821, 0.81184, 0.583
 
 [node name="gargoyleMAP" parent="." instance=ExtResource("8_tipki")]
 script = ExtResource("8_85g3d")
+
+[node name="GBoy" parent="." node_paths=PackedStringArray("gspots") instance=ExtResource("9_85g3d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.41479, 1.43649, 2.17679)
+gspots = [NodePath("../Lanes/Lane1/GSpot"), NodePath("../Lanes/Lane2/GSpot"), NodePath("../Lanes/Lane3/GSpot")]
+
+[node name="GameplayManager" parent="." instance=ExtResource("12_eb6dy")]
+
+[node name="GameUI" parent="." instance=ExtResource("13_trceg")]
