@@ -10,12 +10,19 @@ signal something_changed
 var kills: int = 0
 var fails: int = 0
 
+var wait_time: float = .02
+
 func _ready() -> void:
 	music_manager.beat_hit.connect(_beat_hit)
 
 func _beat_hit(new_beat: int):
-	if new_beat in music_manager.track_data.evil_events:
-		var lane = music_manager.track_data.evil_events[new_beat]
+	var tween = create_tween()
+	tween.tween_interval(wait_time)
+	tween.chain().tween_callback(func(): check_kill(new_beat))
+
+func check_kill(beat: int):
+	if beat in music_manager.track_data.evil_events:
+		var lane = music_manager.track_data.evil_events[beat]
 		if lane == gboy.current_pos:
 			kills += 1
 			bell.pitch_scale = 1
