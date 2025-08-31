@@ -1,0 +1,90 @@
+[gd_scene load_steps=13 format=3 uid="uid://bvlerh2hfayrm"]
+
+[ext_resource type="Script" uid="uid://cjrtt4vyburuq" path="res://prototyping/music_manager.gd" id="1_sugp2"]
+[ext_resource type="Script" uid="uid://cweqg3v7yv2sh" path="res://scripts/enemy_manager.gd" id="1_tbgi4"]
+[ext_resource type="AudioStream" uid="uid://y1regmghqvhg" path="res://audio/ravekeeper_level1.ogg" id="2_jyhfs"]
+[ext_resource type="PackedScene" uid="uid://cvpwbb3vlsd0p" path="res://scenes/enemy.tscn" id="2_tefeu"]
+[ext_resource type="AudioStream" uid="uid://blqy2s23oueyo" path="res://audio/tick.mp3" id="2_tipki"]
+[ext_resource type="AudioStream" uid="uid://dss0sj76b43hv" path="res://audio/ravekeeper_level1_sting.ogg" id="3_tbgi4"]
+[ext_resource type="PackedScene" uid="uid://di3ogo26ly6ok" path="res://models/gargoyle.fbx" id="4_jyhfs"]
+[ext_resource type="Script" uid="uid://c8kdxjgevcjb" path="res://scripts/music_event_parser.gd" id="7_o6xl0"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_jyhfs"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_o6xl0"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_tbgi4"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_tefeu"]
+
+[node name="Main" type="Node3D"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+
+[node name="MusicManager" type="Node" parent="."]
+script = ExtResource("1_sugp2")
+move_step = 2
+
+[node name="PrerollTick" type="AudioStreamPlayer" parent="MusicManager"]
+stream = ExtResource("2_tipki")
+
+[node name="Backing" type="AudioStreamPlayer" parent="MusicManager"]
+stream = ExtResource("2_jyhfs")
+
+[node name="Stings" type="AudioStreamPlayer" parent="MusicManager"]
+stream = ExtResource("3_tbgi4")
+
+[node name="Lanes" type="Node3D" parent="."]
+
+[node name="Lane1" type="Node3D" parent="Lanes"]
+
+[node name="FinishLane" type="MeshInstance3D" parent="Lanes/Lane1"]
+transform = Transform3D(0.399145, 0, -0.0261473, 0, 0.4, 0, 0.0261473, 0, 0.399145, -3.294, 1, 2.621)
+mesh = SubResource("BoxMesh_jyhfs")
+skeleton = NodePath("../..")
+
+[node name="StartLane" type="MeshInstance3D" parent="Lanes/Lane1"]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -2.59356, 0.417349, 7.06714)
+mesh = SubResource("BoxMesh_o6xl0")
+skeleton = NodePath("")
+
+[node name="Enemies" type="Node3D" parent="Lanes/Lane1"]
+
+[node name="Lane2" type="Node3D" parent="Lanes"]
+
+[node name="FinishLane" type="MeshInstance3D" parent="Lanes/Lane2"]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -2.30695, 1, 2.663)
+mesh = SubResource("BoxMesh_tbgi4")
+skeleton = NodePath("../..")
+
+[node name="StartLane" type="MeshInstance3D" parent="Lanes/Lane2"]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -1.48413, 0.271031, 7.06714)
+mesh = SubResource("BoxMesh_o6xl0")
+skeleton = NodePath("")
+
+[node name="Enemies" type="Node3D" parent="Lanes/Lane2"]
+
+[node name="Lane3" type="Node3D" parent="Lanes"]
+
+[node name="FinishLane" type="MeshInstance3D" parent="Lanes/Lane3"]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -1.24158, 1, 2.75561)
+mesh = SubResource("BoxMesh_tefeu")
+skeleton = NodePath("../..")
+
+[node name="StartLane" type="MeshInstance3D" parent="Lanes/Lane3"]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -0.231158, 0.0805157, 7.06666)
+mesh = SubResource("BoxMesh_o6xl0")
+skeleton = NodePath("")
+
+[node name="Enemies" type="Node3D" parent="Lanes/Lane3"]
+
+[node name="EnemyManager" type="Node3D" parent="."]
+script = ExtResource("1_tbgi4")
+enemy_scene = ExtResource("2_tefeu")
+
+[node name="Player" type="Node3D" parent="."]
+
+[node name="gargoyle" parent="." instance=ExtResource("4_jyhfs")]
+
+[node name="MusicEventParser" type="Node" parent="."]
+script = ExtResource("7_o6xl0")

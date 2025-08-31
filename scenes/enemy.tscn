@@ -1,0 +1,19 @@
+[gd_scene load_steps=5 format=3 uid="uid://cvpwbb3vlsd0p"]
+
+[ext_resource type="Texture2D" uid="uid://bvkskih2n2n22" path="res://textures/grass.png" id="1_7p1mj"]
+[ext_resource type="Script" uid="uid://djl0flc3q7bu8" path="res://scripts/enemy.gd" id="1_md0e3"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_md0e3"]
+albedo_texture = ExtResource("1_7p1mj")
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_8tegq"]
+top_radius = 0.1
+bottom_radius = 0.3
+height = 0.5
+
+[node name="Enemy" type="Node3D"]
+script = ExtResource("1_md0e3")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+material_override = SubResource("StandardMaterial3D_md0e3")
+mesh = SubResource("CylinderMesh_8tegq")
