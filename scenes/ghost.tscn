@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://cbx8bvg4lbxu6"]
+
+[ext_resource type="PackedScene" uid="uid://dlybyeweos6ac" path="res://models/ghost.fbx" id="1_t76o2"]
+
+[node name="ghost" instance=ExtResource("1_t76o2")]

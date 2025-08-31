@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://di3ogo26ly6ok"
-path="res://.godot/imported/gargoyle.fbx-c012c4ca7ae235b6a3e43b7a6ad4111e.scn"
+uid="uid://dlybyeweos6ac"
+path="res://.godot/imported/ghost.fbx-45c776e9460c29655c0b709f12826fbb.scn"
 
 [deps]
 
-source_file="res://models/gargoyle.fbx"
-dest_files=["res://.godot/imported/gargoyle.fbx-c012c4ca7ae235b6a3e43b7a6ad4111e.scn"]
+source_file="res://models/ghost.fbx"
+dest_files=["res://.godot/imported/ghost.fbx-45c776e9460c29655c0b709f12826fbb.scn"]
 
 [params]
 
