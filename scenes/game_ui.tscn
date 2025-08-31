@@ -68,6 +68,20 @@ theme_override_fonts/normal_font = ExtResource("3_u2dgd")
 theme_override_font_sizes/normal_font_size = 50
 text = "Subdivision: 1/2"
 
+[node name="SubdivisionLabel2" type="RichTextLabel" parent="."]
+modulate = Color(0.288518, 0.288518, 0.288518, 1)
+layout_mode = 2
+offset_left = 67.0
+offset_top = 601.0
+offset_right = 408.0
+offset_bottom = 829.0
+theme_override_fonts/normal_font = ExtResource("3_u2dgd")
+theme_override_font_sizes/normal_font_size = 28
+text = "Intructions:
+- Stop the red ghosts from entering!
+- Use the arrow keys to move
+- Backspace returns to the menu"
+
 [node name="Fails" type="RichTextLabel" parent="."]
 layout_mode = 2
 offset_left = 67.0

@@ -27,6 +27,8 @@ func _input(event: InputEvent) -> void:
 			last_pressed = GPos.Right
 		if event.is_action_pressed('ui_down'):
 			last_pressed = GPos.Mid
+		if event.is_action_pressed('ui_text_backspace'):
+			$"/root/Mainmenu".back()
 		update_position()
 		return
 
