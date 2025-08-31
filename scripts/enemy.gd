@@ -1,10 +1,9 @@
 extends Node3D
 
-func _ready():
-	pass
+var age: int = 0
 
-func _process(delta):
-	pass
+func jump_to(target: Vector3):
+	global_position = target
 
 func die():
 	queue_free()
