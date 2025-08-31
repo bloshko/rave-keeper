@@ -2,12 +2,12 @@
 
 [ext_resource type="Script" uid="uid://cjrtt4vyburuq" path="res://prototyping/music_manager.gd" id="1_sugp2"]
 [ext_resource type="Script" uid="uid://cweqg3v7yv2sh" path="res://scripts/enemy_manager.gd" id="1_tbgi4"]
-[ext_resource type="AudioStream" uid="uid://y1regmghqvhg" path="res://audio/ravekeeper_level1.ogg" id="2_jyhfs"]
 [ext_resource type="PackedScene" uid="uid://cvpwbb3vlsd0p" path="res://scenes/enemy.tscn" id="2_tefeu"]
 [ext_resource type="AudioStream" uid="uid://blqy2s23oueyo" path="res://audio/tick.mp3" id="2_tipki"]
-[ext_resource type="AudioStream" uid="uid://dss0sj76b43hv" path="res://audio/ravekeeper_level1_sting.ogg" id="3_tbgi4"]
-[ext_resource type="Script" uid="uid://c8kdxjgevcjb" path="res://scripts/music_event_parser.gd" id="7_o6xl0"]
-[ext_resource type="PackedScene" uid="uid://df5o1158j5pe6" path="res://scenes/gargoyle_map.tscn" id="8_tipki"]
+[ext_resource type="AudioStream" uid="uid://bcx62ldj5k2a1" path="res://audio/ravekeeper_level2_v2.ogg" id="3_o6xl0"]
+[ext_resource type="Script" uid="uid://c8kdxjgevcjb" path="res://scripts/track_loader.gd" id="7_o6xl0"]
+[ext_resource type="Script" uid="uid://nnfeopgtwof" path="res://scenes/gargoyle_map.gd" id="8_85g3d"]
+[ext_resource type="PackedScene" path="res://scenes/gargoyle_map.tscn" id="8_tipki"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_jyhfs"]
 
@@ -26,14 +26,14 @@ transform = Transform3D(0.772093, -0.0902697, 0.629065, -0.255389, 0.862341, 0.4
 script = ExtResource("1_sugp2")
 move_step = 2
 
-[node name="PrerollTick" type="AudioStreamPlayer" parent="MusicManager"]
+[node name="PreTick" type="AudioStreamPlayer" parent="MusicManager"]
 stream = ExtResource("2_tipki")
 
-[node name="Backing" type="AudioStreamPlayer" parent="MusicManager"]
-stream = ExtResource("2_jyhfs")
+[node name="MainTrack" type="AudioStreamPlayer" parent="MusicManager"]
+stream = ExtResource("3_o6xl0")
 
-[node name="Stings" type="AudioStreamPlayer" parent="MusicManager"]
-stream = ExtResource("3_tbgi4")
+[node name="TrackLoader" type="Node" parent="MusicManager"]
+script = ExtResource("7_o6xl0")
 
 [node name="Lanes" type="Node3D" parent="."]
 
@@ -41,11 +41,13 @@ stream = ExtResource("3_tbgi4")
 
 [node name="FinishLane" type="MeshInstance3D" parent="Lanes/Lane1"]
 transform = Transform3D(0.399145, 0, -0.0261473, 0, 0.4, 0, 0.0261473, 0, 0.399145, -3.294, 0, 2.621)
+visible = false
 mesh = SubResource("BoxMesh_jyhfs")
 skeleton = NodePath("../..")
 
 [node name="StartLane" type="MeshInstance3D" parent="Lanes/Lane1"]
 transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -2.594, 0, 7.067)
+visible = false
 mesh = SubResource("BoxMesh_o6xl0")
 skeleton = NodePath("")
 
@@ -55,11 +57,13 @@ skeleton = NodePath("")
 
 [node name="FinishLane" type="MeshInstance3D" parent="Lanes/Lane2"]
 transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -2.307, 0, 2.663)
+visible = false
 mesh = SubResource("BoxMesh_tbgi4")
 skeleton = NodePath("../..")
 
 [node name="StartLane" type="MeshInstance3D" parent="Lanes/Lane2"]
 transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -1.484, 0, 7.067)
+visible = false
 mesh = SubResource("BoxMesh_o6xl0")
 skeleton = NodePath("")
 
@@ -69,11 +73,13 @@ skeleton = NodePath("")
 
 [node name="FinishLane" type="MeshInstance3D" parent="Lanes/Lane3"]
 transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -1.242, 0, 2.756)
+visible = false
 mesh = SubResource("BoxMesh_tefeu")
 skeleton = NodePath("../..")
 
 [node name="StartLane" type="MeshInstance3D" parent="Lanes/Lane3"]
 transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -0.349336, 0, 7.067)
+visible = false
 mesh = SubResource("BoxMesh_o6xl0")
 skeleton = NodePath("")
 
@@ -85,10 +91,8 @@ enemy_scene = ExtResource("2_tefeu")
 
 [node name="Player" type="Node3D" parent="."]
 
-[node name="MusicEventParser" type="Node" parent="."]
-script = ExtResource("7_o6xl0")
-
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(0.826555, 0.341721, -0.44725, -0.0198821, 0.81184, 0.583542, 0.562504, -0.473437, 0.677825, -3.93498, 3.52781, 5.96629)
 
 [node name="gargoyleMAP" parent="." instance=ExtResource("8_tipki")]
+script = ExtResource("8_85g3d")
