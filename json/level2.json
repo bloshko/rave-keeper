@@ -1,0 +1,105 @@
+{
+	"song": "ravekeeper_level2_v2.ogg",
+	"initial_subdiv": 0.5,
+	"initial_bpm": 116,
+	"events": [
+		{ "beat": 0, "type" : "evil", "lane" : 0 },
+		{ "beat": 1, "type" : "evil", "lane" : 2 },
+		{ "beat": 2, "type" : "evil", "lane" : 0 },
+		{ "beat": 3, "type" : "evil", "lane" : 2 },
+		
+		{ "beat": 4, "type" : "evil", "lane" : 0 },
+		{ "beat": 5, "type" : "evil", "lane" : 2 },
+		{ "beat": 6, "type" : "evil", "lane" : 0 },
+		{ "beat": 7, "type" : "evil", "lane" : 2 },
+		
+		{ "beat": 8, "type" : "begin_bpm_curve", "bpm" : 116 },
+		
+		{ "beat": 8, "type" : "evil", "lane" : 0 },
+		{ "beat": 9, "type" : "evil", "lane" : 2 },
+		{ "beat": 10, "type" : "evil", "lane" : 0 },
+		{ "beat": 11, "type" : "evil", "lane" : 2 },
+		
+		{ "beat": 12, "type" : "evil", "lane" : 0 },
+		{ "beat": 13, "type" : "evil", "lane" : 2 },
+		{ "beat": 14, "type" : "evil", "lane" : 0 },
+		{ "beat": 15, "type" : "evil", "lane" : 2 },
+		
+		{ "beat": 16, "type" : "end_bpm_curve", "bpm" : 128 },
+		
+		{ "beat": 16, "type" : "evil", "lane" : 1 },
+		{ "beat": 18, "type" : "evil", "lane" : 1 },
+		{ "beat": 20, "type" : "evil", "lane" : 1 },
+		{ "beat": 22, "type" : "evil", "lane" : 1 },
+
+		{ "beat": 24, "type" : "set_subdiv", "value" : 1 },
+
+		{ "beat": 25, "type" : "evil", "lane" : 0 },
+		{ "beat": 26, "type" : "evil", "lane" : 2 },
+		{ "beat": 27, "type" : "evil", "lane" : 1 },
+
+		{ "beat": 29, "type" : "evil", "lane" : 2 },
+		{ "beat": 30, "type" : "evil", "lane" : 1 },
+		{ "beat": 31, "type" : "evil", "lane" : 0 },
+
+		{ "beat": 33, "type" : "evil", "lane" : 0 },
+		{ "beat": 34, "type" : "evil", "lane" : 2 },
+		{ "beat": 35, "type" : "evil", "lane" : 1 },
+
+		{ "beat": 37, "type" : "evil", "lane" : 2 },
+		{ "beat": 38, "type" : "evil", "lane" : 1 },
+		{ "beat": 39, "type" : "evil", "lane" : 0 },
+
+		{ "beat": 41, "type" : "evil", "lane" : 0 },
+		{ "beat": 42, "type" : "evil", "lane" : 2 },
+		{ "beat": 43, "type" : "evil", "lane" : 1 },
+		{ "beat": 44, "type" : "evil", "lane" : 0 },
+		{ "beat": 45, "type" : "evil", "lane" : 2 },
+		{ "beat": 46, "type" : "evil", "lane" : 1 },
+
+		{ "beat": 49, "type" : "evil", "lane" : 0 },
+		{ "beat": 50, "type" : "evil", "lane" : 2 },
+		{ "beat": 51, "type" : "evil", "lane" : 1 },
+		{ "beat": 52, "type" : "evil", "lane" : 0 },
+		{ "beat": 53, "type" : "evil", "lane" : 2 },
+		{ "beat": 54, "type" : "evil", "lane" : 1 },
+
+		{ "beat": 56, "type" : "set_subdiv", "value" : 2 },
+
+		{ "beat": 56, "type" : "evil", "lane" : 0 },
+		{ "beat": 57, "type" : "evil", "lane" : 2 },
+		{ "beat": 58, "type" : "evil", "lane" : 1 },
+		{ "beat": 59, "type" : "evil", "lane" : 2 },
+		{ "beat": 60, "type" : "evil", "lane" : 0 },
+		{ "beat": 61, "type" : "evil", "lane" : 2 },
+		{ "beat": 62, "type" : "evil", "lane" : 1 },
+		{ "beat": 63, "type" : "evil", "lane" : 2 },
+
+		{ "beat": 64, "type" : "evil", "lane" : 2 },
+		{ "beat": 65, "type" : "evil", "lane" : 0 },
+		{ "beat": 66, "type" : "evil", "lane" : 1 },
+		{ "beat": 67, "type" : "evil", "lane" : 0 },
+		{ "beat": 68, "type" : "evil", "lane" : 2 },
+		{ "beat": 69, "type" : "evil", "lane" : 0 },
+		{ "beat": 70, "type" : "evil", "lane" : 1 },
+		{ "beat": 71, "type" : "evil", "lane" : 0 },
+
+		{ "beat": 72, "type" : "evil", "lane" : 0 },
+		{ "beat": 73, "type" : "evil", "lane" : 2 },
+		{ "beat": 74, "type" : "evil", "lane" : 1 },
+		{ "beat": 75, "type" : "evil", "lane" : 2 },
+		{ "beat": 76, "type" : "evil", "lane" : 0 },
+		{ "beat": 77, "type" : "evil", "lane" : 2 },
+		{ "beat": 78, "type" : "evil", "lane" : 1 },
+		{ "beat": 79, "type" : "evil", "lane" : 2 },
+
+		{ "beat": 80, "type" : "evil", "lane" : 2 },
+		{ "beat": 81, "type" : "evil", "lane" : 0 },
+		{ "beat": 82, "type" : "evil", "lane" : 1 },
+		{ "beat": 83, "type" : "evil", "lane" : 0 },
+		{ "beat": 84, "type" : "evil", "lane" : 2 },
+		{ "beat": 85, "type" : "evil", "lane" : 0 },
+		{ "beat": 86, "type" : "evil", "lane" : 1 },
+		{ "beat": 87, "type" : "evil", "lane" : 0 },
+	]
+}
