@@ -1,10 +1,16 @@
 extends Node3D
 
-func _ready():
-	pass
+@onready var animation_ghost = $ghost/AnimationPlayer
+@onready var animation_human_a = $human_a/AnimationPlayer
 
-func _process(delta):
-	pass
+func _ready():
+	animation_human_a.play("mixamo_com", 0.0, 1.0)
+
+func _on_beat(beat_num: int):
+	if beat_num % 4 == 0:
+		animation_ghost.play("ghosrRig|ghostHeadBobbingMore", 0.0, 3.0)
+	else:
+		animation_ghost.play("ghosrRig|ghostHeadBobbing", 0.0, 2.0)
 
 func die():
 	queue_free()

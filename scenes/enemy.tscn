@@ -1,12 +1,60 @@
-[gd_scene load_steps=3 format=3 uid="uid://cvpwbb3vlsd0p"]
+[gd_scene load_steps=4 format=3 uid="uid://cvpwbb3vlsd0p"]
 
 [ext_resource type="Script" uid="uid://djl0flc3q7bu8" path="res://scripts/enemy.gd" id="1_md0e3"]
+[ext_resource type="PackedScene" uid="uid://biv4bikevg1o" path="res://scenes/human_a.tscn" id="2_4ra3w"]
 [ext_resource type="PackedScene" uid="uid://dlybyeweos6ac" path="res://models/ghost.fbx" id="2_md0e3"]
 
 [node name="Enemy" type="Node3D"]
+transform = Transform3D(-1.5, 0, -1.31134e-07, 0, 1.5, 0, 1.31134e-07, 0, -1.5, 0, 0, 0)
 script = ExtResource("1_md0e3")
 
+[node name="human_a" parent="." instance=ExtResource("2_4ra3w")]
+transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, 0, 0, 0)
+
+[node name="Skeleton3D" parent="human_a" index="0"]
+bones/0/position = Vector3(-0.0548384, 2.07409, 0.0752925)
+bones/0/rotation = Quaternion(0.0213265, -0.0523428, 0.0139932, 0.998303)
+bones/1/rotation = Quaternion(0.124007, 0.0671497, 0.00129053, 0.990006)
+bones/2/position = Vector3(0, 0.237905, 0)
+bones/2/rotation = Quaternion(-0.00788855, 0.00862351, 0.00399135, 0.999924)
+bones/3/rotation = Quaternion(-0.00792654, 0.00876543, 0.00358636, 0.999924)
+bones/4/rotation = Quaternion(0.0734141, 0.0045916, -0.0418132, 0.996414)
+bones/5/rotation = Quaternion(-0.0491324, -0.023253, -0.0498429, 0.997277)
+bones/7/rotation = Quaternion(-0.467541, -0.499842, 0.583645, -0.436946)
+bones/8/position = Vector3(0, 0.207403, -8.88178e-16)
+bones/8/rotation = Quaternion(0.248569, 0.185892, -0.104256, 0.944875)
+bones/9/position = Vector3(0, 0.5325, -2.22045e-16)
+bones/9/rotation = Quaternion(0.000154043, -0.0003433, 0.00145178, 0.999999)
+bones/10/position = Vector3(-1.66533e-16, 0.566825, 2.22045e-16)
+bones/10/rotation = Quaternion(1.21431e-17, 0, -3.46945e-18, 1)
+bones/11/rotation = Quaternion(0.568165, -0.451489, 0.521551, 0.448699)
+bones/12/position = Vector3(0, 0.207403, -8.88178e-16)
+bones/12/rotation = Quaternion(0.292292, -0.358924, -0.391589, 0.795234)
+bones/13/position = Vector3(-1.11022e-16, 0.532338, 2.22045e-16)
+bones/13/rotation = Quaternion(0.0501185, 0.000259621, -0.744543, 0.665691)
+bones/14/position = Vector3(5.55112e-17, 0.566624, -2.22045e-16)
+bones/14/rotation = Quaternion(-1.249e-16, -6.93889e-18, 1.38778e-17, 1)
+bones/15/rotation = Quaternion(0.00699516, 0.357216, 0.93387, 0.0152979)
+bones/16/position = Vector3(0, 0.919142, 1.73472e-17)
+bones/16/rotation = Quaternion(-0.814381, -0.0392377, 0.0672832, 0.57508)
+bones/17/position = Vector3(1.11022e-16, 0.832913, -5.20417e-18)
+bones/17/rotation = Quaternion(0.445994, -0.18082, -0.136051, 0.865958)
+bones/18/position = Vector3(5.55112e-17, 0.362053, -5.55112e-17)
+bones/18/rotation = Quaternion(0.28519, -0.0479583, 0.0142851, 0.957164)
+bones/20/rotation = Quaternion(-0.101094, 0.225128, 0.968721, 0.0260217)
+bones/21/position = Vector3(0, 0.919229, 1.38778e-17)
+bones/21/rotation = Quaternion(-0.390895, -0.0646101, 0.0768493, 0.914943)
+bones/22/position = Vector3(5.55112e-17, 0.833247, 1.04354e-17)
+bones/22/rotation = Quaternion(0.48016, 0.0412103, 0.110826, 0.869175)
+bones/23/position = Vector3(5.55112e-17, 0.370074, 1.66533e-16)
+bones/23/rotation = Quaternion(0.393124, -0.0470334, -0.0274197, 0.917872)
+
 [node name="ghost" parent="." instance=ExtResource("2_md0e3")]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, 0, 0)
+visible = false
+
+[node name="ghosrRig" parent="ghost" index="0"]
+transform = Transform3D(24.6565, 0, 0, 0, -1.07777e-06, 20.5311, 0, -24.6565, -8.97443e-07, 0.00019847, 0.179815, -0.00977534)
 
 [node name="Skeleton3D" parent="ghost/ghosrRig" index="0"]
 bones/1/position = Vector3(0.00306955, 0.00673026, 0.000638745)
@@ -19,4 +67,5 @@ bones/5/position = Vector3(0, 0.0138025, 0.00159685)
 bones/5/rotation = Quaternion(0.047294, 0, 0, 0.998881)
 bones/5/scale = Vector3(1, 1, 1)
 
+[editable path="human_a"]
 [editable path="ghost"]

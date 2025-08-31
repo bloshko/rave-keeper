@@ -57,13 +57,14 @@ func _on_beat(beat_num: int):
 	spawn_index(index_to_spawn)
 	
 func spawn_index(index_to_spawn: int):
+	spawn_enemy(1)
 	if enemy_scene == null or index_to_spawn + 1 > enemies.size():
 		return
 		
 	var enemies_to_spawn = enemies[index_to_spawn]
 	
-	if enemies_to_spawn[0]:
-		spawn_enemy(1)
+	#if enemies_to_spawn[0]:
+		#spawn_enemy(1)
 		
 	if enemies_to_spawn[1]:
 		spawn_enemy(2)
@@ -84,7 +85,8 @@ func spawn_enemy(lane_num: int):
 		parent_node = lane_enemies_2
 		
 	var enemy = enemy_scene.instantiate()
-	
+	music_manager.beat.connect(enemy._on_beat)
+
 	parent_node.add_child(enemy)
 	enemy.global_position = spawn_position;
 

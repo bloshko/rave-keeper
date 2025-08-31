@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://dlybyeweos6ac"
-path="res://.godot/imported/ghost.fbx-45c776e9460c29655c0b709f12826fbb.scn"
+uid="uid://dyldvmgwbnckl"
+path="res://.godot/imported/human_a.fbx-637ab57bea8b13bce20f4acfcddd9618.scn"
 
 [deps]
 
-source_file="res://models/ghost.fbx"
-dest_files=["res://.godot/imported/ghost.fbx-45c776e9460c29655c0b709f12826fbb.scn"]
+source_file="res://models/human_a.fbx"
+dest_files=["res://.godot/imported/human_a.fbx-637ab57bea8b13bce20f4acfcddd9618.scn"]
 
 [params]
 
@@ -34,11 +34,11 @@ animation/import_rest_as_RESET=false
 import_script/path=""
 _subresources={
 "animations": {
-"ghosrRig|ghostHeadBobbing": {
+"mixamo_com": {
 "save_to_file/enabled": false,
 "save_to_file/keep_custom_tracks": "",
 "save_to_file/path": "",
-"settings/loop_mode": 0,
+"settings/loop_mode": 1,
 "slice_1/end_frame": 0,
 "slice_1/loop_mode": 0,
 "slice_1/name": "",
