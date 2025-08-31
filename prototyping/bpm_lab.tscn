@@ -1,13 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://yuyjg6el1hud"]
+[gd_scene load_steps=7 format=3 uid="uid://yuyjg6el1hud"]
 
 [ext_resource type="Texture2D" uid="uid://d3iolkpn1ow8v" path="res://graphics/gargy.png" id="1_1dxx3"]
 [ext_resource type="Script" uid="uid://c3c8fhnk1tjuq" path="res://prototyping/player.gd" id="1_h7don"]
-[ext_resource type="Script" uid="uid://c7mpkeu1ur4t5" path="res://prototyping/evil.gd" id="3_53qao"]
 [ext_resource type="Texture2D" uid="uid://uwpiscipjlho" path="res://icon.svg" id="3_t5ujd"]
-[ext_resource type="Script" uid="uid://cjrtt4vyburuq" path="res://prototyping/music_manager.gd" id="4_53qao"]
+[ext_resource type="Script" uid="uid://l5sl63gab1q1" path="res://prototyping/debug_music_manager.gd" id="5_kf62a"]
 [ext_resource type="Script" uid="uid://c8kdxjgevcjb" path="res://scripts/track_loader.gd" id="5_q5qk3"]
 [ext_resource type="AudioStream" uid="uid://bcx62ldj5k2a1" path="res://audio/ravekeeper_level2_v2.ogg" id="6_kf62a"]
-[ext_resource type="AudioStream" uid="uid://dss0sj76b43hv" path="res://audio/ravekeeper_level1_sting.ogg" id="7_kf62a"]
 
 [node name="BPMLab" type="Node2D"]
 
@@ -88,38 +86,29 @@ self_modulate = Color(0.71, 0.31595, 0.1846, 1)
 position = Vector2(-128, 376)
 scale = Vector2(3, 3)
 texture = ExtResource("1_1dxx3")
-script = ExtResource("3_53qao")
 
 [node name="EvilMiddle" type="Sprite2D" parent="Lanes"]
 self_modulate = Color(0.71, 0.31595, 0.1846, 1)
 position = Vector2(0, 376)
 scale = Vector2(3, 3)
 texture = ExtResource("1_1dxx3")
-script = ExtResource("3_53qao")
-start_offset = 1
 
 [node name="EvilRight" type="Sprite2D" parent="Lanes"]
 self_modulate = Color(0.71, 0.31595, 0.1846, 1)
 position = Vector2(128, 376)
 scale = Vector2(3, 3)
 texture = ExtResource("1_1dxx3")
-script = ExtResource("3_53qao")
-start_offset = 4
 
 [node name="Icon" type="Sprite2D" parent="."]
 position = Vector2(316, 225)
 scale = Vector2(0.599609, 0.599609)
 texture = ExtResource("3_t5ujd")
 
-[node name="MusicManager" type="Node" parent="."]
-script = ExtResource("4_53qao")
-move_step = 2
+[node name="DebugMusicManager" type="Node" parent="."]
+script = ExtResource("5_kf62a")
 
-[node name="Backing" type="AudioStreamPlayer" parent="MusicManager"]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="DebugMusicManager"]
 stream = ExtResource("6_kf62a")
 
-[node name="Stings" type="AudioStreamPlayer" parent="MusicManager"]
-stream = ExtResource("7_kf62a")
-
-[node name="MusicEventParser" type="Node" parent="."]
+[node name="TrackLoader" type="Node" parent="DebugMusicManager"]
 script = ExtResource("5_q5qk3")

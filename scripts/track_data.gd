@@ -15,4 +15,4 @@ static func from_dict(dict: Dictionary) -> TrackData:
 	return data
 
 func get_bpm(beat: int) -> float:
-	return 0
+	return 116

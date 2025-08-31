@@ -4,7 +4,7 @@ signal track_ready(data: TrackData)
 
 const json_path = "res://json/level2.json"
 
-func _ready():
+func load_track():
 	var file = FileAccess.open(json_path, FileAccess.READ)
 	var content = file.get_as_text()
 	
