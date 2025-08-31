@@ -4,7 +4,6 @@ signal beat_hit(beat_num: int)
 
 @onready var main_track = $MainTrack
 @onready var pre_tick = $PreTick
-@onready var indicator = $"../Icon"
 @onready var track_loader = $TrackLoader
 
 @export var move_step: int
