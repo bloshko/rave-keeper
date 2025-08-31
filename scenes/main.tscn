@@ -5,11 +5,13 @@
 [ext_resource type="PackedScene" uid="uid://cvpwbb3vlsd0p" path="res://scenes/enemy.tscn" id="2_tefeu"]
 [ext_resource type="AudioStream" uid="uid://blqy2s23oueyo" path="res://audio/tick.mp3" id="2_tipki"]
 [ext_resource type="AudioStream" uid="uid://bcx62ldj5k2a1" path="res://audio/ravekeeper_level2_v2.ogg" id="3_o6xl0"]
+[ext_resource type="PackedScene" uid="uid://chplmoaodo7pw" path="res://scenes/human.tscn" id="7_85g3d"]
 [ext_resource type="Script" uid="uid://c8kdxjgevcjb" path="res://scripts/track_loader.gd" id="7_o6xl0"]
 [ext_resource type="Script" uid="uid://nnfeopgtwof" path="res://scenes/gargoyle_map.gd" id="8_85g3d"]
-[ext_resource type="PackedScene" path="res://scenes/gargoyle_map.tscn" id="8_tipki"]
 [ext_resource type="PackedScene" uid="uid://bf62p8ocqv706" path="res://scenes/g_boy.tscn" id="9_85g3d"]
 [ext_resource type="Script" uid="uid://xap2pmubimnc" path="res://scenes/gameplay_manager.gd" id="10_choun"]
+[ext_resource type="PackedScene" uid="uid://dmpfoykm450ag" path="res://models/church.fbx" id="8_choun"]
+[ext_resource type="PackedScene" uid="uid://df5o1158j5pe6" path="res://scenes/gargoyle_map.tscn" id="8_tipki"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_jyhfs"]
 
@@ -57,6 +59,7 @@ skeleton = NodePath("")
 
 [node name="GSpot" type="Node3D" parent="Lanes/Lane1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.41097, 1.45211, 2.39303)
+[node name="Humans" type="Node3D" parent="Lanes/Lane1"]
 
 [node name="Lane2" type="Node3D" parent="Lanes"]
 
@@ -76,6 +79,7 @@ skeleton = NodePath("")
 
 [node name="GSpot" type="Node3D" parent="Lanes/Lane2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.46486, 1.45211, 2.39303)
+[node name="Humans" type="Node3D" parent="Lanes/Lane2"]
 
 [node name="Lane3" type="Node3D" parent="Lanes"]
 
@@ -95,15 +99,19 @@ skeleton = NodePath("")
 
 [node name="GSpot" type="Node3D" parent="Lanes/Lane3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.58838, 1.45211, 2.39303)
+[node name="Humans" type="Node3D" parent="Lanes/Lane3"]
 
 [node name="EnemyManager" type="Node3D" parent="."]
 script = ExtResource("1_tbgi4")
 enemy_scene = ExtResource("2_tefeu")
+human_scene = ExtResource("7_85g3d")
 
 [node name="Player" type="Node3D" parent="."]
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(0.826555, 0.341721, -0.44725, -0.0198821, 0.81184, 0.583542, 0.562504, -0.473437, 0.677825, -3.93498, 3.52781, 5.96629)
+
+[node name="church" parent="." instance=ExtResource("8_choun")]
 
 [node name="gargoyleMAP" parent="." instance=ExtResource("8_tipki")]
 script = ExtResource("8_85g3d")
