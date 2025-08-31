@@ -4,7 +4,7 @@ extends Node
 @onready var track_loader = $TrackLoader
 @onready var indicator = $"../Icon"
 
-var data: TrackData
+var track_data: TrackData
 var seconds_per_beat: float
 var elapsed: float = 0
 var beat: int
@@ -14,7 +14,7 @@ func _ready() -> void:
 	track_loader.load_track()
 
 func _track_ready(data: TrackData):
-	self.data = data
+	track_data = data
 	audio_player.play()
 	beat = 0
 	flash_indicator()
@@ -26,12 +26,15 @@ func flash_indicator():
 
 func _process(delta: float) -> void:
 	if audio_player.playing:
-		var bpm = data.get_bpm(beat)
-		seconds_per_beat = 1 / (bpm / 60)
+		var bpm = track_data.get_bpm(beat)
+		var subdiv = track_data.get_subdiv(beat)
+
+		seconds_per_beat = 1 / (subdiv * (bpm / 60)) 
 		elapsed += delta
 		
 		if elapsed >= seconds_per_beat:
 			beat += 1
 			flash_indicator()
+			print(beat)
 
 			elapsed -= seconds_per_beat 

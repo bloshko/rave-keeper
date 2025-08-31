@@ -32,6 +32,6 @@
 		{ "beat": 20, "type" : "evil", "lane" : 1 },
 		{ "beat": 22, "type" : "evil", "lane" : 1 },
 
-		{ "beat": 23, "type" : "set_subdiv", "value" : 1 },
+		{ "beat": 25, "type" : "set_subdiv", "value" : 1 },
 	]
 }
