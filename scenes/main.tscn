@@ -9,12 +9,12 @@
 [ext_resource type="Script" uid="uid://c8kdxjgevcjb" path="res://scripts/track_loader.gd" id="7_o6xl0"]
 [ext_resource type="Script" uid="uid://nnfeopgtwof" path="res://scenes/gargoyle_map.gd" id="8_85g3d"]
 [ext_resource type="PackedScene" uid="uid://dmpfoykm450ag" path="res://models/church.fbx" id="8_choun"]
-[ext_resource type="PackedScene" uid="uid://df5o1158j5pe6" path="res://scenes/gargoyle_map.tscn" id="8_tipki"]
-[ext_resource type="PackedScene" path="res://scenes/g_boy.tscn" id="9_85g3d"]
+[ext_resource type="PackedScene" path="res://scenes/gargoyle_map.tscn" id="8_tipki"]
+[ext_resource type="PackedScene" uid="uid://bf62p8ocqv706" path="res://scenes/g_boy.tscn" id="9_85g3d"]
 [ext_resource type="Shader" uid="uid://dly7hb4ylq38g" path="res://shaders/postprocess.gdshader" id="11_ya4ey"]
-[ext_resource type="PackedScene" path="res://scenes/gameplay_manager.tscn" id="12_eb6dy"]
+[ext_resource type="PackedScene" uid="uid://dybwc5odvl6qa" path="res://scenes/gameplay_manager.tscn" id="12_eb6dy"]
 [ext_resource type="PackedScene" uid="uid://cl1yitbde3g4v" path="res://scenes/game_ui.tscn" id="13_trceg"]
-[ext_resource type="Script" uid="uid://b1sk57ijn1gy6" path="res://scripts/shaderbox.gd" id="15_jkv2x"]
+[ext_resource type="Script" path="res://scripts/shaderbox.gd" id="15_jkv2x"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_jyhfs"]
 

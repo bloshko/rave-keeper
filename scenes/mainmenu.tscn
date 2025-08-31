@@ -20,6 +20,7 @@ texture = ExtResource("2_r3g3c")
 
 [node name="Button" type="Button" parent="Menu"]
 modulate = Color(1, 0.3, 0.3, 1)
+layout_mode = 0
 offset_left = 738.0
 offset_top = 897.0
 offset_right = 1177.0
