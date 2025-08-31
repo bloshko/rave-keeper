@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bvlerh2hfayrm"]
+[gd_scene load_steps=13 format=3 uid="uid://bvlerh2hfayrm"]
 
 [ext_resource type="Script" uid="uid://cjrtt4vyburuq" path="res://prototyping/music_manager.gd" id="1_sugp2"]
 [ext_resource type="Script" uid="uid://cweqg3v7yv2sh" path="res://scripts/enemy_manager.gd" id="1_tbgi4"]
@@ -6,6 +6,7 @@
 [ext_resource type="AudioStream" uid="uid://blqy2s23oueyo" path="res://audio/tick.mp3" id="2_tipki"]
 [ext_resource type="AudioStream" uid="uid://bcx62ldj5k2a1" path="res://audio/ravekeeper_level2_v2.ogg" id="3_o6xl0"]
 [ext_resource type="Script" uid="uid://c8kdxjgevcjb" path="res://scripts/track_loader.gd" id="7_o6xl0"]
+[ext_resource type="Script" uid="uid://nnfeopgtwof" path="res://scenes/gargoyle_map.gd" id="8_85g3d"]
 [ext_resource type="PackedScene" path="res://scenes/gargoyle_map.tscn" id="8_tipki"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_jyhfs"]
@@ -88,3 +89,4 @@ enemy_scene = ExtResource("2_tefeu")
 transform = Transform3D(0.826555, 0.341721, -0.44725, -0.0198821, 0.81184, 0.583542, 0.562504, -0.473437, 0.677825, -3.93498, 3.52781, 5.96629)
 
 [node name="gargoyleMAP" parent="." instance=ExtResource("8_tipki")]
+script = ExtResource("8_85g3d")

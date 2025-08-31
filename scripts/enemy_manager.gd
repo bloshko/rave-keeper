@@ -34,7 +34,7 @@ var step_lengths = [
 	0
 ]
 
-const look_ahead: int = 4;
+const look_ahead: int = 8;
 
 func _ready():
 	for i in range(3):
@@ -64,3 +64,5 @@ func move_enemies():
 		for child in lane_enemies[i].get_children():
 			child.age += 1 
 			child.jump_to(lane_starts[i].global_position + lane_directions[i] * step_lengths[i] * child.age)
+			if child.age > look_ahead:
+				child.die()

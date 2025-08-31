@@ -12,17 +12,20 @@ signal beat_hit(beat_num: int)
 var track_data: TrackData
 var seconds_per_beat: float
 var elapsed: float = 0
-var beat: int = -4
+var beat: int = -8
 
 var playing: bool = false
 
 func _ready() -> void:
 	track_loader.track_ready.connect(_track_ready)
-	track_loader.load_track()
+	var tween = create_tween()
+	tween.tween_interval(1)
+	tween.chain().tween_callback(func(): track_loader.load_track())
 
 func _track_ready(data: TrackData):
 	track_data = data
 	pre_tick.play()
+	beat_hit.emit(beat)
 	playing = true
 
 func is_preroll() -> bool: return beat < 0
