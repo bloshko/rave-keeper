@@ -18,7 +18,7 @@ var playing: bool = false
 func _ready() -> void:
 	track_loader.track_ready.connect(_track_ready)
 	var tween = create_tween()
-	tween.tween_interval(1)
+	tween.tween_interval(4)
 	tween.chain().tween_callback(func(): track_loader.load_track())
 
 func _track_ready(data: TrackData):
