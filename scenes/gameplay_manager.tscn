@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://dybwc5odvl6qa"]
+
+[ext_resource type="Script" uid="uid://xap2pmubimnc" path="res://scenes/gameplay_manager.gd" id="1_d8upt"]
+[ext_resource type="AudioStream" uid="uid://e4tq5eyomub" path="res://audio/sfx_bell.mp3" id="2_igb1t"]
+
+[node name="GameplayManager" type="Node"]
+script = ExtResource("1_d8upt")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_igb1t")
+volume_db = -20.0

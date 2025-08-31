@@ -2,6 +2,8 @@ extends Node3D
 
 @export var gspots: Array[Node3D]
 
+var hold_mode: bool = false
+
 var left_pressed: bool
 var right_pressed: bool
 var last_pressed: GPos
@@ -18,6 +20,16 @@ func _ready() -> void:
 	assert(len(gspots) == 3)
 
 func _input(event: InputEvent) -> void:
+	if not hold_mode:
+		if event.is_action_pressed('ui_left'):
+			last_pressed = GPos.Left
+		if event.is_action_pressed('ui_right'):
+			last_pressed = GPos.Right
+		if event.is_action_pressed('ui_down'):
+			last_pressed = GPos.Mid
+		update_position()
+		return
+
 	if event.is_action_pressed('ui_left'):
 		left_pressed = true
 		last_pressed = GPos.Left
@@ -32,6 +44,12 @@ func _input(event: InputEvent) -> void:
 	update_position()
 
 func update_position():
+	if not hold_mode:
+		if current_pos != last_pressed:
+			global_position = gspots[last_pressed].global_position
+			current_pos = last_pressed
+		return
+
 	var new_pos: GPos = GPos.Mid
 	
 	if not left_pressed and not right_pressed:
