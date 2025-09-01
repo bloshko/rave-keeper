@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://g0c0wg8okdk8"]
+
+[ext_resource type="Script" uid="uid://05w3dbcwnuh3" path="res://prototyping/debug_particle_feedback.gd" id="1_0vdw1"]
+[ext_resource type="PackedScene" uid="uid://cvpwbb3vlsd0p" path="res://scenes/enemy.tscn" id="2_05epc"]
+
+[node name="DebugParticleFeedback" type="Node3D"]
+script = ExtResource("1_0vdw1")
+
+[node name="Enemy" parent="." instance=ExtResource("2_05epc")]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.907543, 0.419959, 0, -0.419959, 0.907543, 0, 0.886662, 1.775)
+
+[editable path="Enemy"]
+[editable path="Enemy/ghost"]
