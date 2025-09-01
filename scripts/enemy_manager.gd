@@ -42,6 +42,8 @@ var step_lengths = [
 ]
 
 const look_ahead: int = 8;
+const has_humans = true
+@onready var gBoy = $"../GBoy"
 
 func _ready():
 	for i in range(3):
@@ -52,20 +54,22 @@ func _ready():
 	
 func _beat_hit(new_beat: int):	
 	move_enemies()
-	move_humans()
+	if has_humans:
+		move_humans()
 
 	var spawn_beat = new_beat + look_ahead
 	var enemy_lane = -1
 	if spawn_beat in music_manager.track_data.evil_events:
 		enemy_lane = music_manager.track_data.evil_events[spawn_beat]
 		spawn_enemy(enemy_lane)
-		
-	var human_lane = randi_range(0, 2)
-	for i in range(3):
-		if i == enemy_lane:
-			continue
-		if i == human_lane:
-			spawn_human(i)
+
+	if has_humans:	
+		var human_lane = randi_range(0, 2)
+		for i in range(3):
+			if i == enemy_lane:
+				continue
+			if i == human_lane:
+				spawn_human(i)
 	
 func spawn_enemy(lane_idx: int):
 	var spawn_position = lane_starts[lane_idx].global_position
@@ -84,19 +88,23 @@ func spawn_human(lane_idx: int):
 
 	parent_node.add_child(human)
 	human.global_position = spawn_position;
-	
+
 func move_humans():
 	for i in range(3):
 		for human in lane_humans[i].get_children():
 			human.age += 1 
 			human.jump_to(lane_starts[i].global_position + lane_directions[i] * step_lengths[i] * human.age)
-			if human.age > look_ahead:
-				human._die()
+			if human.age == look_ahead and gBoy.current_pos == i:
+				human.scare_away()
+			elif human.age - 2 > look_ahead: # 2 is there to wait for the enemy to enter the church
+				human.die()
 				
 func move_enemies():
 	for i in range(3):
 		for child in lane_enemies[i].get_children():
 			child.age += 1 
 			child.jump_to(lane_starts[i].global_position + lane_directions[i] * step_lengths[i] * child.age)
-			if child.age > look_ahead:
+			if child.age == look_ahead and gBoy.current_pos == i:
+				child.kill()
+			elif child.age - 2 > look_ahead: # 2 is there to wait for the enemy to enter the church
 				child.die()

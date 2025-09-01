@@ -16,7 +16,7 @@
 [ext_resource type="Material" uid="uid://b57ptiq014w6m" path="res://materials/glow_entrance.tres" id="13_dp3eg"]
 [ext_resource type="PackedScene" uid="uid://cl1yitbde3g4v" path="res://scenes/game_ui.tscn" id="13_trceg"]
 [ext_resource type="Texture2D" uid="uid://bwkujtywdtw1q" path="res://textures/gradient.png" id="14_0ld40"]
-[ext_resource type="Script" uid="uid://cboioa2okpy1c" path="res://scenes/finish_2.gd" id="15_gqmmt"]
+[ext_resource type="Script" path="res://scenes/finish_2.gd" id="15_gqmmt"]
 [ext_resource type="Script" uid="uid://b1sk57ijn1gy6" path="res://scripts/shaderbox.gd" id="15_jkv2x"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_jyhfs"]

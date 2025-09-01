@@ -3,7 +3,7 @@ extends Node3D
 
 enum STATE {
 	WALKING,
-	RUNNING_AWAY
+	DYING
 }
 
 var age = 0
@@ -11,10 +11,7 @@ var age = 0
 var state = STATE.WALKING
 var max_offset_radius: float = .1
 
-var run_away_direction = Vector3.BACK
-var velocity = 5
-
-@onready var mesh = $Cylinder
+@onready var mesh = $human_a/Armature/Skeleton3D/Cylinder
 
 func jump_to(target: Vector3):
 	if state != STATE.WALKING:
@@ -27,18 +24,19 @@ func jump_to(target: Vector3):
 	tween.tween_property(self, 'global_position', target + Vector3(offset_x, 0, offset_z), .2)
 
 func _ready():
-	animation.play("Armature|danceA", 0.0, 1.0)
+	animation.play("Armature|danceA")
 
-func _process(delta):
-	if state == STATE.RUNNING_AWAY:
-		position += run_away_direction * velocity * delta
 
 func scare_away():
-	state = STATE.RUNNING_AWAY
-	look_at(run_away_direction, Vector3.UP)
-	animation.play("run")
+	if state != STATE.WALKING:
+		return
+	state = STATE.DYING
 	
-	animation.animation_finished.connect(_die)
+	animation.play("Armature|scared")
+	
+	var tween = create_tween()
+	tween.tween_interval(.4)
+	tween.chain().tween_callback(die)
 
-func _die():
+func die():
 	queue_free()
