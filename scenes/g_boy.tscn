@@ -19,7 +19,7 @@ mesh = SubResource("CapsuleMesh_3dmlv")
 surface_material_override/0 = SubResource("StandardMaterial3D_dnj0x")
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
-transform = Transform3D(-0.475, 7.1723e-08, 3.13511e-15, 0, -2.07629e-08, 0.475, 7.1723e-08, 0.475, 2.07629e-08, 0, -0.218904, 0.21419)
+transform = Transform3D(-0.475, 7.1723e-08, 3.13511e-15, -2.14111e-08, -0.141799, 0.453341, 6.84526e-08, 0.453341, 0.141799, 0, 0.121441, 0.150014)
 mesh = ExtResource("2_3dmlv")
 
 [node name="MeshInstance3D3" type="MeshInstance3D" parent="MeshInstance3D2"]

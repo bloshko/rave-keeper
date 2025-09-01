@@ -6,6 +6,7 @@ signal something_changed
 @onready var enemy_manager = $"../EnemyManager"
 @onready var music_manager = $"../MusicManager"
 @onready var bell = $AudioStreamPlayer
+@onready var finish_line = $"../finish2"
 
 var kills: int = 0
 var fails: int = 0
@@ -32,12 +33,13 @@ func check_kill(beat: int):
 			combo += 1
 			multiplier = 1 + floor(combo / 8.0)
 			score += 100 * multiplier
+			finish_line.jump()
 			bell.play()
 			something_changed.emit()
 		else:
 			fails += 1
-			bell.pitch_scale = .7
+			bell.pitch_scale = .5
 			combo = 0
 			multiplier = 1 + floor(combo / 8.0)
-			bell.play()
+			bell.play(.02)
 			something_changed.emit()

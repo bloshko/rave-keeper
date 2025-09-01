@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://bvlerh2hfayrm"]
+[gd_scene load_steps=30 format=4 uid="uid://bvlerh2hfayrm"]
 
 [ext_resource type="Script" uid="uid://cjrtt4vyburuq" path="res://prototyping/music_manager.gd" id="1_sugp2"]
 [ext_resource type="Script" uid="uid://cweqg3v7yv2sh" path="res://scripts/enemy_manager.gd" id="1_tbgi4"]
@@ -12,8 +12,11 @@
 [ext_resource type="Shader" uid="uid://dly7hb4ylq38g" path="res://shaders/postprocess_pixelated.gdshader" id="8_jkv2x"]
 [ext_resource type="PackedScene" uid="uid://df5o1158j5pe6" path="res://scenes/gargoyle_map.tscn" id="8_tipki"]
 [ext_resource type="PackedScene" uid="uid://bf62p8ocqv706" path="res://scenes/g_boy.tscn" id="9_85g3d"]
-[ext_resource type="PackedScene" path="res://scenes/gameplay_manager.tscn" id="12_eb6dy"]
+[ext_resource type="PackedScene" uid="uid://dybwc5odvl6qa" path="res://scenes/gameplay_manager.tscn" id="12_eb6dy"]
+[ext_resource type="Material" uid="uid://b57ptiq014w6m" path="res://materials/glow_entrance.tres" id="13_dp3eg"]
 [ext_resource type="PackedScene" uid="uid://cl1yitbde3g4v" path="res://scenes/game_ui.tscn" id="13_trceg"]
+[ext_resource type="Texture2D" uid="uid://bwkujtywdtw1q" path="res://textures/gradient.png" id="14_0ld40"]
+[ext_resource type="Script" uid="uid://cboioa2okpy1c" path="res://scenes/finish_2.gd" id="15_gqmmt"]
 [ext_resource type="Script" uid="uid://b1sk57ijn1gy6" path="res://scripts/shaderbox.gd" id="15_jkv2x"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_jyhfs"]
@@ -31,6 +34,47 @@ shader_parameter/pixelation = 0.004
 shader_parameter/opacity = 1.0
 
 [sub_resource type="BoxMesh" id="BoxMesh_trceg"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_so05r"]
+resource_name = "Material.006"
+transparency = 4
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("14_0ld40")
+emission_enabled = true
+emission = Color(1, 0.844805, 0.510248, 1)
+emission_energy_multiplier = 0.0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_6yhqm"]
+_surfaces = [{
+"aabb": AABB(-0.0137447, -0.00236824, -0.00207226, 0.0277493, 0.00516169, 0.00225922),
+"format": 34359742465,
+"index_count": 24,
+"index_data": PackedByteArray("AAABAAIAAwACAAEAAgAEAAAAAQAFAAMAAAAEAAYABgADAAUABgAHAAAABQAHAAYA"),
+"name": "Material.006",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("s3NlPHQ0G7uW+Ji6jlVMPF8SNztXwVe66CpKPChpLjsEAeO6FvRevCgbBTska5+6mv1iPCrBE7vRzge7ajFhvCCcCTszZJ65ah5ZvA8N0LrFK7q6GjBbvNt627rxCUQ5")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_yc10j"]
+resource_name = "Plane_004"
+_surfaces = [{
+"aabb": AABB(-0.0137447, -0.00236824, -0.00207226, 0.0277493, 0.00516169, 0.00225922),
+"attribute_data": PackedByteArray("sPB2P5PgXT+x8HY/kuBdP/L2dj8ShmI/8PZ2PxOGYj/KdhM9k+BdP8p2Ez2S4F0/ujsTPROGYj+6OxM9E4ZiP7Hwdj+S4F0/ynYTPZPgXT+6OxM9E4ZiP/L2dj8ShmI/sPB2P5PgXT/w9nY/E4ZiP7o7Ez0ThmI/ynYTPZLgXT8="),
+"format": 34359742487,
+"index_count": 24,
+"index_data": PackedByteArray("AAABAAIAAgADAAAABAAFAAYABgAHAAQACAAJAAoACgALAAgADAANAA4ADgAPAAwA"),
+"material": SubResource("StandardMaterial3D_so05r"),
+"name": "Material.006",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 16,
+"vertex_data": PackedByteArray("s3NlPHQ0G7uW+Ji6jlVMPF8SNztXwVe66CpKPChpLjsEAeO6mv1iPCrBE7vRzge7ajFhvCCcCTszZJ65GjBbvNt627rxCUQ5ah5ZvA8N0LrFK7q6FvRevCgbBTska5+6jlVMPF8SNztXwVe6ajFhvCCcCTszZJ65FvRevCgbBTska5+66CpKPChpLjsEAeO6s3NlPHQ0G7uW+Ji6mv1iPCrBE7vRzge7ah5ZvA8N0LrFK7q6GjBbvNt627rxCUQ5wuQMqcFjsO7C5AypvGO17sLkDKm8Y7TuwuQMqcJjsO7MCg9qMGmkBMwKD2owaaQEzAoPajBppATMCg9q////v35w5Pzj/Dg9fnDk/OL8PD1+cOT84vw7PX5w5Pzj/Dg9kHM5A9f847yQczkD1PzwvJBzOQMh/aa7kHM5AyL9oLs=")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_6yhqm")
 
 [sub_resource type="Sky" id="Sky_jkv2x"]
 
@@ -50,6 +94,8 @@ move_step = 2
 
 [node name="PreTick" type="AudioStreamPlayer" parent="MusicManager"]
 stream = ExtResource("2_tipki")
+volume_db = -15.0
+pitch_scale = 0.8
 
 [node name="MainTrack" type="AudioStreamPlayer" parent="MusicManager"]
 stream = ExtResource("3_o6xl0")
@@ -62,13 +108,13 @@ script = ExtResource("7_o6xl0")
 [node name="Lane1" type="Node3D" parent="Lanes"]
 
 [node name="FinishLane" type="MeshInstance3D" parent="Lanes/Lane1"]
-transform = Transform3D(0.399145, 0, -0.0261473, 0, 0.4, 0, 0.0261473, 0, 0.399145, -3.294, 0, 2.621)
+transform = Transform3D(0.399145, 0, -0.0261473, 0, 0.4, 0, 0.0261473, 0, 0.399145, -3.29174, 0, 2.4273)
 visible = false
 mesh = SubResource("BoxMesh_jyhfs")
 skeleton = NodePath("../..")
 
 [node name="StartLane" type="MeshInstance3D" parent="Lanes/Lane1"]
-transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -2.594, 0, 7.067)
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -2.83324, 0, 6.86908)
 visible = false
 mesh = SubResource("BoxMesh_o6xl0")
 skeleton = NodePath("")
@@ -83,13 +129,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.41097, 1.45211, 2.39303)
 [node name="Lane2" type="Node3D" parent="Lanes"]
 
 [node name="FinishLane" type="MeshInstance3D" parent="Lanes/Lane2"]
-transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -2.307, 0, 2.663)
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -2.44827, 0, 2.40621)
 visible = false
 mesh = SubResource("BoxMesh_tbgi4")
 skeleton = NodePath("../..")
 
 [node name="StartLane" type="MeshInstance3D" parent="Lanes/Lane2"]
-transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -1.484, 0, 7.067)
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -1.613, 0.0310653, 7.17848)
 visible = false
 mesh = SubResource("BoxMesh_o6xl0")
 skeleton = NodePath("")
@@ -104,13 +150,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.46486, 1.45211, 2.39303)
 [node name="Lane3" type="Node3D" parent="Lanes"]
 
 [node name="FinishLane" type="MeshInstance3D" parent="Lanes/Lane3"]
-transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -1.242, 0, 2.756)
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -1.48155, 0, 2.39445)
 visible = false
 mesh = SubResource("BoxMesh_tefeu")
 skeleton = NodePath("../..")
 
 [node name="StartLane" type="MeshInstance3D" parent="Lanes/Lane3"]
-transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -0.349336, 0, 7.067)
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -0.300235, 0, 7.84515)
 visible = false
 mesh = SubResource("BoxMesh_o6xl0")
 skeleton = NodePath("")
@@ -144,6 +190,13 @@ script = ExtResource("15_jkv2x")
 
 [node name="gargoyleMAP" parent="." instance=ExtResource("8_tipki")]
 script = ExtResource("8_85g3d")
+
+[node name="finish2" type="MeshInstance3D" parent="."]
+transform = Transform3D(99.9526, 1.58325e-06, -0.864164, 2.25966, -1.19209e-05, 38.225, 1.39668e-06, -100, -4.55794e-06, -2.3985, -0.0324665, 2.45737)
+material_override = ExtResource("13_dp3eg")
+mesh = SubResource("ArrayMesh_yc10j")
+skeleton = NodePath("")
+script = ExtResource("15_gqmmt")
 
 [node name="GBoy" parent="." node_paths=PackedStringArray("gspots") instance=ExtResource("9_85g3d")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.41479, 1.43649, 2.17679)

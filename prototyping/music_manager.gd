@@ -23,6 +23,7 @@ func _ready() -> void:
 
 func _track_ready(data: TrackData):
 	track_data = data
+	pre_tick.pitch_scale = 0.7 + (beat + 8) * .03
 	pre_tick.play()
 	beat_hit.emit(beat)
 	playing = true
@@ -43,6 +44,7 @@ func _process(delta: float) -> void:
 			beat_hit.emit(beat)
 
 			if is_preroll():
+				pre_tick.pitch_scale = 0.7 + (beat + 8) * .02
 				pre_tick.play()
 			if beat == 0:
 				main_track.play()
