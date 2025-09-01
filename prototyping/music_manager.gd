@@ -12,6 +12,7 @@ var track_data: TrackData
 var seconds_per_beat: float
 var elapsed: float = 0
 var beat: int = -8
+var bpm = 120
 
 var playing: bool = false
 
@@ -32,7 +33,7 @@ func is_preroll() -> bool: return beat < 0
 
 func _process(delta: float) -> void:
 	if playing:
-		var bpm = track_data.get_bpm(beat)
+		bpm = track_data.get_bpm(beat)
 		var subdiv = track_data.get_subdiv(beat)
 
 		seconds_per_beat = 1 / (subdiv * (bpm / 60)) 

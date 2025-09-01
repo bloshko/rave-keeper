@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://c3c8fhnk1tjuq" path="res://prototyping/player.gd" id="1_h7don"]
 [ext_resource type="Texture2D" uid="uid://uwpiscipjlho" path="res://icon.svg" id="3_t5ujd"]
 [ext_resource type="Script" uid="uid://l5sl63gab1q1" path="res://prototyping/debug_music_manager.gd" id="5_kf62a"]
-[ext_resource type="Script" uid="uid://c8kdxjgevcjb" path="res://scripts/track_loader.gd" id="5_q5qk3"]
+[ext_resource type="Script" uid="uid://c8kdxjgevcjb" path="res://scenes/managers/track_loader.gd" id="5_q5qk3"]
 [ext_resource type="AudioStream" uid="uid://bcx62ldj5k2a1" path="res://audio/ravekeeper_level2_v2.ogg" id="6_kf62a"]
 
 [node name="BPMLab" type="Node2D"]

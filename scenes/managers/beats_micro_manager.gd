@@ -9,10 +9,11 @@ func _process(delta):
 	if not music_macro_manager.playing or music_macro_manager.is_preroll():
 		return
 		
-	var seconds_per_beat_half = music_macro_manager.seconds_per_beat / 2
-	
+	var bpm = music_macro_manager.bpm
+	var seconds_per_beat = 1 / (bpm / 60)
+
 	elapsed += delta
-	if elapsed >= seconds_per_beat_half:
-		elapsed -= seconds_per_beat_half
+	if elapsed >= seconds_per_beat:
+		elapsed -= seconds_per_beat
 		beat_hit_halved.emit()
 	

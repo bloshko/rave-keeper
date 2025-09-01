@@ -3,4 +3,5 @@
 [ext_resource type="Texture2D" uid="uid://doqtn428jffdp" path="res://textures/gargoyle_texture.png" id="1_4xvyj"]
 
 [resource]
+cull_mode = 2
 albedo_texture = ExtResource("1_4xvyj")

@@ -10,8 +10,11 @@ extends Control
 @onready var score_label = $ScoreBg/Score
 @onready var music_man = $"../MusicManager"
 
+@onready var skulls: Node2D = $Skulls
+
 func _ready() -> void:
 	gpman.something_changed.connect(refresh)
+	music_man.beat_hit.connect(skulls.on_beat)
 	music_man.beat_hit.connect(func (_new_beat): refresh())
 	refresh()
 

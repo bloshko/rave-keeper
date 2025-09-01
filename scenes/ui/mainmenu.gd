@@ -6,7 +6,7 @@ func _ready() -> void:
 	$Menu/Button2.pressed.connect(change_mode)
 
 func _input(event):
-	if event.is_action_pressed("ui_accept"):
+	if event.is_action_pressed("ui_accept") and $Menu.visible:
 		$Menu/Button.pressed.emit()
 		
 func change_mode():
