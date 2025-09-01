@@ -1,7 +1,8 @@
-[gd_scene load_steps=29 format=4 uid="uid://bvlerh2hfayrm"]
+[gd_scene load_steps=30 format=4 uid="uid://bvlerh2hfayrm"]
 
 [ext_resource type="Script" uid="uid://cjrtt4vyburuq" path="res://prototyping/music_manager.gd" id="1_sugp2"]
 [ext_resource type="Script" uid="uid://cweqg3v7yv2sh" path="res://scripts/enemy_manager.gd" id="1_tbgi4"]
+[ext_resource type="Script" uid="uid://neiyu7bt1ug6" path="res://scripts/beats_micro_manager.gd" id="2_dp3eg"]
 [ext_resource type="PackedScene" uid="uid://cvpwbb3vlsd0p" path="res://scenes/enemy.tscn" id="2_tefeu"]
 [ext_resource type="AudioStream" uid="uid://blqy2s23oueyo" path="res://audio/tick.mp3" id="2_tipki"]
 [ext_resource type="AudioStream" uid="uid://bcx62ldj5k2a1" path="res://audio/ravekeeper_level2_v2.ogg" id="3_o6xl0"]
@@ -15,7 +16,7 @@
 [ext_resource type="Material" uid="uid://b57ptiq014w6m" path="res://materials/glow_entrance.tres" id="13_dp3eg"]
 [ext_resource type="PackedScene" uid="uid://cl1yitbde3g4v" path="res://scenes/game_ui.tscn" id="13_trceg"]
 [ext_resource type="Texture2D" uid="uid://bwkujtywdtw1q" path="res://textures/gradient.png" id="14_0ld40"]
-[ext_resource type="Script" uid="uid://cboioa2okpy1c" path="res://scenes/finish_2.gd" id="15_gqmmt"]
+[ext_resource type="Script" path="res://scenes/finish_2.gd" id="15_gqmmt"]
 [ext_resource type="Script" uid="uid://b1sk57ijn1gy6" path="res://scripts/shaderbox.gd" id="15_jkv2x"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_jyhfs"]
@@ -102,6 +103,9 @@ stream = ExtResource("3_o6xl0")
 [node name="TrackLoader" type="Node" parent="MusicManager"]
 script = ExtResource("7_o6xl0")
 
+[node name="BeatsMicroManager" type="Node" parent="MusicManager"]
+script = ExtResource("2_dp3eg")
+
 [node name="Lanes" type="Node3D" parent="."]
 
 [node name="Lane1" type="Node3D" parent="Lanes"]
@@ -187,8 +191,8 @@ script = ExtResource("15_jkv2x")
 
 [node name="church" parent="." instance=ExtResource("8_choun")]
 
-[node name="gargoyleMAP" parent="." node_paths=PackedStringArray("music_manager") instance=ExtResource("8_tipki")]
-music_manager = NodePath("../MusicManager")
+[node name="gargoyleMAP" parent="." node_paths=PackedStringArray("beat_micro_manager") instance=ExtResource("8_tipki")]
+beat_micro_manager = NodePath("../MusicManager/BeatsMicroManager")
 
 [node name="finish2" type="MeshInstance3D" parent="."]
 transform = Transform3D(99.9526, 1.58325e-06, -0.864164, 2.25966, -1.19209e-05, 38.225, 1.39668e-06, -100, -4.55794e-06, -2.3985, -0.0324665, 2.45737)
