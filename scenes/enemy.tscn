@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://djl0flc3q7bu8" path="res://scripts/enemy.gd" id="1_md0e3"]
 [ext_resource type="PackedScene" uid="uid://dlybyeweos6ac" path="res://models/ghost.fbx" id="2_md0e3"]
-[ext_resource type="PackedScene" uid="uid://cr31qcou3pyln" path="res://prototyping/feedback_test.tscn" id="3_4ra3w"]
+[ext_resource type="PackedScene" uid="uid://cr31qcou3pyln" path="res://prototyping/ghost_kill_feedback_particles.tscn" id="3_4ra3w"]
 
 [node name="Enemy" type="Node3D"]
 transform = Transform3D(-1.5, 0, -1.31134e-07, 0, 1.5, 0, 1.31134e-07, 0, -1.5, 0, 0, 0)

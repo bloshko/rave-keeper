@@ -14,7 +14,7 @@ enum STATE {
 
 var state = STATE.Jumping
 
-func jump_to(target: Vector3):
+func jump_to(target: Vector3) -> Tween:
 	if state != STATE.Jumping:
 		return
 	
@@ -27,7 +27,9 @@ func jump_to(target: Vector3):
 	var jump_tween = create_tween()
 	jump_tween.tween_property(mesh, 'position', Vector3(0, .1 + randf() * .3 , 0), .1)
 	jump_tween.chain().tween_property(mesh, 'position', Vector3.ZERO, .1)
-
+	
+	return jump_tween
+	
 func kill():
 	if state != STATE.Jumping:
 		return
