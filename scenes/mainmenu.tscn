@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://duv2pl64213mj"]
+[gd_scene load_steps=6 format=3 uid="uid://duv2pl64213mj"]
 
 [ext_resource type="Script" uid="uid://cx0e434og1n8" path="res://scenes/mainmenu.gd" id="1_5mbse"]
 [ext_resource type="Texture2D" uid="uid://djtr053ck22dj" path="res://graphics/menu.png" id="2_r3g3c"]
 [ext_resource type="FontFile" uid="uid://ertbfw371i68" path="res://graphics/GutenbergTextura.ttf" id="3_3vvtq"]
 [ext_resource type="AudioStream" uid="uid://dkdou1itjoorx" path="res://audio/ravekeeper_vorspiel.ogg" id="4_3vvtq"]
+[ext_resource type="FontFile" uid="uid://cek6qpbssjyxp" path="res://graphics/CAT Hohenzollern.ttf" id="4_s5g8n"]
 
 [node name="Mainmenu" type="Node"]
 script = ExtResource("1_5mbse")
@@ -21,15 +22,31 @@ texture = ExtResource("2_r3g3c")
 [node name="Button" type="Button" parent="Menu"]
 modulate = Color(1, 0.3, 0.3, 1)
 layout_mode = 0
-offset_left = 738.0
-offset_top = 897.0
-offset_right = 1177.0
-offset_bottom = 1075.0
+offset_left = 741.0
+offset_top = 840.0
+offset_right = 1180.0
+offset_bottom = 1018.0
+focus_mode = 0
 theme_override_colors/font_outline_color = Color(0, 0, 0, 0.32549)
 theme_override_constants/outline_size = 6
 theme_override_fonts/font = ExtResource("3_3vvtq")
 theme_override_font_sizes/font_size = 100
 text = "PLAY"
+flat = true
+
+[node name="Button2" type="Button" parent="Menu"]
+modulate = Color(1, 0.301961, 0.301961, 0.431373)
+layout_mode = 0
+offset_left = 790.0
+offset_top = 990.0
+offset_right = 1123.0
+offset_bottom = 1049.0
+focus_mode = 0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 0.32549)
+theme_override_constants/outline_size = 6
+theme_override_fonts/font = ExtResource("4_s5g8n")
+theme_override_font_sizes/font_size = 40
+text = "<- normal mode ->"
 flat = true
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Menu"]

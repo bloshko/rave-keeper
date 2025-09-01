@@ -15,11 +15,15 @@ run/main_scene="uid://duv2pl64213mj"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+GameplayData="*res://scenes/gameplay_data.tscn"
+
 [display]
 
 window/size/viewport_width=1920
 window/size/viewport_height=1080
-window/size/resizable=false
+window/stretch/mode="canvas_items"
 window/main_scene="uid://bvlerh2hfayrm"
 
 [rendering]
