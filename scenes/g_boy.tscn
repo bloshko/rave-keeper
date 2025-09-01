@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://bf62p8ocqv706"]
+[gd_scene load_steps=7 format=3 uid="uid://bf62p8ocqv706"]
 
 [ext_resource type="Script" uid="uid://cmp416yd4jsjr" path="res://scenes/g_boy.gd" id="1_6j5bd"]
 [ext_resource type="ArrayMesh" uid="uid://ckg82wxjesvr0" path="res://models/Mesh.res" id="2_3dmlv"]
+[ext_resource type="Material" uid="uid://d266fxsq0wano" path="res://materials/gargouyle_mat.tres" id="2_ii2va"]
 [ext_resource type="ArrayMesh" uid="uid://bjrhllvywuf2d" path="res://models/Mesh_001.res" id="3_dnj0x"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_3dmlv"]
@@ -15,13 +16,35 @@ script = ExtResource("1_6j5bd")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 visible = false
+layers = 3
+material_override = ExtResource("2_ii2va")
 mesh = SubResource("CapsuleMesh_3dmlv")
 surface_material_override/0 = SubResource("StandardMaterial3D_dnj0x")
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
 transform = Transform3D(-0.475, 7.1723e-08, 3.13511e-15, -2.14111e-08, -0.141799, 0.453341, 6.84526e-08, 0.453341, 0.141799, 0, 0.121441, 0.150014)
+layers = 3
+material_override = ExtResource("2_ii2va")
 mesh = ExtResource("2_3dmlv")
 
 [node name="MeshInstance3D3" type="MeshInstance3D" parent="MeshInstance3D2"]
+layers = 3
+material_override = ExtResource("2_ii2va")
 mesh = ExtResource("3_dnj0x")
 skeleton = NodePath("../..")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.906801, -0.421558, 0, 0.421558, 0.906801, 0, 0.14409, 1.08965)
+layers = 3
+light_color = Color(1, 0, 0, 1)
+light_energy = 5.493
+light_specular = 0.978
+light_bake_mode = 1
+light_cull_mask = 4294967294
+
+[node name="SpotLight3D2" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -0.0910497, 0.995846, 0, -0.995846, -0.0910497, 0, 0, 0)
+light_color = Color(1, 0, 0, 1)
+light_energy = 13.258
+light_bake_mode = 0
+light_cull_mask = 4294967068

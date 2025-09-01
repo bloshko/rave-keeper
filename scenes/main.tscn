@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=4 uid="uid://bvlerh2hfayrm"]
+[gd_scene load_steps=31 format=4 uid="uid://bvlerh2hfayrm"]
 
 [ext_resource type="Script" uid="uid://cjrtt4vyburuq" path="res://prototyping/music_manager.gd" id="1_sugp2"]
 [ext_resource type="Script" uid="uid://cweqg3v7yv2sh" path="res://scripts/enemy_manager.gd" id="1_tbgi4"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cvpwbb3vlsd0p" path="res://scenes/enemy.tscn" id="2_tefeu"]
 [ext_resource type="AudioStream" uid="uid://blqy2s23oueyo" path="res://audio/tick.mp3" id="2_tipki"]
 [ext_resource type="AudioStream" uid="uid://bcx62ldj5k2a1" path="res://audio/ravekeeper_level2_v2.ogg" id="3_o6xl0"]
+[ext_resource type="PackedScene" uid="uid://beswyjih4bevu" path="res://scenes/finish_mark.tscn" id="6_0ld40"]
 [ext_resource type="PackedScene" uid="uid://chplmoaodo7pw" path="res://scenes/human.tscn" id="7_85g3d"]
 [ext_resource type="Script" uid="uid://c8kdxjgevcjb" path="res://scripts/track_loader.gd" id="7_o6xl0"]
 [ext_resource type="PackedScene" uid="uid://dmpfoykm450ag" path="res://models/church.fbx" id="8_choun"]
@@ -129,6 +130,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.41097, 1.45211, 2.39303)
 
 [node name="Humans" type="Node3D" parent="Lanes/Lane1"]
 
+[node name="FinishMark" parent="Lanes/Lane1" instance=ExtResource("6_0ld40")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.2966, -0.583244, 2.40898)
+visible = false
+
 [node name="Lane2" type="Node3D" parent="Lanes"]
 
 [node name="FinishLane" type="MeshInstance3D" parent="Lanes/Lane2"]
@@ -150,6 +155,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.46486, 1.45211, 2.39303)
 
 [node name="Humans" type="Node3D" parent="Lanes/Lane2"]
 
+[node name="FinishMark" parent="Lanes/Lane2" instance=ExtResource("6_0ld40")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.37572, -0.586474, 2.39002)
+visible = false
+
 [node name="Lane3" type="Node3D" parent="Lanes"]
 
 [node name="FinishLane" type="MeshInstance3D" parent="Lanes/Lane3"]
@@ -170,6 +179,10 @@ skeleton = NodePath("")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.58838, 1.45211, 2.39303)
 
 [node name="Humans" type="Node3D" parent="Lanes/Lane3"]
+
+[node name="FinishMark" parent="Lanes/Lane3" instance=ExtResource("6_0ld40")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.45745, -0.551331, 2.43644)
+visible = false
 
 [node name="EnemyManager" type="Node3D" parent="."]
 script = ExtResource("1_tbgi4")
