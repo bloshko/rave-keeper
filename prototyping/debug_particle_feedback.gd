@@ -1,7 +1,7 @@
 extends Node3D
 
 
-@onready var particle = $Enemy/ParticleFeedback
+@onready var particle = $Enemy/FeedbackCPUParticle
 
 
 func _ready():

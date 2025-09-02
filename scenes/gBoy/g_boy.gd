@@ -16,31 +16,36 @@ enum GPos{
 	Right = 2
 }
 
+const left_lane_action_name = "move_to_left_lane"
+const mid_lane_action_name = "move_to_mid_lane"
+const right_lane_action_name = "move_to_right_lane"
+
+
 func _ready() -> void:
 	assert(len(gspots) == 3)
 
 func _input(event: InputEvent) -> void:
 	if not hold_mode:
-		if event.is_action_pressed('ui_left'):
+		if event.is_action_pressed(left_lane_action_name):
 			last_pressed = GPos.Left
-		if event.is_action_pressed('ui_right'):
+		if event.is_action_pressed(right_lane_action_name):
 			last_pressed = GPos.Right
-		if event.is_action_pressed('ui_down'):
+		if event.is_action_pressed(mid_lane_action_name):
 			last_pressed = GPos.Mid
 		if event.is_action_pressed('ui_text_backspace'):
 			$"/root/Mainmenu".back()
 		update_position()
 		return
 
-	if event.is_action_pressed('ui_left'):
+	if event.is_action_pressed(left_lane_action_name):
 		left_pressed = true
 		last_pressed = GPos.Left
-	if event.is_action_pressed('ui_right'):
+	if event.is_action_pressed(right_lane_action_name):
 		right_pressed = true
 		last_pressed = GPos.Right
-	if event.is_action_released('ui_left'):
+	if event.is_action_released(left_lane_action_name):
 		left_pressed = false
-	if event.is_action_released('ui_right'):
+	if event.is_action_released(right_lane_action_name):
 		right_pressed = false
 
 	update_position()

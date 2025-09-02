@@ -5,6 +5,10 @@ func _ready() -> void:
 	$Menu/Button.pressed.connect(load_game)
 	$Menu/Button2.pressed.connect(change_mode)
 
+func _input(event):
+	if event.is_action_pressed("ui_accept") and $Menu.visible:
+		$Menu/Button.pressed.emit()
+		
 func change_mode():
 	GameplayData.hardcore = not GameplayData.hardcore
 	$Menu/Button2.text = "<- %s mode ->" % ("hardcore" if GameplayData.hardcore else "normal")

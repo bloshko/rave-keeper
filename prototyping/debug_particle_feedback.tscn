@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://g0c0wg8okdk8"]
 
 [ext_resource type="Script" uid="uid://05w3dbcwnuh3" path="res://prototyping/debug_particle_feedback.gd" id="1_0vdw1"]
-[ext_resource type="PackedScene" uid="uid://cvpwbb3vlsd0p" path="res://scenes/enemy.tscn" id="2_05epc"]
+[ext_resource type="PackedScene" uid="uid://cvpwbb3vlsd0p" path="res://scenes/church_visitors/enemy.tscn" id="2_05epc"]
 
 [node name="DebugParticleFeedback" type="Node3D"]
 script = ExtResource("1_0vdw1")

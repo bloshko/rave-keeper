@@ -1,16 +1,16 @@
 [gd_scene load_steps=4 format=3 uid="uid://cvpwbb3vlsd0p"]
 
-[ext_resource type="Script" uid="uid://djl0flc3q7bu8" path="res://scripts/enemy.gd" id="1_md0e3"]
-[ext_resource type="PackedScene" uid="uid://dlybyeweos6ac" path="res://models/ghost.fbx" id="2_md0e3"]
-[ext_resource type="PackedScene" uid="uid://cr31qcou3pyln" path="res://prototyping/feedback_test.tscn" id="3_4ra3w"]
+[ext_resource type="Script" uid="uid://djl0flc3q7bu8" path="res://scenes/church_visitors/enemy.gd" id="1_8ux5w"]
+[ext_resource type="PackedScene" uid="uid://cr31qcou3pyln" path="res://scenes/church_visitors/ghost_kill_feedback_particles.tscn" id="2_wdvov"]
+[ext_resource type="PackedScene" uid="uid://dlybyeweos6ac" path="res://models/ghost.fbx" id="3_fvpo5"]
 
 [node name="Enemy" type="Node3D"]
 transform = Transform3D(-1.5, 0, -1.31134e-07, 0, 1.5, 0, 1.31134e-07, 0, -1.5, 0, 0, 0)
-script = ExtResource("1_md0e3")
+script = ExtResource("1_8ux5w")
 
-[node name="FeedbackCPUParticle" parent="." instance=ExtResource("3_4ra3w")]
+[node name="FeedbackCPUParticle" parent="." instance=ExtResource("2_wdvov")]
 
-[node name="ghost" parent="." instance=ExtResource("2_md0e3")]
+[node name="ghost" parent="." instance=ExtResource("3_fvpo5")]
 transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, -0.09, 0)
 
 [node name="ghosrRig" parent="ghost" index="0"]

@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://chplmoaodo7pw"]
 
-[ext_resource type="Script" uid="uid://cqsemolmmh32v" path="res://scripts/human.gd" id="1_cwf78"]
-[ext_resource type="PackedScene" uid="uid://de8p211qqa58r" path="res://scenes/human_a.tscn" id="1_swaxu"]
+[ext_resource type="Script" uid="uid://cqsemolmmh32v" path="res://scenes/church_visitors/human.gd" id="1_cwf78"]
+[ext_resource type="PackedScene" uid="uid://de8p211qqa58r" path="res://scenes/church_visitors/human_a.tscn" id="1_swaxu"]
 
 [node name="Human" type="Node3D"]
 transform = Transform3D(-0.15, 0, -1.31134e-08, 0, 0.15, 0, 1.31134e-08, 0, -0.15, 0, 0, 0)

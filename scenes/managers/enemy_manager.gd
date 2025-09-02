@@ -103,8 +103,8 @@ func move_enemies():
 	for i in range(3):
 		for child in lane_enemies[i].get_children():
 			child.age += 1 
-			child.jump_to(lane_starts[i].global_position + lane_directions[i] * step_lengths[i] * child.age)
+			var tween = child.jump_to(lane_starts[i].global_position + lane_directions[i] * step_lengths[i] * child.age)
 			if child.age == look_ahead and gBoy.current_pos == i:
-				child.kill()
+				tween.chain().tween_callback(child.kill)
 			elif child.age - 2 > look_ahead: # 2 is there to wait for the enemy to enter the church
 				child.die()

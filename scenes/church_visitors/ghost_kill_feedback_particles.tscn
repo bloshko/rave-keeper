@@ -1,22 +1,23 @@
 [gd_scene load_steps=6 format=3 uid="uid://cr31qcou3pyln"]
 
-[ext_resource type="Texture2D" uid="uid://cwui6xoxy7p5e" path="res://textures/tree.png" id="1_jfevc"]
+[ext_resource type="Texture2D" uid="uid://cwui6xoxy7p5e" path="res://textures/tree.png" id="1_hicha"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0klvb"]
 transparency = 2
 alpha_scissor_threshold = 0.5
 alpha_antialiasing_mode = 0
 shading_mode = 0
-albedo_texture = ExtResource("1_jfevc")
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("1_hicha")
 
 [sub_resource type="QuadMesh" id="QuadMesh_eoxdq"]
 material = SubResource("StandardMaterial3D_0klvb")
-size = Vector2(0.3, 0.3)
+size = Vector2(0.1, 0.99)
 
 [sub_resource type="Curve" id="Curve_jfevc"]
 _limits = [0.0, 41.4184, 0.0, 1.0]
-_data = [Vector2(0.0194444, 2.08561), 0.0, 0.0, 0, 0, Vector2(1, 13.2872), 84.1894, 0.0, 0, 0]
-point_count = 2
+_data = [Vector2(0.0194444, 2.08561), 0.0, 0.0, 0, 0, Vector2(0.588889, 3.4858), 0.0, 0.0, 0, 0, Vector2(1, 13.2872), 84.1894, 0.0, 0, 0]
+point_count = 3
 
 [sub_resource type="Curve" id="Curve_0klvb"]
 _data = [Vector2(0.0194445, 0.858629), 0.0, 0.0, 0, 0, Vector2(1, 0.594326), -0.771895, 0.0, 0, 0]
@@ -24,19 +25,21 @@ point_count = 2
 
 [node name="FeedbackCPUParticle" type="CPUParticles3D"]
 emitting = false
-amount = 4
-lifetime = 0.4
+lifetime = 0.2
 one_shot = true
+lifetime_randomness = 0.02
 mesh = SubResource("QuadMesh_eoxdq")
 particle_flag_rotate_y = true
 direction = Vector3(0, 1, 0)
-spread = 10.0
+spread = 4.45
 gravity = Vector3(0, 0, 0)
 initial_velocity_min = 1.0
-initial_velocity_max = 5.0
+initial_velocity_max = 10.0
+angular_velocity_max = 1.6
 linear_accel_min = 1.0
 linear_accel_max = 5.0
 linear_accel_curve = SubResource("Curve_jfevc")
 angle_max = 5.0
 scale_amount_max = 5.0
 scale_amount_curve = SubResource("Curve_0klvb")
+color = Color(0.980391, 0, 0.370052, 1)

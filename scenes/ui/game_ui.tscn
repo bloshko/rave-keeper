@@ -1,12 +1,13 @@
-[gd_scene load_steps=8 format=3 uid="uid://cl1yitbde3g4v"]
+[gd_scene load_steps=9 format=3 uid="uid://cl1yitbde3g4v"]
 
-[ext_resource type="Script" uid="uid://cbl0jhnj4xwkn" path="res://scenes/game_ui.gd" id="1_yubou"]
+[ext_resource type="Script" uid="uid://cbl0jhnj4xwkn" path="res://scenes/ui/game_ui.gd" id="1_yubou"]
 [ext_resource type="Texture2D" uid="uid://bmbkc3p8f6j5v" path="res://graphics/bg.png" id="2_rns2u"]
 [ext_resource type="FontFile" uid="uid://ertbfw371i68" path="res://graphics/GutenbergTextura.ttf" id="3_u001w"]
 [ext_resource type="FontFile" uid="uid://cek6qpbssjyxp" path="res://graphics/CAT Hohenzollern.ttf" id="3_u2dgd"]
 [ext_resource type="Texture2D" uid="uid://li8wpeyklcyh" path="res://graphics/skullGrey.png" id="4_bt76a"]
+[ext_resource type="Script" uid="uid://cji2e23xfphit" path="res://scenes/ui/skulls_to_the_beat.gd" id="4_yvtb5"]
 [ext_resource type="Texture2D" uid="uid://vbyfodpjdhst" path="res://graphics/scoreBG.png" id="5_djwj0"]
-[ext_resource type="Script" uid="uid://bjsgn4m6ygm4r" path="res://scenes/lifebox.gd" id="7_e0pfi"]
+[ext_resource type="Script" uid="uid://bjsgn4m6ygm4r" path="res://scenes/ui/lifebox.gd" id="7_e0pfi"]
 
 [node name="GameUI" type="Control"]
 layout_mode = 3
@@ -93,23 +94,24 @@ theme_override_fonts/normal_font = ExtResource("3_u2dgd")
 theme_override_font_sizes/normal_font_size = 50
 text = "Textsadfasdf"
 
-[node name="SkullGrey" type="Sprite2D" parent="."]
-position = Vector2(1871, 45)
+[node name="Skulls" type="Node2D" parent="."]
+script = ExtResource("4_yvtb5")
+
+[node name="SkullGrey2" type="Sprite2D" parent="Skulls"]
+position = Vector2(1750, 931)
+rotation = 2.35619
 scale = Vector2(0.628906, 0.628906)
 texture = ExtResource("4_bt76a")
 
-[node name="SkullGrey2" type="Sprite2D" parent="."]
-position = Vector2(1871, 1029)
+[node name="SkullGrey3" type="Sprite2D" parent="Skulls"]
+position = Vector2(584, 167)
+rotation = -0.785397
 scale = Vector2(0.628906, 0.628906)
 texture = ExtResource("4_bt76a")
 
-[node name="SkullGrey3" type="Sprite2D" parent="."]
-position = Vector2(463, 45)
-scale = Vector2(0.628906, 0.628906)
-texture = ExtResource("4_bt76a")
-
-[node name="SkullGrey4" type="Sprite2D" parent="."]
-position = Vector2(463, 1029)
+[node name="SkullGrey4" type="Sprite2D" parent="Skulls"]
+position = Vector2(586, 932)
+rotation = -2.35619
 scale = Vector2(0.628906, 0.628906)
 texture = ExtResource("4_bt76a")
 
