@@ -1,13 +1,20 @@
-[gd_scene load_steps=9 format=3 uid="uid://cl1yitbde3g4v"]
+[gd_scene load_steps=12 format=3 uid="uid://cl1yitbde3g4v"]
 
 [ext_resource type="Script" uid="uid://cbl0jhnj4xwkn" path="res://scenes/ui/game_ui.gd" id="1_yubou"]
 [ext_resource type="Texture2D" uid="uid://bmbkc3p8f6j5v" path="res://graphics/bg.png" id="2_rns2u"]
-[ext_resource type="FontFile" uid="uid://ertbfw371i68" path="res://graphics/GutenbergTextura.ttf" id="3_u001w"]
 [ext_resource type="FontFile" uid="uid://cek6qpbssjyxp" path="res://graphics/CAT Hohenzollern.ttf" id="3_u2dgd"]
 [ext_resource type="Texture2D" uid="uid://li8wpeyklcyh" path="res://graphics/skullGrey.png" id="4_bt76a"]
 [ext_resource type="Script" uid="uid://cji2e23xfphit" path="res://scenes/ui/skulls_to_the_beat.gd" id="4_yvtb5"]
 [ext_resource type="Texture2D" uid="uid://vbyfodpjdhst" path="res://graphics/scoreBG.png" id="5_djwj0"]
+[ext_resource type="Texture2D" uid="uid://c84fmew8vte1" path="res://graphics/skullBrown.png" id="5_k7elv"]
 [ext_resource type="Script" uid="uid://bjsgn4m6ygm4r" path="res://scenes/ui/lifebox.gd" id="7_e0pfi"]
+[ext_resource type="Texture2D" uid="uid://byiw1bqjajmm4" path="res://graphics/comboBar.png" id="9_k7elv"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fftnl"]
+bg_color = Color(0.286275, 0.25098, 0.211765, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k7elv"]
+bg_color = Color(0.615686, 0.568627, 0.513726, 1)
 
 [node name="GameUI" type="Control"]
 layout_mode = 3
@@ -21,6 +28,7 @@ position = Vector2(960, 540)
 texture = ExtResource("2_rns2u")
 
 [node name="Kills" type="RichTextLabel" parent="."]
+modulate = Color(0.615686, 0.568627, 0.513726, 1)
 layout_mode = 2
 offset_left = 67.0
 offset_top = 883.0
@@ -31,36 +39,57 @@ theme_override_font_sizes/normal_font_size = 50
 text = "Textsadfasdf"
 
 [node name="ComboLabel" type="RichTextLabel" parent="."]
+modulate = Color(0.615686, 0.568627, 0.513726, 1)
 layout_mode = 2
 offset_left = 67.0
-offset_top = 104.0
+offset_top = 76.0
 offset_right = 408.0
-offset_bottom = 245.0
+offset_bottom = 217.0
 theme_override_fonts/normal_font = ExtResource("3_u2dgd")
 theme_override_font_sizes/normal_font_size = 80
 text = "Combo: x1"
 
+[node name="ComboLabel2" type="RichTextLabel" parent="."]
+modulate = Color(0.286275, 0.25098, 0.211765, 1)
+layout_mode = 2
+offset_left = 70.0
+offset_top = 235.0
+offset_right = 411.0
+offset_bottom = 376.0
+theme_override_fonts/normal_font = ExtResource("3_u2dgd")
+theme_override_font_sizes/normal_font_size = 40
+text = "Score multiplyer:"
+
 [node name="BPMLabel" type="RichTextLabel" parent="."]
+modulate = Color(0.615686, 0.568627, 0.513726, 1)
 layout_mode = 2
 offset_left = 67.0
-offset_top = 473.0
+offset_top = 686.0
 offset_right = 408.0
-offset_bottom = 614.0
+offset_bottom = 827.0
 theme_override_fonts/normal_font = ExtResource("3_u2dgd")
 theme_override_font_sizes/normal_font_size = 50
 text = "BPM: x3"
 
 [node name="MultiLabel" type="RichTextLabel" parent="."]
-layout_mode = 2
-offset_left = 67.0
-offset_top = 193.0
-offset_right = 408.0
-offset_bottom = 334.0
+modulate = Color(0.73, 0.1168, 0.1168, 1)
+clip_contents = false
+layout_mode = 1
+offset_left = 76.0
+offset_top = 269.0
+offset_right = 417.0
+offset_bottom = 410.0
+pivot_offset = Vector2(167.455, 81.075)
 theme_override_fonts/normal_font = ExtResource("3_u2dgd")
-theme_override_font_sizes/normal_font_size = 50
-text = "Multiplier: x3"
+theme_override_font_sizes/normal_font_size = 130
+text = "x3"
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="SubdivisionLabel" type="RichTextLabel" parent="."]
+visible = false
+modulate = Color(0.615686, 0.568627, 0.513726, 1)
 layout_mode = 2
 offset_left = 67.0
 offset_top = 537.0
@@ -71,6 +100,7 @@ theme_override_font_sizes/normal_font_size = 50
 text = "Subdivision: 1/2"
 
 [node name="SubdivisionLabel2" type="RichTextLabel" parent="."]
+visible = false
 modulate = Color(0.288518, 0.288518, 0.288518, 1)
 layout_mode = 2
 offset_left = 67.0
@@ -85,6 +115,7 @@ text = "Intructions:
 - Backspace returns to the menu"
 
 [node name="Fails" type="RichTextLabel" parent="."]
+modulate = Color(0.615686, 0.568627, 0.513726, 1)
 layout_mode = 2
 offset_left = 67.0
 offset_top = 947.0
@@ -99,47 +130,49 @@ script = ExtResource("4_yvtb5")
 
 [node name="SkullGrey2" type="Sprite2D" parent="Skulls"]
 position = Vector2(1750, 931)
-rotation = 2.35619
+rotation = -0.785398
 scale = Vector2(0.628906, 0.628906)
-texture = ExtResource("4_bt76a")
+texture = ExtResource("5_k7elv")
 
 [node name="SkullGrey3" type="Sprite2D" parent="Skulls"]
 position = Vector2(584, 167)
-rotation = -0.785397
+rotation = -3.92699
 scale = Vector2(0.628906, 0.628906)
-texture = ExtResource("4_bt76a")
+texture = ExtResource("5_k7elv")
 
 [node name="SkullGrey4" type="Sprite2D" parent="Skulls"]
 position = Vector2(586, 932)
-rotation = -2.35619
+rotation = -5.49779
 scale = Vector2(0.628906, 0.628906)
-texture = ExtResource("4_bt76a")
+texture = ExtResource("5_k7elv")
 
 [node name="ScoreBg" type="Sprite2D" parent="."]
-position = Vector2(1609, 157)
+position = Vector2(1603, 180)
 texture = ExtResource("5_djwj0")
 
 [node name="Score" type="RichTextLabel" parent="ScoreBg"]
-modulate = Color(0.64, 0.2112, 0.2112, 1)
+modulate = Color(0.733333, 0.113725, 0.113725, 1)
 offset_left = -202.0
 offset_top = -39.0
 offset_right = 210.0
 offset_bottom = 118.0
-theme_override_fonts/normal_font = ExtResource("3_u001w")
+theme_override_fonts/normal_font = ExtResource("3_u2dgd")
 theme_override_font_sizes/normal_font_size = 120
 text = "12345"
 horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="Kills3" type="RichTextLabel" parent="ScoreBg"]
-modulate = Color(0.56, 0.56, 0.56, 1)
+modulate = Color(0.615686, 0.568627, 0.513726, 1)
 offset_left = -208.0
 offset_top = -84.0
 offset_right = 210.0
 offset_bottom = -20.0
-theme_override_fonts/normal_font = ExtResource("3_u001w")
+theme_override_fonts/normal_font = ExtResource("3_u2dgd")
 theme_override_font_sizes/normal_font_size = 50
 text = "Score"
 horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="Control" type="Control" parent="."]
 anchors_preset = 0
@@ -150,9 +183,9 @@ script = ExtResource("7_e0pfi")
 [node name="HBoxContainer" type="HBoxContainer" parent="Control"]
 layout_mode = 0
 offset_left = 91.0
-offset_top = 389.0
+offset_top = 565.0
 offset_right = 427.0
-offset_bottom = 429.0
+offset_bottom = 605.0
 
 [node name="Control" type="Control" parent="Control/HBoxContainer"]
 custom_minimum_size = Vector2(64, 0)
@@ -200,12 +233,37 @@ scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_bt76a")
 
 [node name="BPMLabel2" type="RichTextLabel" parent="Control"]
-modulate = Color(0.290196, 0.290196, 0.290196, 1)
+modulate = Color(0.46, 0.3082, 0.3082, 1)
 layout_mode = 2
 offset_left = 67.0
-offset_top = 292.0
+offset_top = 469.0
 offset_right = 408.0
-offset_bottom = 433.0
+offset_bottom = 610.0
 theme_override_fonts/normal_font = ExtResource("3_u2dgd")
 theme_override_font_sizes/normal_font_size = 50
 text = "Lives left:"
+
+[node name="MultiplyerProgressBar" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 0
+
+[node name="comboBar" type="ProgressBar" parent="MultiplyerProgressBar"]
+layout_mode = 0
+offset_left = 71.0
+offset_top = 175.0
+offset_right = 230.93
+offset_bottom = 202.0
+scale = Vector2(2.175, 2.175)
+theme_override_styles/background = SubResource("StyleBoxFlat_fftnl")
+theme_override_styles/fill = SubResource("StyleBoxFlat_k7elv")
+max_value = 8.0
+step = 0.5
+show_percentage = false
+
+[node name="barTexture" type="TextureRect" parent="MultiplyerProgressBar"]
+layout_mode = 0
+offset_left = -11.0
+offset_top = 172.0
+offset_right = 501.0
+offset_bottom = 236.0
+texture = ExtResource("9_k7elv")

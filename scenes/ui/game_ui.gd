@@ -9,6 +9,7 @@ extends Control
 @onready var gpman = $"../GameplayManager"
 @onready var score_label = $ScoreBg/Score
 @onready var music_man = $"../MusicManager"
+@onready var combo_bar = $MultiplyerProgressBar/comboBar
 
 @onready var skulls: Node2D = $Skulls
 
@@ -24,7 +25,17 @@ func refresh():
 	fails_label.text = "Fails: %d" % gpman.fails
 	score_label.text = str(gpman.score)
 	combo_label.text = "Combo: x%d" % gpman.combo
-	multi_label.text = "Multiplier: x%d" % gpman.multiplier
+	multi_label.text = "x%d" % gpman.multiplier
+	
+	combo_bar.value = gpman.combo % 8
+	
+	#bounce_multi_label()
+
+	if gpman.combo <= 8:
+		combo_bar.modulate = Color("5C544B")
+	else:
+		combo_bar.modulate = Color("9D9183")
+
 
 	if music_man.track_data:
 		bpm_label.text = "BPM: %d" % int(music_man.track_data.get_bpm(beat))
@@ -36,3 +47,8 @@ func subdiv_text(beat) -> String:
 		return "1/2"
 	else:
 		return str(int(subdiv))
+		
+func bounce_multi_label():
+	var tween = create_tween()
+	tween.tween_property(multi_label, "scale", Vector2(1.3, 1.3), 0.1)
+	tween.tween_property(multi_label, "scale", Vector2(1, 1), 0.1).set_delay(0.1)
