@@ -2,6 +2,8 @@ extends Node3D
 
 @export var gspots: Array[Node3D]
 
+signal gBoy_tap(tap_data: TapData)
+
 var hold_mode: bool = false
 
 var left_pressed: bool
@@ -24,14 +26,22 @@ const right_lane_action_name = "move_to_right_lane"
 func _ready() -> void:
 	assert(len(gspots) == 3)
 
+func tap(lane_num: GPos):
+	last_pressed = lane_num
+	# todo: use correct time
+	var tap_data = TapData.new(0, last_pressed)
+
+	
+	gBoy_tap.emit(tap_data)
+	
 func _input(event: InputEvent) -> void:
 	if not hold_mode:
 		if event.is_action_pressed(left_lane_action_name):
-			last_pressed = GPos.Left
+			tap(GPos.Left)
 		if event.is_action_pressed(right_lane_action_name):
-			last_pressed = GPos.Right
+			tap(GPos.Right)
 		if event.is_action_pressed(mid_lane_action_name):
-			last_pressed = GPos.Mid
+			tap(GPos.Mid)
 		if event.is_action_pressed('ui_text_backspace'):
 			$"/root/Mainmenu".back()
 		update_position()

@@ -5,6 +5,7 @@ extends Node3D
 
 var age: int = 0
 
+var beat_on_finish: int = 0
 var max_offset_radius: float = .1
 
 enum STATE {

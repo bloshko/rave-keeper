@@ -8,6 +8,8 @@ enum STATE {
 
 var age = 0
 
+var beat_on_finish: int = 0
+
 var state = STATE.WALKING
 var max_offset_radius: float = .1
 

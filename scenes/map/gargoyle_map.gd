@@ -9,12 +9,12 @@ var initial_scale_tombsB = Vector3()
 const tomb_beat_final_scale = Vector3(1, 1, 1.2)
 
 func _ready():
-	assert("beat_hit_halved" in beat_micro_manager)
+	assert("beat_bpm_hit" in beat_micro_manager)
 	
 	initial_scale_tombsA = tombsA.scale
 	initial_scale_tombsB = tombsB.scale
 	
-	beat_micro_manager.beat_hit_halved.connect(funky_tombs)
+	beat_micro_manager.beat_bpm_hit.connect(funky_tombs)
 	
 
 func funky_tombs():
