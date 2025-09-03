@@ -54,14 +54,16 @@ func _ready():
 	
 func _beat_hit(new_beat: int):	
 	move_enemies()
+
 	if has_humans:
 		move_humans()
 
 	var spawn_beat = new_beat + look_ahead
 	var enemy_lane = -1
+	
 	if spawn_beat in music_manager.track_data.evil_events:
 		enemy_lane = music_manager.track_data.evil_events[spawn_beat]
-		spawn_enemy(enemy_lane)
+		spawn_enemy(enemy_lane, spawn_beat)
 
 	if has_humans:	
 		var human_lane = randi_range(0, 2)
@@ -69,22 +71,28 @@ func _beat_hit(new_beat: int):
 			if i == enemy_lane:
 				continue
 			if i == human_lane:
-				spawn_human(i)
+				spawn_human(i, spawn_beat)
+
+func get_enemies_by_lane(lane_idx: int):
+	return lane_enemies[lane_idx].get_children()
 	
-func spawn_enemy(lane_idx: int):
+func spawn_enemy(lane_idx: int, beat_on_finish: int):
 	var spawn_position = lane_starts[lane_idx].global_position
 	var parent_node = lane_enemies[lane_idx]
 
 	var enemy = enemy_scene.instantiate()
-
+	enemy.beat_on_finish = beat_on_finish
+	
 	parent_node.add_child(enemy)
 	enemy.global_position = spawn_position;
+	
 
-func spawn_human(lane_idx: int):
+func spawn_human(lane_idx: int, beat_on_finish: int):
 	var spawn_position = lane_starts[lane_idx].global_position
 	var parent_node = lane_humans[lane_idx]
 
 	var human = human_scene.instantiate()
+	human.beat_on_finish = beat_on_finish
 
 	parent_node.add_child(human)
 	human.global_position = spawn_position;
@@ -94,17 +102,13 @@ func move_humans():
 		for human in lane_humans[i].get_children():
 			human.age += 1 
 			human.jump_to(lane_starts[i].global_position + lane_directions[i] * step_lengths[i] * human.age)
-			if human.age == look_ahead and gBoy.current_pos == i:
-				human.scare_away()
-			elif human.age - 2 > look_ahead: # 2 is there to wait for the enemy to enter the church
+			if human.age - 2 > look_ahead: # when entered church
 				human.die()
-				
+
 func move_enemies():
 	for i in range(3):
 		for child in lane_enemies[i].get_children():
 			child.age += 1 
-			var tween = child.jump_to(lane_starts[i].global_position + lane_directions[i] * step_lengths[i] * child.age)
-			if child.age == look_ahead and gBoy.current_pos == i:
-				tween.chain().tween_callback(child.kill)
-			elif child.age - 2 > look_ahead: # 2 is there to wait for the enemy to enter the church
+			child.jump_to(lane_starts[i].global_position + lane_directions[i] * step_lengths[i] * child.age)
+			if child.age - 2 > look_ahead: # when entered church
 				child.die()

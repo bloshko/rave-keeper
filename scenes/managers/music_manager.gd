@@ -14,6 +14,9 @@ var elapsed: float = 0
 var beat: int = -8
 var bpm = 120
 
+# timestamp when music started playing in milliseconds since the engine start
+var music_started_timestamp_msec: int = 0
+
 var playing: bool = false
 
 func _ready() -> void:
@@ -49,3 +52,14 @@ func _process(delta: float) -> void:
 				pre_tick.play()
 			if beat == 0:
 				main_track.play()
+				music_started_timestamp_msec = Time.get_ticks_msec()
+
+func get_playback_position_ms():
+	# https://docs.godotengine.org/en/stable/classes/class_audioserver.html#class-audioserver-method-get-time-since-last-mix
+	var playback_position_s = main_track.get_playback_position() + AudioServer.get_time_since_last_mix()
+	var playback_position_ms = playback_position_s * 1000
+	
+	return playback_position_ms
+
+func get_playback_position_since_engine_start_ms():
+	return music_started_timestamp_msec + get_playback_position_ms()

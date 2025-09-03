@@ -1,6 +1,6 @@
 extends Node
 
-signal beat_hit_halved()
+signal beat_bpm_hit()
 @onready var music_macro_manager = $".."
 
 var elapsed = 0
@@ -15,5 +15,5 @@ func _process(delta):
 	elapsed += delta
 	if elapsed >= seconds_per_beat:
 		elapsed -= seconds_per_beat
-		beat_hit_halved.emit()
+		beat_bpm_hit.emit()
 	

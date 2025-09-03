@@ -7,6 +7,8 @@ var bpm_curves: Array[LinearBPMCurve]
 var evil_events: Dictionary[int, int] 
 var subdiv_changes: Dictionary[int, float]
 
+var beat_timestamps_ms: Array[float] = []
+
 class LinearBPMCurve:
 	var beat_begin: int
 	var beat_end: int
@@ -34,7 +36,8 @@ static func from_dict(dict: Dictionary) -> TrackData:
 				data.subdiv_changes.set(int(event["beat"]), event["value"])
 			"evil":
 				data.evil_events.set(int(event["beat"]), int(event["lane"]))
-
+			
+	data.beat_timestamps_ms.append_array(generate_beat_timestamps(data))
 	return data
 
 func get_bpm(beat: int) -> float:
@@ -49,6 +52,32 @@ func get_bpm(beat: int) -> float:
 			bpm = curve.bpm_end
 	
 	return bpm
+	
+static func generate_beat_timestamps(track_data: TrackData) -> Array:
+	var keys = track_data.evil_events.keys()
+	var max_beats_num = keys[len(keys) - 1]
+	
+	var accumulated_time_s = 0
+	var beat_timestamps_ms = [accumulated_time_s]
+	
+	var last_subdiv = track_data.initial_subdiv
+	var last_bpm = track_data.initial_bpm
+
+	var last_seconds_per_beat = 1 / (last_subdiv * (last_bpm / 60))
+	
+	for i in range(max_beats_num):
+		var subdiv_change = track_data.subdiv_changes.get(i)
+		last_bpm = track_data.get_bpm(i)
+		if subdiv_change != null:
+			last_subdiv = subdiv_change
+		
+		last_seconds_per_beat = 1 / (last_subdiv * (last_bpm / 60)) 
+
+		accumulated_time_s += last_seconds_per_beat
+		
+		beat_timestamps_ms.append(accumulated_time_s * 1000)
+		
+	return beat_timestamps_ms
 
 func get_subdiv(beat: int):
 	var subdiv = initial_subdiv
