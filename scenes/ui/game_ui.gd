@@ -51,4 +51,4 @@ func subdiv_text(beat) -> String:
 func bounce_multi_label():
 	var tween = create_tween()
 	tween.tween_property(multi_label, "scale", Vector2(1.3, 1.3), 0.1)
-	tween.tween_property(multi_label, "scale", Vector2(1, 1), 0.1).set_delay(0.1)
+	tween.chain().tween_property(multi_label, "scale", Vector2(1, 1), 0.1)
