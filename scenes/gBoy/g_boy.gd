@@ -28,10 +28,7 @@ func _ready() -> void:
 
 func tap(lane_num: GPos):
 	last_pressed = lane_num
-	# todo: use correct time
-	var tap_data = TapData.new(0, last_pressed)
-
-	
+	var tap_data = TapData.new(Time.get_ticks_msec(), last_pressed)
 	gBoy_tap.emit(tap_data)
 	
 func _input(event: InputEvent) -> void:

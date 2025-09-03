@@ -20,16 +20,10 @@ var game_over: bool = false
 var successful_tap_window_ms: float = 200
 
 func _ready() -> void:
-	music_manager.beat_hit.connect(_beat_hit)
-	gboy.gBoy_tap.connect(check_kill_improved)
-
-func _beat_hit(new_beat: int):
-	if game_over:
-		return
+	gboy.gBoy_tap.connect(check_kill)
 
 func _get_hit_or_miss(target_ms: float, tap_ms: float) -> HitOrMissData:
 	var tap_margin = target_ms - tap_ms
-	print(tap_margin)
 	
 	var hit_or_miss_data = HitOrMissData.new()
 	hit_or_miss_data.margin = tap_margin
@@ -42,9 +36,12 @@ func _get_hit_or_miss(target_ms: float, tap_ms: float) -> HitOrMissData:
 	return hit_or_miss_data
 
 
-func check_kill_improved(tap_data: TapData):
+func check_kill(tap_data: TapData):
+	if game_over:
+		return
+	
 	var enemies = enemy_manager.get_enemies_by_lane(tap_data.lane_num)
-	var tap_timestamp_ms = Time.get_ticks_msec()
+	var tap_timestamp_ms = tap_data.tap_time
 	
 	var has_fail = false
 	for enemy in enemies:

@@ -102,8 +102,6 @@ func move_humans():
 		for human in lane_humans[i].get_children():
 			human.age += 1 
 			human.jump_to(lane_starts[i].global_position + lane_directions[i] * step_lengths[i] * human.age)
-			#if human.age == look_ahead and gBoy.current_pos == i:
-				#human.scare_away()
 			if human.age - 2 > look_ahead: # when entered church
 				human.die()
 
