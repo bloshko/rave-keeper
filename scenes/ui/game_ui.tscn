@@ -58,7 +58,7 @@ offset_right = 411.0
 offset_bottom = 376.0
 theme_override_fonts/normal_font = ExtResource("3_u2dgd")
 theme_override_font_sizes/normal_font_size = 40
-text = "Score multiplyer:"
+text = "Score multiplier:"
 
 [node name="BPMLabel" type="RichTextLabel" parent="."]
 modulate = Color(0.615686, 0.568627, 0.513726, 1)
@@ -243,11 +243,11 @@ theme_override_fonts/normal_font = ExtResource("3_u2dgd")
 theme_override_font_sizes/normal_font_size = 50
 text = "Lives left:"
 
-[node name="MultiplyerProgressBar" type="Control" parent="."]
+[node name="MultiplierProgressBar" type="Control" parent="."]
 layout_mode = 1
 anchors_preset = 0
 
-[node name="comboBar" type="ProgressBar" parent="MultiplyerProgressBar"]
+[node name="comboBar" type="ProgressBar" parent="MultiplierProgressBar"]
 layout_mode = 0
 offset_left = 71.0
 offset_top = 175.0
@@ -260,7 +260,7 @@ max_value = 8.0
 step = 0.5
 show_percentage = false
 
-[node name="barTexture" type="TextureRect" parent="MultiplyerProgressBar"]
+[node name="barTexture" type="TextureRect" parent="MultiplierProgressBar"]
 layout_mode = 0
 offset_left = -11.0
 offset_top = 172.0

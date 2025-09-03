@@ -50,8 +50,9 @@ func check_kill(tap_data: TapData):
 		var hit_or_miss = _get_hit_or_miss(beat_timestamp_since_engine_started_ms, tap_timestamp_ms)
 		
 		if hit_or_miss.status == HitOrMissData.Status.Hit:
-			enemy.kill()
-			_count_kill()
+			if enemy.can_be_killed():
+				enemy.kill()
+				_count_kill()
 			break
 		else:
 			has_fail = true
@@ -67,16 +68,16 @@ func _count_kill():
 	multiplier = 1 + floor(combo / 8.0)
 	score += 100 * multiplier
 	finish_line.jump()
-	bell.play()
 	something_changed.emit()
+
 	
 func _count_fail():
 	fails += 1
 	bell.pitch_scale = .5
 	combo = 0
 	multiplier = 1 + floor(combo / 8.0)
-	bell.play(.02)
 	something_changed.emit()
+
 
 	if GameplayData.hardcore and fails > 4:
 		game_over = true

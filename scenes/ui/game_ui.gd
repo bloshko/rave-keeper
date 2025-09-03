@@ -9,15 +9,21 @@ extends Control
 @onready var gpman = $"../GameplayManager"
 @onready var score_label = $ScoreBg/Score
 @onready var music_man = $"../MusicManager"
-@onready var combo_bar = $MultiplyerProgressBar/comboBar
+@onready var combo_bar = $MultiplierProgressBar/comboBar
 
 @onready var skulls: Node2D = $Skulls
 
 func _ready() -> void:
-	gpman.something_changed.connect(refresh)
+	gpman.something_changed.connect(_on_game_manager_change)
 	music_man.beat_hit.connect(skulls.on_beat)
 	music_man.beat_hit.connect(func (_new_beat): refresh())
 	refresh()
+
+func _on_game_manager_change():
+	refresh()
+	
+	if combo_bar.value == 0 and gpman.multiplier > 1:
+		bounce_multi_label()
 
 func refresh():
 	var beat = music_man.beat
@@ -28,13 +34,11 @@ func refresh():
 	multi_label.text = "x%d" % gpman.multiplier
 	
 	combo_bar.value = gpman.combo % 8
-	
-	#bounce_multi_label()
 
-	if gpman.combo <= 8:
-		combo_bar.modulate = Color("5C544B")
+	if gpman.combo < 8:
+		combo_bar.self_modulate = Color("5C544B")
 	else:
-		combo_bar.modulate = Color("9D9183")
+		combo_bar.self_modulate = Color("9D9183")
 
 
 	if music_man.track_data:
@@ -50,5 +54,5 @@ func subdiv_text(beat) -> String:
 		
 func bounce_multi_label():
 	var tween = create_tween()
-	tween.tween_property(multi_label, "scale", Vector2(1.3, 1.3), 0.1)
-	tween.chain().tween_property(multi_label, "scale", Vector2(1, 1), 0.1)
+	tween.tween_property(multi_label, "scale", Vector2.ONE * gpman.multiplier * 0.3, 0.1)
+	tween.chain().tween_property(multi_label, "scale", Vector2.ONE, 0.1)

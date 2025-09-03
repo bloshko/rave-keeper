@@ -31,6 +31,9 @@ func jump_to(target: Vector3) -> Tween:
 	
 	return jump_tween
 	
+func can_be_killed():
+	return state != STATE.Dying
+	
 func kill():
 	if state != STATE.Jumping:
 		return
