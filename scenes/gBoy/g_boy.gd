@@ -30,6 +30,7 @@ func tap(lane_num: GPos):
 	last_pressed = lane_num
 	var tap_data = TapData.new(Time.get_ticks_msec(), last_pressed)
 	gBoy_tap.emit(tap_data)
+	$gargoyle2.attack()
 	
 func _input(event: InputEvent) -> void:
 	if not hold_mode:

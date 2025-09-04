@@ -51,12 +51,16 @@ func _ready():
 		step_lengths[i] = lane_starts[i].global_position.distance_to(lane_ends[i].global_position) / look_ahead
 
 	music_manager.beat_hit.connect(_beat_hit)
-	
-func _beat_hit(new_beat: int):	
+	music_manager.prebeat_hit.connect(_prebeat_hit)
+
+func _prebeat_hit(_new_beat: int):
 	move_enemies()
 
 	if has_humans:
 		move_humans()
+
+func _beat_hit(new_beat: int):	
+
 
 	var spawn_beat = new_beat + look_ahead
 	var enemy_lane = -1
