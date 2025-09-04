@@ -13,7 +13,7 @@ config_version=5
 config/name="rave-keeper"
 run/main_scene="uid://duv2pl64213mj"
 config/features=PackedStringArray("4.4", "GL Compatibility")
-config/icon="res://icon.svg"
+config/icon="uid://bxgwhj5fngyxx"
 
 [autoload]
 
