@@ -21,6 +21,7 @@ var successful_tap_window_ms: float = 200
 
 func _ready() -> void:
 	gboy.gBoy_tap.connect(check_kill)
+	music_manager.musik_ded.connect(func(): $"/root/Mainmenu/Gameover".blublub(score))
 
 func _get_hit_or_miss(target_ms: float, tap_ms: float) -> HitOrMissData:
 	var tap_margin = target_ms - tap_ms
@@ -60,7 +61,6 @@ func check_kill(tap_data: TapData):
 	if has_fail or len(enemies) == 0:
 		_count_fail()
 
-	
 func _count_kill():
 	kills += 1
 	bell.pitch_scale = 1
@@ -70,7 +70,6 @@ func _count_kill():
 	finish_line.jump()
 	something_changed.emit()
 
-	
 func _count_fail():
 	fails += 1
 	bell.pitch_scale = .5
@@ -78,8 +77,8 @@ func _count_fail():
 	multiplier = 1 + floor(combo / 8.0)
 	something_changed.emit()
 
-
 	if GameplayData.hardcore and fails > 4:
 		game_over = true
 		var tween = create_tween()
 		tween.tween_property(music_manager.main_track, 'pitch_scale', 0.5, 10)
+		$"/root/Mainmenu/Gameover".blublub(score)

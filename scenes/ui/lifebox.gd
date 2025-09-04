@@ -1,6 +1,6 @@
 extends Control
 
-@onready var gpman = %GameplayManager
+@onready var gpman = $/root/Mainmenu/GameRoot/Main/SubViewportContainer/SubViewport/GameplayManager
 @onready var hbox = $HBoxContainer
 
 func _ready() -> void:

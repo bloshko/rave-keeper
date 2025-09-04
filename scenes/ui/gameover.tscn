@@ -1,0 +1,270 @@
+[gd_scene load_steps=5 format=3 uid="uid://q5cpg54jlneo"]
+
+[ext_resource type="Script" uid="uid://dfu5hnwydrmi3" path="res://scenes/ui/gameover.gd" id="1_58jn4"]
+[ext_resource type="Texture2D" uid="uid://li8wpeyklcyh" path="res://graphics/skullGrey.png" id="1_xg0lb"]
+[ext_resource type="FontFile" uid="uid://cek6qpbssjyxp" path="res://graphics/CAT Hohenzollern.ttf" id="2_sxuf3"]
+[ext_resource type="FontFile" uid="uid://ertbfw371i68" path="res://graphics/GutenbergTextura.ttf" id="3_valnw"]
+
+[node name="Gameover" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_58jn4")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Skulls" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 88.0
+offset_top = 64.0
+offset_right = 128.0
+offset_bottom = 1024.0
+theme_override_constants/separation = 116
+
+[node name="Control" type="Control" parent="Skulls"]
+layout_mode = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Skulls/Control"]
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("1_xg0lb")
+
+[node name="Control2" type="Control" parent="Skulls"]
+layout_mode = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Skulls/Control2"]
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("1_xg0lb")
+
+[node name="Control3" type="Control" parent="Skulls"]
+layout_mode = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Skulls/Control3"]
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("1_xg0lb")
+
+[node name="Control4" type="Control" parent="Skulls"]
+layout_mode = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Skulls/Control4"]
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("1_xg0lb")
+
+[node name="Control5" type="Control" parent="Skulls"]
+layout_mode = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Skulls/Control5"]
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("1_xg0lb")
+
+[node name="Control6" type="Control" parent="Skulls"]
+layout_mode = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Skulls/Control6"]
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("1_xg0lb")
+
+[node name="Control7" type="Control" parent="Skulls"]
+layout_mode = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Skulls/Control7"]
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("1_xg0lb")
+
+[node name="Control8" type="Control" parent="Skulls"]
+layout_mode = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Skulls/Control8"]
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("1_xg0lb")
+
+[node name="Control9" type="Control" parent="Skulls"]
+layout_mode = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Skulls/Control9"]
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("1_xg0lb")
+
+[node name="Skulls2" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 1830.0
+offset_top = 64.0
+offset_right = 1870.0
+offset_bottom = 1024.0
+theme_override_constants/separation = 116
+
+[node name="Control" type="Control" parent="Skulls2"]
+layout_mode = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Skulls2/Control"]
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("1_xg0lb")
+
+[node name="Control2" type="Control" parent="Skulls2"]
+layout_mode = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Skulls2/Control2"]
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("1_xg0lb")
+
+[node name="Control3" type="Control" parent="Skulls2"]
+layout_mode = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Skulls2/Control3"]
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("1_xg0lb")
+
+[node name="Control4" type="Control" parent="Skulls2"]
+layout_mode = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Skulls2/Control4"]
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("1_xg0lb")
+
+[node name="Control5" type="Control" parent="Skulls2"]
+layout_mode = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Skulls2/Control5"]
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("1_xg0lb")
+
+[node name="Control6" type="Control" parent="Skulls2"]
+layout_mode = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Skulls2/Control6"]
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("1_xg0lb")
+
+[node name="Control7" type="Control" parent="Skulls2"]
+layout_mode = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Skulls2/Control7"]
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("1_xg0lb")
+
+[node name="Control8" type="Control" parent="Skulls2"]
+layout_mode = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Skulls2/Control8"]
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("1_xg0lb")
+
+[node name="Control9" type="Control" parent="Skulls2"]
+layout_mode = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Skulls2/Control9"]
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("1_xg0lb")
+
+[node name="Score" type="RichTextLabel" parent="."]
+modulate = Color(0.733333, 0.113725, 0.113725, 1)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.0535563
+anchor_top = -0.0293331
+anchor_right = 0.0193604
+anchor_bottom = 0.0290003
+offset_left = 768.828
+offset_top = 247.68
+offset_right = 1180.83
+offset_bottom = 404.68
+mouse_filter = 2
+theme_override_fonts/normal_font = ExtResource("2_sxuf3")
+theme_override_font_sizes/normal_font_size = 160
+text = "12345"
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Kills3" type="RichTextLabel" parent="."]
+modulate = Color(0.615686, 0.568627, 0.513726, 1)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.0166667
+anchor_top = -0.0203704
+anchor_right = -0.0166667
+anchor_bottom = -0.0203704
+offset_left = 760.625
+offset_top = 201.156
+offset_right = 1178.63
+offset_bottom = 265.156
+mouse_filter = 2
+theme_override_fonts/normal_font = ExtResource("2_sxuf3")
+theme_override_font_sizes/normal_font_size = 50
+text = "Your Score"
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Score2" type="RichTextLabel" parent="."]
+modulate = Color(0.733333, 0.113725, 0.113725, 1)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.0166667
+anchor_top = 0.244444
+anchor_right = -0.0166667
+anchor_bottom = 0.244444
+offset_left = 768.828
+offset_top = 247.68
+offset_right = 1180.83
+offset_bottom = 404.68
+mouse_filter = 2
+theme_override_fonts/normal_font = ExtResource("2_sxuf3")
+theme_override_font_sizes/normal_font_size = 120
+text = "12345"
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Kills4" type="RichTextLabel" parent="."]
+modulate = Color(0.615686, 0.568627, 0.513726, 1)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.0166667
+anchor_top = 0.244444
+anchor_right = -0.0166667
+anchor_bottom = 0.244444
+offset_left = 760.625
+offset_top = 201.156
+offset_right = 1178.63
+offset_bottom = 265.156
+mouse_filter = 2
+theme_override_fonts/normal_font = ExtResource("2_sxuf3")
+theme_override_font_sizes/normal_font_size = 50
+text = "Highscore"
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Button" type="Button" parent="."]
+modulate = Color(1, 0.3, 0.3, 1)
+layout_mode = 0
+offset_left = 604.0
+offset_top = 851.0
+offset_right = 1267.0
+offset_bottom = 997.0
+focus_mode = 0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 0.32549)
+theme_override_constants/outline_size = 6
+theme_override_fonts/font = ExtResource("3_valnw")
+theme_override_font_sizes/font_size = 80
+text = "Main Menu"
+flat = true
+
+[node name="Button2" type="Button" parent="."]
+modulate = Color(1, 0.3, 0.3, 1)
+layout_mode = 0
+offset_left = 604.0
+offset_top = 779.0
+offset_right = 1267.0
+offset_bottom = 883.0
+focus_mode = 0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 0.32549)
+theme_override_constants/outline_size = 6
+theme_override_fonts/font = ExtResource("3_valnw")
+theme_override_font_sizes/font_size = 80
+text = "Try Again"
+flat = true
