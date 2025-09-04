@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cr1dwfdxs1h2u"]
+
+[ext_resource type="Script" uid="uid://wwggnky6byqe" path="res://scenes/managers/highschoolmanager.gd" id="1_k3hrq"]
+
+[node name="Highschoolmanager" type="Node"]
+script = ExtResource("1_k3hrq")

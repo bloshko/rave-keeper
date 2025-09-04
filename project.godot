@@ -18,6 +18,7 @@ config/icon="uid://bxgwhj5fngyxx"
 [autoload]
 
 GameplayData="*res://scenes/managers/gameplay_data.tscn"
+Highschoolmanager="*res://scenes/managers/highschoolmanager.tscn"
 
 [display]
 

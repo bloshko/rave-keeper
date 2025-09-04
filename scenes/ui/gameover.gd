@@ -2,6 +2,8 @@ extends Control
 
 @onready var replay_button = $Button2
 @onready var main_menu = $/root/Mainmenu
+@onready var high = $Score2
+@onready var yourscore = $Score
 
 func _ready() -> void:
 	replay_button.pressed.connect(back)
@@ -11,6 +13,19 @@ func _ready() -> void:
 	)
 
 func blublub(score):
+	yourscore.text = str(score)
+
+	if GameplayData.hardcore:
+		if score > Highschoolmanager.save.hard_score:
+			Highschoolmanager.save.hard_score = score
+			Highschoolmanager.save.save()
+		high.text = str(Highschoolmanager.save.hard_score) 
+	else:
+		if score > Highschoolmanager.save.normal_score:
+			Highschoolmanager.save.normal_score = score
+			Highschoolmanager.save.save()
+		high.text = str(Highschoolmanager.save.normal_score)
+
 	visible = true
 
 func back():
