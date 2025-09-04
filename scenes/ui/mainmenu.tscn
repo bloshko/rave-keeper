@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://duv2pl64213mj"]
+[gd_scene load_steps=7 format=3 uid="uid://duv2pl64213mj"]
 
 [ext_resource type="Script" uid="uid://cx0e434og1n8" path="res://scenes/ui/mainmenu.gd" id="1_5mbse"]
 [ext_resource type="Texture2D" uid="uid://djtr053ck22dj" path="res://graphics/menu.png" id="2_r3g3c"]
 [ext_resource type="FontFile" uid="uid://ertbfw371i68" path="res://graphics/GutenbergTextura.ttf" id="3_3vvtq"]
 [ext_resource type="AudioStream" uid="uid://dkdou1itjoorx" path="res://audio/ravekeeper_vorspiel.ogg" id="4_3vvtq"]
 [ext_resource type="FontFile" uid="uid://cek6qpbssjyxp" path="res://graphics/CAT Hohenzollern.ttf" id="4_s5g8n"]
+[ext_resource type="PackedScene" uid="uid://q5cpg54jlneo" path="res://scenes/ui/gameover.tscn" id="6_e6rwi"]
 
 [node name="Mainmenu" type="Node"]
 script = ExtResource("1_5mbse")
@@ -84,3 +85,6 @@ visible = false
 offset_right = 1920.0
 offset_bottom = 1080.0
 color = Color(0, 0, 0, 1)
+
+[node name="Gameover" parent="." instance=ExtResource("6_e6rwi")]
+visible = false

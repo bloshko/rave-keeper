@@ -4,16 +4,15 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://doqtn428jffdp"
 path.s3tc="res://.godot/imported/gargoyle_texture.png-42ebb27ed71a1f415bb9785ae720bdf5.s3tc.ctex"
-path.etc2="res://.godot/imported/gargoyle_texture.png-42ebb27ed71a1f415bb9785ae720bdf5.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc", "etc2_astc"],
+"imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://textures/gargoyle_texture.png"
-dest_files=["res://.godot/imported/gargoyle_texture.png-42ebb27ed71a1f415bb9785ae720bdf5.s3tc.ctex", "res://.godot/imported/gargoyle_texture.png-42ebb27ed71a1f415bb9785ae720bdf5.etc2.ctex"]
+dest_files=["res://.godot/imported/gargoyle_texture.png-42ebb27ed71a1f415bb9785ae720bdf5.s3tc.ctex"]
 
 [params]
 

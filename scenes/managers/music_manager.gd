@@ -2,6 +2,7 @@ extends Node
 
 signal beat_hit(beat_num: int)
 signal prebeat_hit(beat_num: int)
+signal musik_ded
 
 @onready var main_track = $MainTrack
 @onready var pre_tick = $PreTick
@@ -60,6 +61,7 @@ func _process(delta: float) -> void:
 				pre_tick.play()
 			if beat == 0:
 				main_track.play()
+				main_track.finished.connect(func(): musik_ded.emit())
 				music_started_timestamp_msec = Time.get_ticks_msec()
 
 func get_playback_position_ms():
