@@ -38,16 +38,15 @@ mesh = ExtResource("3_dnj0x")
 skeleton = NodePath("../..")
 
 [node name="SpotLight3D" type="SpotLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.906801, -0.421558, 0, 0.421558, 0.906801, 0, 0.14409, 1.08965)
+transform = Transform3D(1, 0, 0, 0, 0.859424, -0.511263, 0, 0.511263, 0.859424, 0, 0.0134196, 1.37073)
 layers = 3
-light_color = Color(1, 0, 0, 1)
-light_energy = 5.493
+light_energy = 2.0
 light_specular = 0.978
 light_bake_mode = 1
-light_cull_mask = 4294967294
 
 [node name="SpotLight3D2" type="SpotLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -0.0910497, 0.995846, 0, -0.995846, -0.0910497, 0, 0, 0)
+visible = false
 light_color = Color(1, 0, 0, 1)
 light_energy = 13.258
 light_bake_mode = 0
@@ -55,6 +54,7 @@ light_cull_mask = 4294967068
 
 [node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
 visible = false
+material_override = ExtResource("2_ii2va")
 mesh = ExtResource("5_foxho")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

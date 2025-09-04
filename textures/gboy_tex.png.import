@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bwkujtywdtw1q"
-path.s3tc="res://.godot/imported/gradient.png-9508f4b80bbb902e36c0e01fbe4332fc.s3tc.ctex"
+uid="uid://ckbf7yp5knuiu"
+path.s3tc="res://.godot/imported/gboy_tex.png-2c07530fb6ad097cb139060716eb52ad.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://textures/gradient.png"
-dest_files=["res://.godot/imported/gradient.png-9508f4b80bbb902e36c0e01fbe4332fc.s3tc.ctex"]
+source_file="res://textures/gboy_tex.png"
+dest_files=["res://.godot/imported/gboy_tex.png-2c07530fb6ad097cb139060716eb52ad.s3tc.ctex"]
 
 [params]
 

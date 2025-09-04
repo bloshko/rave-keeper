@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://cr3mgu5iv6pal"]
+[gd_scene load_steps=4 format=3 uid="uid://cr3mgu5iv6pal"]
 
 [ext_resource type="PackedScene" uid="uid://pyoggq5agcpi" path="res://models/gargoyle2.fbx" id="1_bvprb"]
 [ext_resource type="Script" uid="uid://be7xt4ifetxk7" path="res://models/gboy/gargoyle_2.gd" id="2_mytuk"]
+[ext_resource type="Material" uid="uid://d266fxsq0wano" path="res://materials/gargouyle_mat.tres" id="3_ty83x"]
 
 [node name="gargoyle2" instance=ExtResource("1_bvprb")]
 script = ExtResource("2_mytuk")
@@ -273,6 +274,12 @@ bones/510/rotation = Quaternion(0.995834, 0.00175147, -0.0195889, -0.0890385)
 bones/513/rotation = Quaternion(-7.45058e-09, -2.98428e-13, 3.55271e-14, 1)
 bones/518/rotation = Quaternion(0.995834, -0.00175147, 0.0195889, -0.0890385)
 bones/521/rotation = Quaternion(-7.45058e-09, -2.98428e-13, 3.55271e-14, 1)
+
+[node name="gargoyle_003" parent="rig/Skeleton3D" index="0"]
+material_override = ExtResource("3_ty83x")
+
+[node name="gargoyle" parent="rig/Skeleton3D" index="1"]
+material_override = ExtResource("3_ty83x")
 
 [node name="AnimationPlayer" parent="." index="1"]
 speed_scale = 2.5

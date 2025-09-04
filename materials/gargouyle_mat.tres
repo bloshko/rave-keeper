@@ -1,6 +1,6 @@
 [gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://d266fxsq0wano"]
 
-[ext_resource type="Texture2D" uid="uid://doqtn428jffdp" path="res://textures/gargoyle_texture.png" id="1_4xvyj"]
+[ext_resource type="Texture2D" uid="uid://ckbf7yp5knuiu" path="res://textures/gboy_tex.png" id="1_4xvyj"]
 
 [resource]
 cull_mode = 2

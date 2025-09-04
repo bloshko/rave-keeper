@@ -28,8 +28,8 @@ shader_parameter/snap_to_world = false
 shader_parameter/limit_subpixels = true
 shader_parameter/dither_enabled = true
 shader_parameter/dither_pattern = 3
-shader_parameter/levels = 3
-shader_parameter/contrast = 1.7
+shader_parameter/levels = 6
+shader_parameter/contrast = 1.6
 shader_parameter/brightness = 0.0
 shader_parameter/average = 0.0
 shader_parameter/palette_mode = 0
@@ -248,9 +248,16 @@ environment = SubResource("Environment_jkv2x")
 [node name="OmniLight3D" type="OmniLight3D" parent="SubViewportContainer/SubViewport"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.15462, 1.01285, 2.98924)
 light_color = Color(0.689976, 0.731384, 0.807534, 1)
-light_energy = 7.599
+light_energy = 4.0
 light_indirect_energy = 3.468
 omni_range = 3.84
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="SubViewportContainer/SubViewport"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.93579, 2.98106, 2.98924)
+light_color = Color(0.689976, 0.731384, 0.807534, 1)
+light_energy = 2.602
+light_indirect_energy = 3.468
+omni_range = 7.55309
 
 [node name="GameUI" parent="SubViewportContainer" instance=ExtResource("13_trceg")]
 unique_name_in_owner = true
