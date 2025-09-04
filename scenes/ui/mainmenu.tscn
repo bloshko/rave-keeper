@@ -20,12 +20,12 @@ position = Vector2(960, 540)
 texture = ExtResource("2_r3g3c")
 
 [node name="Button" type="Button" parent="Menu"]
-modulate = Color(1, 0.3, 0.3, 1)
+modulate = Color(0.733333, 0.113725, 0.113725, 1)
 layout_mode = 0
 offset_left = 741.0
-offset_top = 840.0
+offset_top = 801.0
 offset_right = 1180.0
-offset_bottom = 1018.0
+offset_bottom = 979.0
 focus_mode = 0
 theme_override_colors/font_outline_color = Color(0, 0, 0, 0.32549)
 theme_override_constants/outline_size = 6
@@ -35,12 +35,12 @@ text = "PLAY"
 flat = true
 
 [node name="Button2" type="Button" parent="Menu"]
-modulate = Color(1, 0.301961, 0.301961, 0.431373)
+modulate = Color(0.73, 0.1168, 0.1168, 0.556863)
 layout_mode = 0
 offset_left = 790.0
-offset_top = 990.0
+offset_top = 961.0
 offset_right = 1123.0
-offset_bottom = 1049.0
+offset_bottom = 1020.0
 focus_mode = 0
 theme_override_colors/font_outline_color = Color(0, 0, 0, 0.32549)
 theme_override_constants/outline_size = 6
@@ -48,6 +48,18 @@ theme_override_fonts/font = ExtResource("4_s5g8n")
 theme_override_font_sizes/font_size = 40
 text = "<- normal mode ->"
 flat = true
+
+[node name="BestScore" type="RichTextLabel" parent="Menu"]
+modulate = Color(0.45883, 0.43637, 0.400258, 1)
+offset_left = 656.0
+offset_top = 1011.0
+offset_right = 1256.0
+offset_bottom = 1061.0
+theme_override_fonts/normal_font = ExtResource("4_s5g8n")
+theme_override_font_sizes/normal_font_size = 35
+text = "Best score: 564375"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Menu"]
 stream = ExtResource("4_3vvtq")

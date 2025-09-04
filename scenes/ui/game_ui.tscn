@@ -63,13 +63,14 @@ text = "Score multiplier:"
 [node name="BPMLabel" type="RichTextLabel" parent="."]
 modulate = Color(0.615686, 0.568627, 0.513726, 1)
 layout_mode = 2
-offset_left = 67.0
-offset_top = 686.0
-offset_right = 408.0
-offset_bottom = 827.0
+offset_left = 198.0
+offset_top = 648.0
+offset_right = 298.0
+offset_bottom = 848.0
 theme_override_fonts/normal_font = ExtResource("3_u2dgd")
 theme_override_font_sizes/normal_font_size = 50
 text = "BPM: x3"
+horizontal_alignment = 1
 
 [node name="MultiLabel" type="RichTextLabel" parent="."]
 modulate = Color(0.73, 0.1168, 0.1168, 1)

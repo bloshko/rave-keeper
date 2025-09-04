@@ -1,0 +1,137 @@
+[gd_scene load_steps=11 format=3 uid="uid://630t6db3di4r"]
+
+[ext_resource type="Script" uid="uid://cx0e434og1n8" path="res://scenes/ui/mainmenu.gd" id="1_gus1a"]
+[ext_resource type="Texture2D" uid="uid://duiepyrgtpcgw" path="res://graphics/frame_bg.png" id="2_tllk7"]
+[ext_resource type="Texture2D" uid="uid://ca7i4pgj28qlp" path="res://graphics/rule_frame.png" id="3_glrg2"]
+[ext_resource type="Texture2D" uid="uid://bux4q5iimv6oi" path="res://graphics/ghost.png" id="4_sv6mh"]
+[ext_resource type="Texture2D" uid="uid://ble2s6somxnc1" path="res://graphics/qwe.png" id="5_40wur"]
+[ext_resource type="Texture2D" uid="uid://2gr5v4pxkccp" path="res://graphics/arrows.png" id="6_wing3"]
+[ext_resource type="Texture2D" uid="uid://btkoglapv8vin" path="res://graphics/backspace.png" id="7_j44k5"]
+[ext_resource type="FontFile" uid="uid://ertbfw371i68" path="res://graphics/GutenbergTextura.ttf" id="8_sh2xi"]
+[ext_resource type="AudioStream" uid="uid://dkdou1itjoorx" path="res://audio/ravekeeper_vorspiel.ogg" id="9_7eyba"]
+[ext_resource type="FontFile" uid="uid://cek6qpbssjyxp" path="res://graphics/CAT Hohenzollern.ttf" id="10_c0d17"]
+
+[node name="Instructionsmenu" type="Node"]
+script = ExtResource("1_gus1a")
+
+[node name="Menu" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Menu2" type="Sprite2D" parent="Menu"]
+position = Vector2(960, 540)
+texture = ExtResource("2_tllk7")
+
+[node name="frame1" type="Sprite2D" parent="Menu"]
+position = Vector2(957, 552)
+scale = Vector2(1.195, 1.195)
+texture = ExtResource("3_glrg2")
+
+[node name="frame2" type="Sprite2D" parent="Menu"]
+position = Vector2(622, 552)
+scale = Vector2(1.195, 1.195)
+texture = ExtResource("3_glrg2")
+
+[node name="frame3" type="Sprite2D" parent="Menu"]
+position = Vector2(1290, 552)
+scale = Vector2(1.195, 1.195)
+texture = ExtResource("3_glrg2")
+
+[node name="ghost" type="Sprite2D" parent="Menu"]
+position = Vector2(619, 474)
+texture = ExtResource("4_sv6mh")
+
+[node name="keys" type="Sprite2D" parent="Menu"]
+position = Vector2(957, 455)
+texture = ExtResource("5_40wur")
+
+[node name="keys2" type="Sprite2D" parent="Menu"]
+position = Vector2(956, 531)
+texture = ExtResource("6_wing3")
+
+[node name="keys3" type="Sprite2D" parent="Menu"]
+position = Vector2(1292, 486)
+texture = ExtResource("7_j44k5")
+
+[node name="Button" type="Button" parent="Menu"]
+modulate = Color(0.733333, 0.113725, 0.113725, 1)
+layout_mode = 0
+offset_left = 741.0
+offset_top = 840.0
+offset_right = 1180.0
+offset_bottom = 1018.0
+focus_mode = 0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 0.32549)
+theme_override_constants/outline_size = 6
+theme_override_fonts/font = ExtResource("8_sh2xi")
+theme_override_font_sizes/font_size = 100
+text = "Start"
+flat = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Menu"]
+stream = ExtResource("9_7eyba")
+autoplay = true
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Menu"]
+modulate = Color(0.65, 0.612625, 0.5525, 1)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 693.0
+offset_top = 47.0
+offset_right = 1193.0
+offset_bottom = 247.0
+grow_horizontal = 2
+theme_override_fonts/normal_font = ExtResource("10_c0d17")
+theme_override_font_sizes/normal_font_size = 100
+text = "Instructions:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="Menu"]
+modulate = Color(0.615686, 0.568627, 0.513726, 1)
+layout_mode = 0
+offset_left = 476.0
+offset_top = 588.0
+offset_right = 776.0
+offset_bottom = 788.0
+theme_override_fonts/normal_font = ExtResource("10_c0d17")
+theme_override_font_sizes/normal_font_size = 50
+text = "Stop the red ghosts from entering!"
+horizontal_alignment = 1
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="Menu"]
+modulate = Color(0.615686, 0.568627, 0.513726, 1)
+layout_mode = 0
+offset_left = 808.0
+offset_top = 588.0
+offset_right = 1108.0
+offset_bottom = 788.0
+theme_override_fonts/normal_font = ExtResource("10_c0d17")
+theme_override_font_sizes/normal_font_size = 50
+text = "Use QWE or arrow keys to move
+"
+horizontal_alignment = 1
+
+[node name="RichTextLabel4" type="RichTextLabel" parent="Menu"]
+modulate = Color(0.615686, 0.568627, 0.513726, 1)
+layout_mode = 0
+offset_left = 1139.0
+offset_top = 588.0
+offset_right = 1439.0
+offset_bottom = 788.0
+theme_override_fonts/normal_font = ExtResource("10_c0d17")
+theme_override_font_sizes/normal_font_size = 50
+text = "Backspace returns to the menu"
+horizontal_alignment = 1
+
+[node name="GameRoot" type="Node" parent="."]
+
+[node name="FadeIn" type="ColorRect" parent="."]
+visible = false
+offset_right = 1920.0
+offset_bottom = 1080.0
+color = Color(0, 0, 0, 1)
