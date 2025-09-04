@@ -1,9 +1,11 @@
-[gd_scene load_steps=9 format=4 uid="uid://df5o1158j5pe6"]
+[gd_scene load_steps=11 format=4 uid="uid://df5o1158j5pe6"]
 
 [ext_resource type="PackedScene" uid="uid://orddtp1mx8e4" path="res://models/gargoyleMAP.fbx" id="1_44f2h"]
 [ext_resource type="Material" uid="uid://ds1shpwlop6s2" path="res://materials/tree_mat.tres" id="2_bd2mn"]
 [ext_resource type="Script" uid="uid://3bmtrq2x5kyy" path="res://scenes/map/gargoyle_map.gd" id="2_wkret"]
 [ext_resource type="Material" uid="uid://b57ptiq014w6m" path="res://materials/glow_entrance_mat.tres" id="3_igl5l"]
+[ext_resource type="Material" uid="uid://dmnp3n6qtkbyn" path="res://materials/track_mat.tres" id="3_po0mq"]
+[ext_resource type="Material" uid="uid://jfu1ivv2hw05" path="res://materials/grass_mat.tres" id="4_ey8b5"]
 [ext_resource type="Texture2D" uid="uid://dbdg68diuepxq" path="res://textures/tombstone_albedo.png" id="5_0r7hq"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e1kxb"]
@@ -48,6 +50,12 @@ shadow_mesh = SubResource("ArrayMesh_ccncv")
 
 [node name="gargoyleMAP" instance=ExtResource("1_44f2h")]
 script = ExtResource("2_wkret")
+
+[node name="tiles" parent="." index="0"]
+material_override = ExtResource("3_po0mq")
+
+[node name="ground" parent="." index="1"]
+material_override = ExtResource("4_ey8b5")
 
 [node name="finish" parent="." index="2"]
 material_override = ExtResource("3_igl5l")
