@@ -1,30 +1,30 @@
 extends Node3D
 
 @onready var lane_starts = [
-	$"../Lanes/Lane1/StartLane",
-	$"../Lanes/Lane2/StartLane",
-	$"../Lanes/Lane3/StartLane"
+	%Lanes/Lane1/StartLane,
+	%Lanes/Lane2/StartLane,
+	%Lanes/Lane3/StartLane
 ]
 
 @onready var lane_ends = [
-	$"../Lanes/Lane1/FinishLane",
-	$"../Lanes/Lane2/FinishLane",
-	$"../Lanes/Lane3/FinishLane"
+	%Lanes/Lane1/FinishLane,
+	%Lanes/Lane2/FinishLane,
+	%Lanes/Lane3/FinishLane
 ]
 
 @onready var lane_enemies = [
-	$"../Lanes/Lane1/Enemies",
-	$"../Lanes/Lane2/Enemies",
-	$"../Lanes/Lane3/Enemies"
+	%Lanes/Lane1/Enemies,
+	%Lanes/Lane2/Enemies,
+	%Lanes/Lane3/Enemies
 ]
 
 @onready var lane_humans = [
-	$"../Lanes/Lane1/Humans",
-	$"../Lanes/Lane2/Humans",
-	$"../Lanes/Lane3/Humans"
+	%Lanes/Lane1/Humans,
+	%Lanes/Lane2/Humans,
+	%Lanes/Lane3/Humans
 ]
 
-@onready var music_manager = $"../MusicManager"
+@onready var music_manager = %MusicManager
 
 @export var enemy_scene: PackedScene
 @export var human_scene: PackedScene

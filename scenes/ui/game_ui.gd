@@ -6,9 +6,9 @@ extends Control
 @onready var sub_label = $SubdivisionLabel
 @onready var combo_label = $ComboLabel
 @onready var multi_label = $MultiLabel
-@onready var gpman = $"../GameplayManager"
+@onready var gpman = %GameplayManager
 @onready var score_label = $ScoreBg/Score
-@onready var music_man = $"../MusicManager"
+@onready var music_man = %MusicManager
 @onready var combo_bar = $MultiplierProgressBar/comboBar
 
 @onready var skulls: Node2D = $Skulls

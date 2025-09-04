@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://duvwktclcqo1r"
 path.s3tc="res://.godot/imported/nidaros.png-9d5e654a4c03f19ccc80771bf6db3195.s3tc.ctex"
+path.etc2="res://.godot/imported/nidaros.png-9d5e654a4c03f19ccc80771bf6db3195.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://textures/nidaros.png"
-dest_files=["res://.godot/imported/nidaros.png-9d5e654a4c03f19ccc80771bf6db3195.s3tc.ctex"]
+dest_files=["res://.godot/imported/nidaros.png-9d5e654a4c03f19ccc80771bf6db3195.s3tc.ctex", "res://.godot/imported/nidaros.png-9d5e654a4c03f19ccc80771bf6db3195.etc2.ctex"]
 
 [params]
 

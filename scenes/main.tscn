@@ -1,5 +1,6 @@
 [gd_scene load_steps=30 format=4 uid="uid://bvlerh2hfayrm"]
 
+[ext_resource type="Shader" uid="uid://di08g40cjuj3r" path="res://shaders/vermis_shader.gdshader" id="1_0ld40"]
 [ext_resource type="Script" uid="uid://cjrtt4vyburuq" path="res://scenes/managers/music_manager.gd" id="1_sugp2"]
 [ext_resource type="Script" uid="uid://cweqg3v7yv2sh" path="res://scenes/managers/enemy_manager.gd" id="1_tbgi4"]
 [ext_resource type="Script" uid="uid://neiyu7bt1ug6" path="res://scenes/managers/beats_micro_manager.gd" id="2_dp3eg"]
@@ -10,7 +11,6 @@
 [ext_resource type="PackedScene" uid="uid://chplmoaodo7pw" path="res://scenes/church_visitors/human.tscn" id="7_85g3d"]
 [ext_resource type="Script" uid="uid://c8kdxjgevcjb" path="res://scenes/managers/track_loader.gd" id="7_o6xl0"]
 [ext_resource type="PackedScene" uid="uid://dmpfoykm450ag" path="res://models/church.fbx" id="8_choun"]
-[ext_resource type="Shader" uid="uid://dly7hb4ylq38g" path="res://shaders/postprocess_pixelated.gdshader" id="8_jkv2x"]
 [ext_resource type="PackedScene" uid="uid://df5o1158j5pe6" path="res://scenes/map/gargoyle_map.tscn" id="8_tipki"]
 [ext_resource type="PackedScene" uid="uid://bf62p8ocqv706" path="res://scenes/gBoy/g_boy.tscn" id="9_85g3d"]
 [ext_resource type="PackedScene" uid="uid://dybwc5odvl6qa" path="res://scenes/managers/gameplay_manager.tscn" id="12_eb6dy"]
@@ -19,6 +19,24 @@
 [ext_resource type="Texture2D" uid="uid://bwkujtywdtw1q" path="res://textures/gradient.png" id="14_0ld40"]
 [ext_resource type="Script" uid="uid://cboioa2okpy1c" path="res://scenes/map/finish_2.gd" id="15_gqmmt"]
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_dp3eg"]
+shader = ExtResource("1_0ld40")
+shader_parameter/texture_mode = 1
+shader_parameter/alpha_mode = 0
+shader_parameter/quantize_size = 2
+shader_parameter/snap_to_world = false
+shader_parameter/limit_subpixels = true
+shader_parameter/dither_enabled = true
+shader_parameter/dither_pattern = 3
+shader_parameter/levels = 4
+shader_parameter/contrast = 1.17
+shader_parameter/brightness = 0.0
+shader_parameter/average = 0.0
+shader_parameter/palette_mode = 0
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_muem4"]
+viewport_path = NodePath("SubViewportContainer/SubViewport")
+
 [sub_resource type="BoxMesh" id="BoxMesh_jyhfs"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_o6xl0"]
@@ -26,14 +44,6 @@
 [sub_resource type="BoxMesh" id="BoxMesh_tbgi4"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_tefeu"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_muem4"]
-render_priority = 0
-shader = ExtResource("8_jkv2x")
-shader_parameter/pixelation = 0.004
-shader_parameter/opacity = 1.0
-
-[sub_resource type="BoxMesh" id="BoxMesh_trceg"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_so05r"]
 resource_name = "Material.006"
@@ -84,143 +94,160 @@ sky = SubResource("Sky_jkv2x")
 
 [node name="Main" type="Node"]
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.772093, -0.0902697, 0.629065, -0.255389, 0.862341, 0.4372, -0.581935, -0.498216, 0.642754, -2.93093, 0, 5.27995)
+[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch = true
+
+[node name="TextureRect" type="TextureRect" parent="SubViewportContainer"]
+material = SubResource("ShaderMaterial_dp3eg")
+layout_mode = 2
+texture = SubResource("ViewportTexture_muem4")
+
+[node name="GameUI" parent="SubViewportContainer" instance=ExtResource("13_trceg")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
+size = Vector2i(1920, 1080)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="SubViewportContainer/SubViewport"]
+transform = Transform3D(0.772093, -0.0902699, 0.629066, -0.255389, 0.862341, 0.4372, -0.581935, -0.498216, 0.642754, -2.93093, 0, 5.27995)
 light_energy = 0.204
 
-[node name="MusicManager" type="Node" parent="."]
+[node name="MusicManager" type="Node" parent="SubViewportContainer/SubViewport"]
+unique_name_in_owner = true
 script = ExtResource("1_sugp2")
 move_step = 2
 
-[node name="PreTick" type="AudioStreamPlayer" parent="MusicManager"]
+[node name="PreTick" type="AudioStreamPlayer" parent="SubViewportContainer/SubViewport/MusicManager"]
 stream = ExtResource("2_tipki")
 volume_db = -15.0
 pitch_scale = 0.8
 
-[node name="MainTrack" type="AudioStreamPlayer" parent="MusicManager"]
+[node name="MainTrack" type="AudioStreamPlayer" parent="SubViewportContainer/SubViewport/MusicManager"]
 stream = ExtResource("3_o6xl0")
 
-[node name="TrackLoader" type="Node" parent="MusicManager"]
+[node name="TrackLoader" type="Node" parent="SubViewportContainer/SubViewport/MusicManager"]
 script = ExtResource("7_o6xl0")
 
-[node name="BeatsMicroManager" type="Node" parent="MusicManager"]
+[node name="BeatsMicroManager" type="Node" parent="SubViewportContainer/SubViewport/MusicManager"]
 script = ExtResource("2_dp3eg")
 
-[node name="Lanes" type="Node3D" parent="."]
+[node name="Lanes" type="Node3D" parent="SubViewportContainer/SubViewport"]
+unique_name_in_owner = true
 
-[node name="Lane1" type="Node3D" parent="Lanes"]
+[node name="Lane1" type="Node3D" parent="SubViewportContainer/SubViewport/Lanes"]
 
-[node name="FinishLane" type="MeshInstance3D" parent="Lanes/Lane1"]
+[node name="FinishLane" type="MeshInstance3D" parent="SubViewportContainer/SubViewport/Lanes/Lane1"]
 transform = Transform3D(0.399145, 0, -0.0261473, 0, 0.4, 0, 0.0261473, 0, 0.399145, -3.29174, 0, 2.4273)
 visible = false
 mesh = SubResource("BoxMesh_jyhfs")
 skeleton = NodePath("../..")
 
-[node name="StartLane" type="MeshInstance3D" parent="Lanes/Lane1"]
+[node name="StartLane" type="MeshInstance3D" parent="SubViewportContainer/SubViewport/Lanes/Lane1"]
 transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -2.83324, 0, 6.86908)
 visible = false
 mesh = SubResource("BoxMesh_o6xl0")
 skeleton = NodePath("")
 
-[node name="Enemies" type="Node3D" parent="Lanes/Lane1"]
+[node name="Enemies" type="Node3D" parent="SubViewportContainer/SubViewport/Lanes/Lane1"]
 
-[node name="GSpot" type="Node3D" parent="Lanes/Lane1"]
+[node name="GSpot" type="Node3D" parent="SubViewportContainer/SubViewport/Lanes/Lane1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.41097, 1.45211, 2.39303)
 
-[node name="Humans" type="Node3D" parent="Lanes/Lane1"]
+[node name="Humans" type="Node3D" parent="SubViewportContainer/SubViewport/Lanes/Lane1"]
 
-[node name="FinishMark" parent="Lanes/Lane1" instance=ExtResource("6_0ld40")]
+[node name="FinishMark" parent="SubViewportContainer/SubViewport/Lanes/Lane1" instance=ExtResource("6_0ld40")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.2966, -0.583244, 2.40898)
 
-[node name="Lane2" type="Node3D" parent="Lanes"]
+[node name="Lane2" type="Node3D" parent="SubViewportContainer/SubViewport/Lanes"]
 
-[node name="FinishLane" type="MeshInstance3D" parent="Lanes/Lane2"]
+[node name="FinishLane" type="MeshInstance3D" parent="SubViewportContainer/SubViewport/Lanes/Lane2"]
 transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -2.44827, 0, 2.40621)
 visible = false
 mesh = SubResource("BoxMesh_tbgi4")
 skeleton = NodePath("../..")
 
-[node name="StartLane" type="MeshInstance3D" parent="Lanes/Lane2"]
+[node name="StartLane" type="MeshInstance3D" parent="SubViewportContainer/SubViewport/Lanes/Lane2"]
 transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -1.613, 0.0310653, 7.17848)
 visible = false
 mesh = SubResource("BoxMesh_o6xl0")
 skeleton = NodePath("")
 
-[node name="Enemies" type="Node3D" parent="Lanes/Lane2"]
+[node name="Enemies" type="Node3D" parent="SubViewportContainer/SubViewport/Lanes/Lane2"]
 
-[node name="GSpot" type="Node3D" parent="Lanes/Lane2"]
+[node name="GSpot" type="Node3D" parent="SubViewportContainer/SubViewport/Lanes/Lane2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.46486, 1.45211, 2.39303)
 
-[node name="Humans" type="Node3D" parent="Lanes/Lane2"]
+[node name="Humans" type="Node3D" parent="SubViewportContainer/SubViewport/Lanes/Lane2"]
 
-[node name="FinishMark" parent="Lanes/Lane2" instance=ExtResource("6_0ld40")]
+[node name="FinishMark" parent="SubViewportContainer/SubViewport/Lanes/Lane2" instance=ExtResource("6_0ld40")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.37572, -0.586474, 2.39002)
 
-[node name="Lane3" type="Node3D" parent="Lanes"]
+[node name="Lane3" type="Node3D" parent="SubViewportContainer/SubViewport/Lanes"]
 
-[node name="FinishLane" type="MeshInstance3D" parent="Lanes/Lane3"]
+[node name="FinishLane" type="MeshInstance3D" parent="SubViewportContainer/SubViewport/Lanes/Lane3"]
 transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -1.48155, 0, 2.39445)
 visible = false
 mesh = SubResource("BoxMesh_tefeu")
 skeleton = NodePath("../..")
 
-[node name="StartLane" type="MeshInstance3D" parent="Lanes/Lane3"]
+[node name="StartLane" type="MeshInstance3D" parent="SubViewportContainer/SubViewport/Lanes/Lane3"]
 transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -0.300235, 0, 7.84515)
 visible = false
 mesh = SubResource("BoxMesh_o6xl0")
 skeleton = NodePath("")
 
-[node name="Enemies" type="Node3D" parent="Lanes/Lane3"]
+[node name="Enemies" type="Node3D" parent="SubViewportContainer/SubViewport/Lanes/Lane3"]
 
-[node name="GSpot" type="Node3D" parent="Lanes/Lane3"]
+[node name="GSpot" type="Node3D" parent="SubViewportContainer/SubViewport/Lanes/Lane3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.58838, 1.45211, 2.39303)
 
-[node name="Humans" type="Node3D" parent="Lanes/Lane3"]
+[node name="Humans" type="Node3D" parent="SubViewportContainer/SubViewport/Lanes/Lane3"]
 
-[node name="FinishMark" parent="Lanes/Lane3" instance=ExtResource("6_0ld40")]
+[node name="FinishMark" parent="SubViewportContainer/SubViewport/Lanes/Lane3" instance=ExtResource("6_0ld40")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.45745, -0.551331, 2.43644)
 
-[node name="EnemyManager" type="Node3D" parent="."]
+[node name="EnemyManager" type="Node3D" parent="SubViewportContainer/SubViewport"]
+unique_name_in_owner = true
 script = ExtResource("1_tbgi4")
 enemy_scene = ExtResource("2_tefeu")
 human_scene = ExtResource("7_85g3d")
 
-[node name="Player" type="Node3D" parent="."]
+[node name="Player" type="Node3D" parent="SubViewportContainer/SubViewport"]
 
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(0.900865, 0.285642, -0.326879, -0.0502967, 0.816618, 0.574983, 0.431175, -0.501541, 0.75003, -3.49051, 3.52586, 6.94283)
+[node name="Camera3D" type="Camera3D" parent="SubViewportContainer/SubViewport"]
+transform = Transform3D(0.900865, 0.285642, -0.32688, -0.0502967, 0.816618, 0.574983, 0.431175, -0.501541, 0.75003, -3.49051, 3.52586, 6.94283)
 current = true
 
-[node name="Shaderbox" type="MeshInstance3D" parent="Camera3D"]
-transform = Transform3D(8.9, 0, 0, 0, 4.76, 0, 0, 0, 2.99, -6.63102e-08, 3.54648e-08, -1.7614)
-material_override = SubResource("ShaderMaterial_muem4")
-mesh = SubResource("BoxMesh_trceg")
-skeleton = NodePath("../..")
+[node name="church" parent="SubViewportContainer/SubViewport" instance=ExtResource("8_choun")]
 
-[node name="church" parent="." instance=ExtResource("8_choun")]
-
-[node name="gargoyleMAP" parent="." node_paths=PackedStringArray("beat_micro_manager") instance=ExtResource("8_tipki")]
+[node name="gargoyleMAP" parent="SubViewportContainer/SubViewport" node_paths=PackedStringArray("beat_micro_manager") instance=ExtResource("8_tipki")]
 beat_micro_manager = NodePath("../MusicManager/BeatsMicroManager")
 
-[node name="finish2" type="MeshInstance3D" parent="."]
+[node name="finish2" type="MeshInstance3D" parent="SubViewportContainer/SubViewport"]
 transform = Transform3D(99.9526, 1.58325e-06, -0.864164, 2.25966, -1.19209e-05, 38.225, 1.39668e-06, -100, -4.55794e-06, -2.3985, -0.0324665, 2.45737)
 material_override = ExtResource("13_dp3eg")
 mesh = SubResource("ArrayMesh_yc10j")
 skeleton = NodePath("")
 script = ExtResource("15_gqmmt")
 
-[node name="GBoy" parent="." node_paths=PackedStringArray("gspots") instance=ExtResource("9_85g3d")]
+[node name="GBoy" parent="SubViewportContainer/SubViewport" node_paths=PackedStringArray("gspots") instance=ExtResource("9_85g3d")]
+unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.41479, 1.43649, 2.17679)
 gspots = [NodePath("../Lanes/Lane1/GSpot"), NodePath("../Lanes/Lane2/GSpot"), NodePath("../Lanes/Lane3/GSpot")]
 
-[node name="GameplayManager" parent="." instance=ExtResource("12_eb6dy")]
+[node name="GameplayManager" parent="SubViewportContainer/SubViewport" instance=ExtResource("12_eb6dy")]
+unique_name_in_owner = true
 
-[node name="GameUI" parent="." instance=ExtResource("13_trceg")]
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="SubViewportContainer/SubViewport"]
 environment = SubResource("Environment_jkv2x")
 
-[node name="OmniLight3D" type="OmniLight3D" parent="."]
+[node name="OmniLight3D" type="OmniLight3D" parent="SubViewportContainer/SubViewport"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.15462, 1.01285, 2.98924)
 light_color = Color(0.689976, 0.731384, 0.807534, 1)
 light_energy = 7.599
