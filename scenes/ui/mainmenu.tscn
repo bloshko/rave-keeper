@@ -5,7 +5,7 @@
 [ext_resource type="FontFile" uid="uid://ertbfw371i68" path="res://graphics/GutenbergTextura.ttf" id="3_3vvtq"]
 [ext_resource type="AudioStream" uid="uid://dkdou1itjoorx" path="res://audio/ravekeeper_vorspiel.ogg" id="4_3vvtq"]
 [ext_resource type="FontFile" uid="uid://cek6qpbssjyxp" path="res://graphics/CAT Hohenzollern.ttf" id="4_s5g8n"]
-[ext_resource type="PackedScene" uid="uid://q5cpg54jlneo" path="res://scenes/ui/gameover.tscn" id="6_e6rwi"]
+[ext_resource type="PackedScene" path="res://scenes/ui/gameover.tscn" id="6_e6rwi"]
 
 [node name="Mainmenu" type="Node"]
 script = ExtResource("1_5mbse")
