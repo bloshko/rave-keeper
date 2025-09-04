@@ -1,6 +1,7 @@
 extends Node
 
 signal beat_hit(beat_num: int)
+signal prebeat_hit(beat_num: int)
 
 @onready var main_track = $MainTrack
 @onready var pre_tick = $PreTick
@@ -18,6 +19,7 @@ var bpm = 120
 var music_started_timestamp_msec: int = 0
 
 var playing: bool = false
+var prebeat_emitted: bool = false
 
 func _ready() -> void:
 	track_loader.track_ready.connect(_track_ready)
@@ -29,6 +31,7 @@ func _track_ready(data: TrackData):
 	track_data = data
 	pre_tick.pitch_scale = 0.7 + (beat + 8) * .03
 	pre_tick.play()
+	prebeat_hit.emit(beat)
 	beat_hit.emit(beat)
 	playing = true
 
@@ -42,9 +45,14 @@ func _process(delta: float) -> void:
 		seconds_per_beat = 1 / (subdiv * (bpm / 60)) 
 		elapsed += delta
 		
+		if elapsed + .15 >= seconds_per_beat and not prebeat_emitted:
+			prebeat_hit.emit(beat + 1)
+			prebeat_emitted = true
+		
 		if elapsed >= seconds_per_beat:
 			beat += 1
 			elapsed -= seconds_per_beat
+			prebeat_emitted = false
 			beat_hit.emit(beat)
 
 			if is_preroll():

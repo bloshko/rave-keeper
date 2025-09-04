@@ -1,9 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://bf62p8ocqv706"]
+[gd_scene load_steps=9 format=3 uid="uid://bf62p8ocqv706"]
 
 [ext_resource type="Script" uid="uid://cmp416yd4jsjr" path="res://scenes/gBoy/g_boy.gd" id="1_6j5bd"]
 [ext_resource type="ArrayMesh" uid="uid://ckg82wxjesvr0" path="res://models/Mesh.res" id="2_3dmlv"]
 [ext_resource type="Material" uid="uid://d266fxsq0wano" path="res://materials/gargouyle_mat.tres" id="2_ii2va"]
 [ext_resource type="ArrayMesh" uid="uid://bjrhllvywuf2d" path="res://models/Mesh_001.res" id="3_dnj0x"]
+[ext_resource type="ArrayMesh" uid="uid://biarlh1qma0a6" path="res://models/gboy/Mesh.res" id="5_foxho"]
+[ext_resource type="PackedScene" uid="uid://cr3mgu5iv6pal" path="res://models/gboy/gargoyle_2.tscn" id="6_foxho"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_3dmlv"]
 
@@ -23,11 +25,13 @@ surface_material_override/0 = SubResource("StandardMaterial3D_dnj0x")
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
 transform = Transform3D(-0.475, 7.1723e-08, 3.13511e-15, -2.14111e-08, -0.141799, 0.453341, 6.84526e-08, 0.453341, 0.141799, 0, 0.121441, 0.150014)
+visible = false
 layers = 3
 material_override = ExtResource("2_ii2va")
 mesh = ExtResource("2_3dmlv")
 
 [node name="MeshInstance3D3" type="MeshInstance3D" parent="MeshInstance3D2"]
+visible = false
 layers = 3
 material_override = ExtResource("2_ii2va")
 mesh = ExtResource("3_dnj0x")
@@ -48,3 +52,11 @@ light_color = Color(1, 0, 0, 1)
 light_energy = 13.258
 light_bake_mode = 0
 light_cull_mask = 4294967068
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
+visible = false
+mesh = ExtResource("5_foxho")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="gargoyle2" parent="." instance=ExtResource("6_foxho")]
